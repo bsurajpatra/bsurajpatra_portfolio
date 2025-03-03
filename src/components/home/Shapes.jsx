@@ -186,6 +186,33 @@ const Shapes = () => {
             >
                 <polygon points="12.5,0 25,25 0,25" fill="#6C6CE5" />
             </svg>
+
+            <svg
+                width="35"
+                height="35"
+                className="shape s15"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <ellipse cx="17.5" cy="17.5" rx="17.5" ry="10" fill="#FFD15C" />
+            </svg>
+
+            <svg
+                width="30"
+                height="30"
+                className="shape s16"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path d="M15 0 L30 30 H0 Z" fill="#FF6F61" />
+            </svg>
+
+            <svg
+                width="30"
+                height="30"
+                className="shape s17"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path d="M29 30 L15 0 L1 30 Z" fill="#6C6CE5" />
+            </svg>
         </div>
     )
 }

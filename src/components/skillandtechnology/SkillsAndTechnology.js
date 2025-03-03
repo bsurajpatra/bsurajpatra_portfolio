@@ -24,11 +24,11 @@ const skillsData = [
     },
     {
         category: "⚡ Agile & Project Management",
-        items: ["Agile & Scrum", "Team Management", "Public Speaking", "Design Thinking", "Strategic Vision"],
+        items: ["Agile & Scrum", "Team Management","Presentation", "Public Speaking", "Design Thinking", "Strategic Vision"],
     },
     {
         category: "📎 Productivity & Office Tools",
-        items: ["MS Office", "PowerBI"],
+        items: ["MS Office", "PowerBI", "Libre Office"],
     },
     {
         category: "🛠️ Developer Tools",

@@ -14,7 +14,6 @@ const Menu = [
 		title: "Certification Title 2",
 		description: "Description for Certification 2."
 	},
-	// Add more certifications as needed
 ];
 
 export default Menu;

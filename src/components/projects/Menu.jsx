@@ -1,7 +1,7 @@
 import StuBuddies from "../../assets/StuBuddies.png";
 import KLEats from "../../assets/kleats.png";
 import GrubGo from "../../assets/grubgo.png";
-// import Work4 from "../../assets/blog-1.svg";
+import Portfolio from "../../assets/portfolio.png";
 
 const Menu = [
 	{
@@ -33,7 +33,7 @@ const Menu = [
 	},
 	{
 		id: 4,
-		image: null,
+		image: Portfolio,
 		title: "Personal Portfolio",
 		category: ["MERN"],
 		url: null,

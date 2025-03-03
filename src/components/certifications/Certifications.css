@@ -1,0 +1,77 @@
+.certifications {
+    padding: 2rem;
+}
+
+.certifications__list {
+    list-style: none;
+    padding: 0;
+}
+
+.certifications__item {
+    background: #e0f2f1; /* Light Teal */
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between; /* Align items to the edges */
+    align-items: center; /* Center vertically */
+    transition: transform 0.3s ease-in-out;
+}
+
+.certifications__item:hover {
+    transform: translateY(-5px);
+}
+
+.certifications__info {
+    display: flex;
+    flex-direction: column; /* Stack title and company */
+}
+
+.certifications__title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #00796b; /* Dark Teal */
+}
+
+.certifications__company {
+    font-size: 1rem;
+    color: #004d40; /* Medium Teal */
+    margin: 0.5rem 0;
+}
+
+.certifications__view-button {
+    background-color: #ff6f61; /* Coral */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.certifications__view-button:hover {
+    background-color: #ff4c40; /* Darker Coral for hover */
+}
+
+.certifications__certificate-container {
+    margin-top: 1rem;
+    position: relative;
+}
+
+.certifications__certificate-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.close-certificate {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #00796b; /* Dark Teal */
+}

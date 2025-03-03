@@ -1,3 +1,48 @@
+.s15 { left: 30%; top: 40%; } /* New ellipse */
+.s16 { left: 70%; top: 10%; } /* New triangle */
+.s17 { left: 80%; bottom: 20%; } /* New inverted triangle */
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .home {
+    padding: 1rem;
+  }
+
+  .home__name {
+    font-size: calc(var(--h1-font-size) * 1.1);
+  }
+
+  .home__socials {
+    column-gap: 1.2rem;
+  }
+
+  .home__social-link {
+    font-size: 1.3rem;
+  }
+
+  .scroll__down {
+    bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home__name {
+    font-size: calc(var(--h1-font-size) * 1);
+  }
+
+  .home__social-link {
+    font-size: 1.1rem;
+  }
+
+  .intro {
+    font-size: 0.95rem;
+    max-width: 85%;
+  }
+
+  .home__img {
+    max-width: 75%;
+  }
+}
 /* Define theme colors in your global CSS or a theme-specific CSS file */
 :root {
   --text-color-light: #000000; /* Black for light mode */
@@ -260,48 +305,18 @@
 .s9 { right: 5%; top: 10%; }
 .s10 { top: 30%; right: 5%; }
 .s11 { bottom: 10%; right: 10%; }
-.s12 { left: 40%; top: 20%; }
-.s13 { left: 60%; top: 30%; }
-.s14 { left: 50%; bottom: 15%; }
+.s12 { left: 40%; top: 20%; } /* New circle */
+.s13 { left: 60%; top: 30%; } /* New square */
+.s14 { left: 50%; bottom: 15%; } /* New triangle */
+.s15 { left: 30%; top: 40%; } /* New ellipse */
+.s16 { left: 70%; top: 10%; } /* New triangle */
+.s17 { left: 80%; bottom: 20%; } /* New inverted triangle */
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .home {
-    padding: 1rem;
-  }
-
-  .home__name {
-    font-size: calc(var(--h1-font-size) * 1.1);
-  }
-
-  .home__socials {
-    column-gap: 1.2rem;
-  }
-
-  .home__social-link {
-    font-size: 1.3rem;
-  }
-
-  .scroll__down {
-    bottom: 1rem;
-  }
+  /* Adjust positions for smaller screens if necessary */
 }
 
 @media (max-width: 480px) {
-  .home__name {
-    font-size: calc(var(--h1-font-size) * 1);
-  }
-
-  .home__social-link {
-    font-size: 1.1rem;
-  }
-
-  .intro {
-    font-size: 0.95rem;
-    max-width: 85%;
-  }
-
-  .home__img {
-    max-width: 75%;
-  }
+  /* Adjust positions for smaller screens if necessary */
 }
