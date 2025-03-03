@@ -25,7 +25,7 @@ const Menu = [
 	{
 		id: 3,
 		image: GrubGo,
-		title: "GrubGo - \nComing Soon",
+		title: <h1 style={{ color: "white" }}>GrubGo <br /> <h6>Coming Soon</h6></h1>,
 		category: ["Full Stack"],
 		url: null,
 		repositoryUrl: null,

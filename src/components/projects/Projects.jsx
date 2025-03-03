@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Projects.css";
 
 import Menu from "./Menu";
-import { RiGithubLine, RiLink, RiInformationLine, RiCloseLine } from "react-icons/ri";
+import { RiGithubLine, RiLink, RiInformationLine } from "react-icons/ri";
 
 import { motion } from "framer-motion";
 
@@ -13,14 +13,7 @@ const Projects = () => {
 	const toggleDescription = (id, e) => {
 		e.preventDefault();
 		e.stopPropagation();
-		if (showDescription === id) {
-			setShowDescription(null);
-		} else {
-			setShowDescription(id);
-			setTimeout(() => {
-				setShowDescription(null);
-			}, 3000);
-		}
+		setShowDescription(showDescription === id ? null : id);
 	};
 
 	return (
@@ -46,7 +39,7 @@ const Projects = () => {
 							</div>
 
 							<span className="projects__category">{category.join(', ')}</span>
-							<h3 className="projects__title">{title}</h3>
+							<h3 className="projects__title">{title}<br/><br/><h6>{description}</h6></h3>
 							
 							<a 
 								href={url} 
@@ -72,19 +65,7 @@ const Projects = () => {
 								<RiGithubLine className="projects__button-icon" />
 							</a>
 							
-							<a 
-								href="#"
-								className="projects__info-button"
-								onClick={(e) => toggleDescription(id, e)}
-							>
-								<RiInformationLine className="projects__button-icon" />
-							</a>
-							
-							{showDescription === id && (
-								<div className="projects__description-container">
-									<p className="projects__description">{description}</p>
-								</div>
-							)}
+						
 						</motion.div>
 					);
 				})}
