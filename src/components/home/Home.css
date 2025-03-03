@@ -234,11 +234,12 @@
 /* Animated Shapes */
 .shapes {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 50%; /* Center horizontally */
+  top: 50%; /* Center vertically */
   height: 100%;
   width: 100%;
   pointer-events: none;
+  transform: translate(-50%, -50%); /* Adjust to center */
 }
 
 .shape {
@@ -247,17 +248,21 @@
   transform: scale(0.9); /* Scaled down */
 }
 
-.s1 { left: 2%; top: 8%; }
-.s2 { left: 15%; top: 25%; }
-.s3 { left: 4%; bottom: 25%; }
-.s4 { left: 2%; bottom: 8%; }
-.s5 { left: 40%; top: 8%; }
-.s6 { left: 33%; bottom: 8%; }
-.s7 { top: 18%; right: 22%; }
-.s8 { right: 22%; bottom: 18%; }
-.s9 { right: 2%; top: 8%; }
-.s10 { top: 40%; right: 10%; }
-.s11 { bottom: 8%; right: 2%; }
+/* Adjusted shape positions for centering */
+.s1 { left: 10%; top: 10%; }
+.s2 { left: 20%; top: 20%; }
+.s3 { left: 5%; bottom: 20%; }
+.s4 { left: 15%; bottom: 15%; }
+.s5 { left: 30%; top: 5%; }
+.s6 { left: 25%; bottom: 10%; }
+.s7 { top: 25%; right: 15%; }
+.s8 { right: 15%; bottom: 25%; }
+.s9 { right: 5%; top: 10%; }
+.s10 { top: 30%; right: 5%; }
+.s11 { bottom: 10%; right: 10%; }
+.s12 { left: 40%; top: 20%; }
+.s13 { left: 60%; top: 30%; }
+.s14 { left: 50%; bottom: 15%; }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {

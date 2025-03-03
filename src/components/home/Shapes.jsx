@@ -159,6 +159,33 @@ const Shapes = () => {
                     fill-rule="evenodd"
                 />
             </svg>
+
+            <svg
+                width="30"
+                height="30"
+                class="shape s12"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <circle cx="15" cy="15" r="15" fill="#FF4C60" />
+            </svg>
+
+            <svg
+                width="40"
+                height="40"
+                class="shape s13"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <rect x="5" y="5" width="30" height="30" fill="#44D7B6" />
+            </svg>
+
+            <svg
+                width="25"
+                height="25"
+                class="shape s14"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <polygon points="12.5,0 25,25 0,25" fill="#6C6CE5" />
+            </svg>
         </div>
     )
 }
