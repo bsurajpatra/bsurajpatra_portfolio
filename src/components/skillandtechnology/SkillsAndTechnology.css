@@ -55,19 +55,34 @@
     font-size: 1rem;
 }
 
+.card-color-1 {
+    background-color: #e3f2fd; /* Light Blue */
+}
+
+.card-color-2 {
+    background-color: #bbdefb; /* Soft Blue */
+}
+
+.card-color-3 {
+    background-color: #90caf9; /* Light Sky Blue */
+}
+
+.card-color-4 {
+    background-color: #64b5f6; /* Blue */
+}
 
 :root {
-    --card-bg: #f8f9fa;
-    --text-color: #333; 
-    --heading-color: #222;
-    --accent-color: #007bff; 
+    --card-bg: linear-gradient(135deg, #e3f2fd, #bbdefb); /* Light Blue to Soft Blue */
+    --text-color: #0d47a1; /* Dark Blue */
+    --heading-color: #0d47a1; /* Dark Blue */
+    --accent-color: #64b5f6; /* Blue */
 }
 
 [data-theme="dark"] {
-    --card-bg: #2c2f36; 
-    --text-color: #bdbdbd; 
-    --heading-color: #fff;
-    --accent-color: #ffd700; 
+    --card-bg: linear-gradient(135deg, #0d47a1, #bbdefb); /* Dark Blue to Soft Blue */
+    --text-color: #e3f2fd; /* Light Blue */
+    --heading-color: #e3f2fd; /* Light Blue */
+    --accent-color: #90caf9; /* Light Sky Blue */
 }
 
 @media screen and (max-width: 768px) {
