@@ -1,17 +1,14 @@
 import './App.css';
-
 import Sidebar from './components/sidebar/Sidebar';
 import Home from './components/home/Home';
 import About from './components/about/About';
 import Education from './components/education/Education';
 import Experience from './components/experience/Experience';
-import Portfolio from './components/portfolio/Portfolio';
-import Testimonials from './components/testimonials/Testimonials';
-import Blog from './components/blog/Blog';
+import Projects from './components/projects/Projects';
 import Contact from './components/contact/Contact';
 import useLocalStorage from 'use-local-storage'
 import SkillsAndTechnology from './components/skillandtechnology/SkillsAndTechnology';
-
+import Certifications from './components/certifications/Certifications';
 
 function App() {
     const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -31,9 +28,8 @@ function App() {
                 <Experience />
                 <Education />
                 <SkillsAndTechnology />   
-                <Portfolio />
-                <Testimonials />
-                <Blog />
+                <Projects />
+                <Certifications />  
                 <Contact theme={theme} />
             </main>
         </div>
