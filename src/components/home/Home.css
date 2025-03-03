@@ -1,0 +1,302 @@
+/* Define theme colors in your global CSS or a theme-specific CSS file */
+:root {
+  --text-color-light: #000000; /* Black for light mode */
+  --text-color-dark: #FFFFFF; /* White for dark mode */
+  --title-color-light: #454360; /* Dark purple/blue for light mode */
+  --title-color-dark: #FFFFFF; /* White for dark mode */
+  --accent-color: hsl(43, 100%, 68%); /* Yellow accent color */
+  --hover-color-light: hsl(43, 100%, 68%); /* Yellow for light mode hover */
+  --hover-color-dark: hsl(43, 100%, 75%); /* Lighter yellow for dark mode hover */
+}
+
+/* General Home Section */
+.home {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+/* Introduction Section */
+.intro {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 1;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-left: 10rem;
+  font-size: 1.2rem;
+  z-index: 2;
+  font-weight: 500;
+  color: var(--text-color-dark); /* Use theme variable */
+  letter-spacing: 0.05em;
+}
+
+/* For light mode */
+[data-theme="light"] .right {
+  color: var(--text-color-light);
+}
+
+.right > * {
+  margin: 2rem 0;
+}
+
+/* Image Sizing */
+.home__img {
+  margin-left: 1.5rem;
+  margin-right: -5rem;
+  margin-bottom: 1.5rem;
+  width: 120%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 50%; /* Make the image circular */
+  object-fit: cover; /* Ensure the image covers the circle */
+}
+
+/* Name Styling */
+.home__name {
+  font-size: calc(var(--h1-font-size) * 1.2);
+  font-weight: var(--font-bold);
+  margin-bottom: 0.5rem;
+  color: var(--title-color-dark); /* Use theme variable */
+}
+
+/* Education/subtitle styling */
+.home__education {
+  color: var(--title-color-dark); /* Use theme variable */
+}
+
+/* For light mode */
+[data-theme="light"] .home__name,
+[data-theme="light"] .home__education {
+  color: var(--title-color-light);
+}
+
+/* Social Media Links */
+.home__socials {
+  display: flex;
+  justify-content: center;
+  column-gap: 1.5rem; /* Reduced spacing */
+  margin: 1rem 0;
+}
+
+.home__social-link {
+  font-size: 1.5rem; /* Smaller icons */
+  color: var(--title-color-dark); /* Use theme variable */
+  transition: 0.3s;
+}
+
+/* For light mode */
+[data-theme="light"] .home__social-link {
+  color: var(--title-color-light);
+}
+
+.home__social-link:hover {
+  color: var(--hover-color-dark); /* Use theme variable */
+  transform: scale(1.1);
+}
+
+/* For light mode hover */
+[data-theme="light"] .home__social-link:hover {
+  color: var(--hover-color-light);
+}
+
+/* Header Logo */
+.logo {
+  color: var(--title-color-dark); /* Use theme variable */
+  font-weight: var(--font-bold);
+  font-size: var(--h2-font-size);
+  transition: 0.3s;
+}
+
+/* For light mode */
+[data-theme="light"] .logo {
+  color: var(--title-color-light);
+}
+
+.logo:hover {
+  color: var(--hover-color-dark); /* Use theme variable */
+}
+
+/* For light mode hover */
+[data-theme="light"] .logo:hover {
+  color: var(--hover-color-light);
+}
+
+/* Header Socials */
+.header__socials {
+  display: flex;
+  column-gap: 1.25rem;
+}
+
+.header__social-link {
+  color: var(--title-color-dark); /* Use theme variable */
+  font-size: 1.25rem;
+  transition: 0.3s;
+}
+
+/* For light mode */
+[data-theme="light"] .header__social-link {
+  color: var(--title-color-light);
+}
+
+.header__social-link:hover {
+  color: var(--hover-color-dark); /* Use theme variable */
+}
+
+/* For light mode hover */
+[data-theme="light"] .header__social-link:hover {
+  color: var(--hover-color-light);
+}
+
+/* Scroll Down Section */
+.scroll__down {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.home__scroll-name {
+  font-size: var(--small-font-size);
+  color: var(--title-color-dark); /* Use theme variable */
+}
+
+/* For light mode */
+[data-theme="light"] .home__scroll-name {
+  color: var(--title-color-light);
+}
+
+/* Mouse Animation */
+.mouse {
+  border: 2px solid var(--title-color-dark); /* Use theme variable */
+  display: block;
+  height: 1.4rem; /* Smaller */
+  width: 1rem;
+  margin: auto;
+  margin-top: 0.5rem;
+  border-radius: 1rem;
+  position: relative;
+}
+
+/* For light mode */
+[data-theme="light"] .mouse {
+  border: 2px solid var(--title-color-light);
+}
+
+.wheel {
+  background-color: var(--title-color-dark); /* Use theme variable */
+  border-radius: 100%;
+  width: 0.2rem;
+  height: 0.2rem;
+  position: absolute;
+  top: 0.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: ani-mouse 2s linear infinite;
+}
+
+/* For light mode */
+[data-theme="light"] .wheel {
+  background-color: var(--title-color-light);
+}
+
+@keyframes ani-mouse {
+  0% {
+    top: 0.4rem;
+    opacity: 1;
+  }
+  100% {
+    top: 0.9rem;
+    opacity: 0;
+  }
+}
+
+/* Animated Shapes */
+.shapes {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.5;
+  transform: scale(0.9); /* Scaled down */
+}
+
+.s1 { left: 2%; top: 8%; }
+.s2 { left: 15%; top: 25%; }
+.s3 { left: 4%; bottom: 25%; }
+.s4 { left: 2%; bottom: 8%; }
+.s5 { left: 40%; top: 8%; }
+.s6 { left: 33%; bottom: 8%; }
+.s7 { top: 18%; right: 22%; }
+.s8 { right: 22%; bottom: 18%; }
+.s9 { right: 2%; top: 8%; }
+.s10 { top: 40%; right: 10%; }
+.s11 { bottom: 8%; right: 2%; }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .home {
+    padding: 1rem;
+  }
+
+  .home__name {
+    font-size: calc(var(--h1-font-size) * 1.1);
+  }
+
+  .home__socials {
+    column-gap: 1.2rem;
+  }
+
+  .home__social-link {
+    font-size: 1.3rem;
+  }
+
+  .scroll__down {
+    bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home__name {
+    font-size: calc(var(--h1-font-size) * 1);
+  }
+
+  .home__social-link {
+    font-size: 1.1rem;
+  }
+
+  .intro {
+    font-size: 0.95rem;
+    max-width: 85%;
+  }
+
+  .home__img {
+    max-width: 75%;
+  }
+}

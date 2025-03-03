@@ -1,0 +1,80 @@
+.education__container {
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1.875rem;
+}
+
+.education__card {
+  text-align: center;
+  padding: 1.875rem;
+  border-radius: var(--border-radius);
+  background-color: var(--container-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.education__card:hover {
+  transform: translateY(-10px);
+}
+
+.education__card:nth-child(1) {
+  background-color: rgb(108, 108, 229);
+  box-shadow: 0 5px 20px 0 rgb(108, 108, 229 / 50%);
+}
+
+.education__card:nth-child(2) {
+  background-color: rgb(249, 215, 76);
+  box-shadow: 0 5px 20px 0 rgb(249, 215, 76 / 50%);
+}
+
+.education__card:nth-child(3) {
+  background-color: rgb(249, 123, 139);
+  box-shadow: 0 5px 20px 0 rgb(249, 123, 139 / 50%);
+}
+
+.education__img {
+  margin-bottom: 1.25rem;
+}
+
+.education__title {
+  font-size: var(--h3-font-size);
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.education__description {
+  color: #f8f9fa;
+}
+
+.education__card:nth-child(2) .education__title {
+  color: var(--title-color);
+}
+
+.education__card:nth-child(2) .education__description {
+  color: var(--title-color);
+}
+
+[data-theme="dark"] .education__card:nth-child(2) .education__title,
+[data-theme="dark"] .education__card:nth-child(2) .education__description {
+  color: var(--body-color);
+}
+
+@media screen and (max-width: 1024px) {
+  .education__container {
+    grid-template-columns: repeat(2, 330px);
+    justify-content: center;
+    row-gap: 1.875rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .education__container {
+    grid-template-columns: 310px;
+    justify-content: center;
+    row-gap: 1.875rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .education__container {
+    grid-template-columns: 1fr;
+  }
+}
