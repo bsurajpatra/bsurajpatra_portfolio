@@ -6,13 +6,8 @@ const Certifications = () => {
 	const [items, setItems] = useState(Menu);
 	const [showCertificate, setShowCertificate] = useState(null);
 
-	// Function to toggle certificate display
 	const toggleCertificate = (id) => {
-		if (showCertificate === id) {
-			setShowCertificate(null);
-		} else {
-			setShowCertificate(id);
-		}
+		setShowCertificate(prevId => prevId === id ? null : id);
 	};
 
 	return (
@@ -22,33 +17,33 @@ const Certifications = () => {
 			<ul className="certifications__list">
 				{items.map((elem) => {
 					const { id, title, company, certificate } = elem;
+					const isActive = showCertificate === id;
 
 					return (
-						<li className="certifications__item" key={id}>
+						<li 
+							className={`certifications__item ${isActive ? 'certifications__item--expanded' : ''}`} 
+							key={id}
+						>
 							<div className="certifications__info">
 								<h3 className="certifications__title">{title}</h3>
 								<span className="certifications__company">{company}</span>
 							</div>
-							<button 
-								className="certifications__view-button" 
-								onClick={() => toggleCertificate(id)}
-							>
-								{showCertificate === id ? "Hide Certificate" : "View Certificate"}
-							</button>
+							<div className="certifications__actions">
+								<button 
+									className="certifications__view-button" 
+									onClick={() => toggleCertificate(id)}
+								>
+									{isActive ? "Hide Certificate" : "View Certificate"}
+								</button>
+							</div>
 
-							{showCertificate === id && certificate && (
-								<div className="certifications__certificate-container">
+							{isActive && certificate && (
+								<div className="certifications__dropdown">
 									<img 
 										src={certificate.src}
 										alt={`${title} Certificate`}
 										className="certifications__certificate-image"
 									/>
-									<button 
-										className="close-certificate"
-										onClick={() => setShowCertificate(null)}
-									>
-										×
-									</button>
 								</div>
 							)}
 						</li>

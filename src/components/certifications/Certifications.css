@@ -8,70 +8,86 @@
 }
 
 .certifications__item {
-    background: #e0f2f1; /* Light Teal */
+    background: #80deea; /* Light Teal */
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
     display: flex;
-    justify-content: space-between; /* Align items to the edges */
-    align-items: center; /* Center vertically */
-    transition: transform 0.3s ease-in-out;
-}
-
-.certifications__item:hover {
-    transform: translateY(-5px);
+    align-items: flex-start;
+    position: relative;
+    gap: 1rem;
 }
 
 .certifications__info {
+    flex-grow: 1;
     display: flex;
-    flex-direction: column; /* Stack title and company */
+    flex-direction: column;
 }
 
 .certifications__title {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #00796b; /* Dark Teal */
+    color: #004d40; /* Dark Teal for title */
 }
 
 .certifications__company {
     font-size: 1rem;
-    color: #004d40; /* Medium Teal */
+    color: #00332e; /* Darker Teal for company name */
     margin: 0.5rem 0;
 }
 
+.certifications__actions {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+}
+
 .certifications__view-button {
-    background-color: #ff6f61; /* Coral */
-    color: white;
+    background-color: black; /* Black button */
+    color: rgb(255, 255, 255); /* White text */
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 130px;
+    text-align: center;
 }
 
 .certifications__view-button:hover {
-    background-color: #ff4c40; /* Darker Coral for hover */
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter on hover */
 }
 
-.certifications__certificate-container {
+.certifications__item--expanded {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.certifications__dropdown {
+    width: 100%;
     margin-top: 1rem;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scaleY(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scaleY(1);
+    }
 }
 
 .certifications__certificate-image {
-    max-width: 100%;
-    height: auto;
+    max-width: 50%;
+    max-height: 300px;
+    object-fit: contain;
     border-radius: 8px;
-}
-
-.close-certificate {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: transparent;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #00796b; /* Dark Teal */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
 }
