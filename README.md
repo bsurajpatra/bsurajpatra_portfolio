@@ -1,4 +1,3 @@
-# My React Project
 
 ## Overview
 This project is a personal portfolio website built with React. It showcases my skills, projects, and contact information as an aspiring software engineer. The website features a clean and modern design, responsive layout, and various interactive components.
@@ -63,4 +62,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - Inspiration from various portfolio websites and design resources.
 
 ## Contact
-For any inquiries, please reach out to me at [your-email@example.com](mailto:your-email@example.com).
+For any inquiries, please reach out to me at [ankitsuraj1111@gmail.com](mailto:ankitsuraj1111@gmail.com).
