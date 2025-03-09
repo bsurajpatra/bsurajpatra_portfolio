@@ -62,4 +62,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - Inspiration from various portfolio websites and design resources.
 
 ## Contact
-For any inquiries, please reach out to me at [ankitsuraj1111@gmail.com](mailto:ankitsuraj1111@gmail.com).
+For any inquiries, please reach out to me at [ankitsuraj1111@gmail.com](https://mail.google.com/mail/?view=cm&to=ankitsuraj1111@gmail.com).
