@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import emailjs from "@emailjs/browser";
-
 import "./Contact.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact = (props) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [subject, setSubject] = useState("");
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        if (!name || !email || !subject || !message) {
+        if (!name || !email || !message) {
             return toast.error("Please complete the form above");
         }
 
@@ -23,17 +21,21 @@ const Contact = (props) => {
         const data = {
             name,
             email,
-            subject,
             message,
         };
 
         emailjs
-            .send(
-                process.env.REACT_APP_EMAILJS_SERVICE_ID,
-                process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-                data,
-                process.env.REACT_APP_EMAILJS_PUBLIC_API
-            )
+        .send(
+            process.env.REACT_APP_EMAILJS_SERVICE_ID,
+            process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+            {
+                from_name: name,  
+                from_email: email,
+                message: message
+            },
+            process.env.REACT_APP_EMAILJS_PUBLIC_API
+        )
+    
             .then(
                 (result) => {
                     setLoading(false);
@@ -78,15 +80,6 @@ const Contact = (props) => {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
-                    </div>
-
-                    <div className="contact__form-div">
-                        <input
-                            type="text"
-                            className="contact__form-input"
-                            placeholder="Insert your subject"
-                            onChange={(e) => setSubject(e.target.value)}
-                        />
                     </div>
 
                     <div className="contact__form-div contact__form-area">
