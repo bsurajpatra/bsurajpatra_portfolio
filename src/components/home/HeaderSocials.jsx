@@ -14,17 +14,7 @@ const HeaderSocials = () => {
                 <FaLinkedinIn />
             </a>
 
-            <a href='https://www.facebook.com/profile.php?id=100009608130109' className='home__social-link' target='_blank' rel='noreferrer'>
-                <FaFacebookF />
-            </a>
 
-            <a href='https://www.instagram.com/0_oopsididitagain_0?igsh=MWc4aWExaDJxdzV5ZA==' className='home__social-link' target='_blank' rel='noreferrer'>
-                <FaInstagram />
-            </a>
-
-            <a href='https://t.me/bsurajpatra' className='home__social-link' target='_blank' rel='noreferrer'>
-                <FaTelegramPlane/>
-            </a>
             <a href='https://x.com/bsurajpatra?t=LxiiiVr8RwoIUJHTbajsBg&s=09' className='home__social-link' target='_blank' rel='noreferrer'>
                 <FaTwitter/>
             </a>
