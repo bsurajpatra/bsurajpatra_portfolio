@@ -36,7 +36,7 @@ const Menu = [
 		image: Portfolio,
 		title: "Personal Portfolio",
 		category: ["MERN"],
-		url: null,
+		url: "https://bsurajpatra-portfolio.vercel.app/",
 		repositoryUrl: "https://github.com/bsurajpatra/bsurajpatra_portfolio",
 		description: "A personal portfolio showcasing my skills, projects, and experience."
 	}
