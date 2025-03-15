@@ -55,9 +55,9 @@ const Contact = (props) => {
 
             <div className="contact__container grid">
                 <div className="contact__info">
-                    <h3 className="contact__title">Let's talk about everything!</h3>
+                    <h3 className="contact__title">Let's Connect!</h3>
                     <p className="contact__details">
-                        Don't like forms? Send me an email. 👋
+                        I'd love to hear from you! Whether you have a question or just want to chat, feel free to drop me a message. 👋
                     </p>
                 </div>
 

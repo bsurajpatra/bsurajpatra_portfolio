@@ -8,7 +8,7 @@
 }
 
 .certifications__item {
-    background: #80deea; /* Light Teal */
+    background: #fff8e1; /* Light Beige */
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -17,6 +17,7 @@
     align-items: flex-start;
     position: relative;
     gap: 1rem;
+    flex-direction: column; /* Stack items vertically */
 }
 
 .certifications__info {
@@ -28,19 +29,20 @@
 .certifications__title {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #004d40; /* Dark Teal for title */
+    color: #000000; /* Set title color to black */
 }
 
 .certifications__company {
     font-size: 1rem;
-    color: #00332e; /* Darker Teal for company name */
+    color: #000000; /* Set company name color to black */
     margin: 0.5rem 0;
 }
 
 .certifications__actions {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
+    position: relative; /* Change to relative for better positioning */
+    margin-top: 1rem; /* Add margin for spacing */
+    display: flex;
+    justify-content: center; /* Center the button */
 }
 
 .certifications__view-button {
@@ -61,7 +63,7 @@
 
 .certifications__item--expanded {
     flex-direction: column;
-    align-items: stretch;
+    align-items: stretch; /* Stretch to full width */
 }
 
 .certifications__dropdown {
@@ -84,10 +86,36 @@
 }
 
 .certifications__certificate-image {
-    max-width: 50%;
+    max-width: 100%; /* Ensure image is responsive */
     max-height: 300px;
     object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    margin: 0 auto;
+    margin: 0 auto; /* Center the image */
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .certifications__item {
+        padding: 1rem; /* Reduce padding for smaller screens */
+    }
+
+    .certifications__title {
+        font-size: 1.1rem; /* Adjust title size */
+    }
+
+    .certifications__company {
+        font-size: 0.9rem; /* Adjust company size */
+    }
+
+    .certifications__view-button {
+        width: 100%; /* Make button full width */
+        max-width: 150px; /* Set a max width for the button */
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .certifications__item {
+        padding: 0.5rem; /* Further reduce padding for very small screens */
+    }
 }

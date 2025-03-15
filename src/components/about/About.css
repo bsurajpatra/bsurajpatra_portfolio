@@ -12,6 +12,9 @@
   column-gap: 1.875rem;
   align-items: flex-start;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .about__data::before {
@@ -121,6 +124,13 @@
   object-fit: cover;
 }
 
+.download-resume {
+  margin-top: 1.5rem;
+  text-align: center;
+  width: 100%;
+  max-width: 200px;
+}
+
 @media screen and (max-width: 1024px) {
   .about__container {
     grid-template-columns: 720px;
@@ -160,12 +170,18 @@
   .about__data {
     grid-template-columns: 1fr;
     row-gap: 1.875rem;
+    align-items: center;
   }
 
   .about__boxes {
     grid-template-columns: repeat(2, 150px);
     row-gap: 1.5rem;
     justify-content: center;
+  }
+
+  .download-resume {
+    width: 100%;
+    max-width: 200px;
   }
 }
 

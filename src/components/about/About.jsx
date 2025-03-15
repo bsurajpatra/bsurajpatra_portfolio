@@ -22,7 +22,7 @@ const About = () => {
 
 I'm passionate about learning, tackling new challenges, and contributing to the Free and Open Source Software (FOSS) community. My focus is on expanding my portfolio with real-world projects while being a strong team player.
                         </p>
-                        <button className="btn" onClick={downloadResume}>Download Resume</button>
+                        <button className="btn download-resume" onClick={downloadResume}>Download Resume</button>
                     </div>
 
                 </div>
