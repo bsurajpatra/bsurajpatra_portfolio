@@ -39,13 +39,16 @@
 }
 
 .certifications__actions {
-    position: relative; /* Change to relative for better positioning */
-    margin-top: 1rem; /* Add margin for spacing */
+    position: absolute; /* Change to absolute for positioning */
+    top: 1.5rem; /* Align to the top */
+    right: 1.5rem; /* Align to the right */
     display: flex;
-    justify-content: center; /* Center the button */
+    flex-direction: row; /* Keep buttons in a row for desktop */
+    gap: 0.5rem; /* Space between buttons */
 }
 
-.certifications__view-button {
+.certifications__view-button,
+.certifications__hide-button {
     background-color: black; /* Black button */
     color: rgb(255, 255, 255); /* White text */
     border: none;
@@ -53,12 +56,13 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 130px;
+    width: 130px; /* Fixed width for buttons */
     text-align: center;
 }
 
-.certifications__view-button:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter on hover */
+.certifications__view-button:hover,
+.certifications__hide-button:hover {
+    background-color: rgba(100, 100, 100, 0.8); /* Change to a darker shade on hover */
 }
 
 .certifications__item--expanded {
@@ -108,7 +112,18 @@
         font-size: 0.9rem; /* Adjust company size */
     }
 
+    .certifications__actions {
+        position: relative; /* Change to relative for mobile */
+        margin-top: 1rem; /* Add margin for spacing */
+        justify-content: center; /* Center buttons for mobile */
+        flex-direction: column; /* Stack buttons vertically */
+        margin-left: 20px; /* Move buttons to the right */
+        margin-bottom: 30px; /* Move buttons down */
+    }
+
     .certifications__view-button {
+        margin-left: 5px; /* Adjust horizontal position */
+        margin-top: 5px; /* Adjust vertical position */
         width: 100%; /* Make button full width */
         max-width: 150px; /* Set a max width for the button */
     }
