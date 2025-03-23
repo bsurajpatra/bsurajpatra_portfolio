@@ -118,7 +118,7 @@
         justify-content: center; /* Center buttons for mobile */
         flex-direction: column; /* Stack buttons vertically */
         margin-left: 20px; /* Move buttons to the right */
-        margin-bottom: 30px; /* Move buttons down */
+        margin-bottom: 3T0px; /* Move buttons down */
     }
 
     .certifications__view-button {
