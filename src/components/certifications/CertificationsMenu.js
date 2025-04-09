@@ -11,10 +11,20 @@ import RedHat from "../../assets/redhat.jpg";
 import Spring from "../../assets/Spring.jpg";
 import be10x from "../../assets/be10x.jpg";
 import nptel from "../../assets/nptel java.jpg";
+import nvidia from "../../assets/nvidiadl.jpg";
 
 const Menu = [
 	{
 		id: 1,
+		title: "Fundamentals of Deep Learning",
+		company: "NVIDIA",
+		certificate: {
+			src: nvidia,
+			style: { width: '100%', height: 'auto' }
+		}
+	},
+	{
+		id: 2,
 		title: "Git and GitHub",
 		company: "PW Skills",
 		certificate: {
@@ -23,7 +33,7 @@ const Menu = [
 		}
 	},
 	{
-		id: 2,
+		id: 3,
 		title: "Salesforce Certified AI Associate",
 		company: "Salesforce",
 		certificate: {
@@ -32,99 +42,100 @@ const Menu = [
 		}
 	},
 	{
-		id:3,
-		title:"Critical Infrastructure Protection",
+		id: 4,
+		title: "Critical Infrastructure Protection",
 		company: "OPSWAT Academy",
-		certificate:{
+		certificate: {
 			src: CIP,
 			style: { width: '100%', height: 'auto' }
 		}
 	},
 	{
-		id: 4,
+		id: 5,
 		title: "IT Support Professional",
 		company: "Google - Coursera",
-		certificate:{
+		certificate: {
 			src: GoogleIT,
 			style: { width: '100%', height: 'auto' }
 		}
 	},
 	{
-		id: 5,
-		title : " Back-end JavaScript Developer Professional",
+		id: 6,
+		title: "Back-end JavaScript Developer Professional",
 		company: "IBM - Coursera",
-		certificate:{
+		certificate: {
 			src: IBMBack,
 			style: { width: '100%', height: 'auto' }
 		}
 	},
 	{
-		id : 6,
+		id: 7,
 		title: "Front-end Developer",
 		company: "Meta - Coursera",
-		certificate:{
+		certificate: {
 			src: MetaFront,
 			style: { width: '100%', height: 'auto' }
 		}
 	},
 	{
-		id:7,
-		title:"SAS Statistical Business Analyst",
-		company:"SAS - Coursera",
-		certificate:{
+		id: 8,
+		title: "SAS Statistical Business Analyst",
+		company: "SAS - Coursera",
+		certificate: {
 			src: SAS,
 			style: { width: '100%', height: 'auto' }
 		}
 	},
 	{
-		id: 8,
+		id: 9,
 		title: "AI for Students: Build Your Own Generative AI Model",
 		company: "NxtWave",
-		certificate:{
+		certificate: {
 			src: NxtWave,
-			style: { width: '100%', height: 'auto' }
-		}
-	},{
-		id: 9,
-		title: "Linguaskill General - English Language Proficiency",
-		company: "Cambridge University Press and Assessment",
-		certificate:{
-			src: Lingua,
 			style: { width: '100%', height: 'auto' }
 		}
 	},
 	{
 		id: 10,
-		title: "Red Hat Academy - Program Learner",
-		company: "Red Hat",
-		certificate:{
-			src: RedHat,
+		title: "Linguaskill General - English Language Proficiency",
+		company: "Cambridge University Press and Assessment",
+		certificate: {
+			src: Lingua,
 			style: { width: '100%', height: 'auto' }
 		}
 	},
 	{
 		id: 11,
-		title: "Spring Framework",
-		company: "LearnQuest - Cousera",
-		certificate:{
-			src: Spring,
+		title: "Red Hat Academy - Program Learner",
+		company: "Red Hat",
+		certificate: {
+			src: RedHat,
 			style: { width: '100%', height: 'auto' }
 		}
 	},
 	{
 		id: 12,
-		title: "AI Tools Workshop",
-		company: "be10x",
-		certificate:{
-			src: be10x,
+		title: "Spring Framework",
+		company: "LearnQuest - Coursera",
+		certificate: {
+			src: Spring,
 			style: { width: '100%', height: 'auto' }
 		}
 	},
 	{
 		id: 13,
+		title: "AI Tools Workshop",
+		company: "be10x",
+		certificate: {
+			src: be10x,
+			style: { width: '100%', height: 'auto' }
+		}
+	},
+	{
+		id: 14,
 		title: "Programming in JAVA",
 		company: "NPTEL",
-		certificate:{
+		certificate: {
 			src: nptel,
 			style: { width: '100%', height: 'auto' }
 		}
