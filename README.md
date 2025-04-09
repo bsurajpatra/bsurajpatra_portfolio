@@ -57,9 +57,5 @@ Contributions are welcome! If you have suggestions or improvements, please fork 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
-- Thanks to [EmailJS](https://www.emailjs.com/) for providing a simple way to send emails.
-- Inspiration from various portfolio websites and design resources.
-
 ## Contact
 For any inquiries, please reach out to me at [ankitsuraj1111@gmail.com](https://mail.google.com/mail/?view=cm&to=ankitsuraj1111@gmail.com).
