@@ -1,8 +1,7 @@
-.s15 { left: 30%; top: 40%; } /* New ellipse */
-.s16 { left: 70%; top: 10%; } /* New triangle */
-.s17 { left: 80%; bottom: 20%; } /* New inverted triangle */
+.s15 { left: 30%; top: 40%; }
+.s16 { left: 70%; top: 10%; }
+.s17 { left: 80%; bottom: 20%; }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
   .home {
     padding: 1rem;
@@ -43,18 +42,17 @@
     max-width: 75%;
   }
 }
-/* Define theme colors in your global CSS or a theme-specific CSS file */
+
 :root {
-  --text-color-light: #000000; /* Black for light mode */
-  --text-color-dark: #FFFFFF; /* White for dark mode */
-  --title-color-light: #454360; /* Dark purple/blue for light mode */
-  --title-color-dark: #FFFFFF; /* White for dark mode */
-  --accent-color: hsl(43, 100%, 68%); /* Yellow accent color */
-  --hover-color-light: hsl(43, 100%, 68%); /* Yellow for light mode hover */
-  --hover-color-dark: hsl(43, 100%, 75%); /* Lighter yellow for dark mode hover */
+  --text-color-light: #000000;
+  --text-color-dark: #FFFFFF;
+  --title-color-light: #454360;
+  --title-color-dark: #FFFFFF;
+  --accent-color: hsl(43, 100%, 68%);
+  --hover-color-light: hsl(43, 100%, 68%);
+  --hover-color-dark: hsl(43, 100%, 75%);
 }
 
-/* General Home Section */
 .home {
   position: relative;
   min-height: 100vh;
@@ -66,21 +64,20 @@
   text-align: center;
 }
 
-/* Introduction Section */
 .intro {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
   z-index: 1;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  flex-wrap: wrap;
 }
 
 .left {
   flex: 1;
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem; /* Add margin for spacing */
+  margin-bottom: 1rem;
 }
 
 .right {
@@ -93,11 +90,10 @@
   font-size: 1.2rem;
   z-index: 2;
   font-weight: 500;
-  color: var(--text-color-dark); /* Use theme variable */
+  color: var(--text-color-dark);
   letter-spacing: 0.05em;
 }
 
-/* For light mode */
 [data-theme="light"] .right {
   color: var(--text-color-light);
 }
@@ -106,113 +102,99 @@
   margin: 2rem 0;
 }
 
-/* Image Sizing */
 .home__img {
-  margin: 1.5rem auto; /* Center the image horizontally */
-  width: 100%; /* Make the image responsive */
-  max-width: 300px; /* Set a max width for the image */
+  margin: 1.5rem auto;
+  width: 100%;
+  max-width: 300px;
   height: auto;
-  border-radius: 50%; /* Make the image circular */
-  object-fit: cover; /* Ensure the image covers the circle */
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-/* Name Styling */
 .home__name {
   font-size: calc(var(--h1-font-size) * 1.2);
   font-weight: var(--font-bold);
   margin-bottom: 0.5rem;
-  color: var(--title-color-dark); /* Use theme variable */
+  color: var(--title-color-dark);
 }
 
-/* Education/subtitle styling */
 .home__education {
-  color: var(--title-color-dark); /* Use theme variable */
+  color: var(--title-color-dark);
 }
 
-/* For light mode */
 [data-theme="light"] .home__name,
 [data-theme="light"] .home__education {
   color: var(--title-color-light);
 }
 
-/* Social Media Links */
 .home__socials {
   display: flex;
   justify-content: center;
-  column-gap: 1.5rem; /* Reduced spacing */
+  column-gap: 1.5rem;
   margin: 1rem 0;
 }
 
 .home__social-link {
-  font-size: 1.5rem; /* Smaller icons */
-  color: var(--title-color-dark); /* Use theme variable */
+  font-size: 1.5rem;
+  color: var(--title-color-dark);
   transition: 0.3s;
 }
 
-/* For light mode */
 [data-theme="light"] .home__social-link {
   color: var(--title-color-light);
 }
 
 .home__social-link:hover {
-  color: var(--hover-color-dark); /* Use theme variable */
+  color: var(--hover-color-dark);
   transform: scale(1.1);
 }
 
-/* For light mode hover */
 [data-theme="light"] .home__social-link:hover {
   color: var(--hover-color-light);
 }
 
-/* Header Logo */
 .logo {
-  color: var(--title-color-dark); /* Use theme variable */
+  color: var(--title-color-dark);
   font-weight: var(--font-bold);
   font-size: var(--h2-font-size);
   transition: 0.3s;
 }
 
-/* For light mode */
 [data-theme="light"] .logo {
   color: var(--title-color-light);
 }
 
 .logo:hover {
-  color: var(--hover-color-dark); /* Use theme variable */
+  color: var(--hover-color-dark);
 }
 
-/* For light mode hover */
 [data-theme="light"] .logo:hover {
   color: var(--hover-color-light);
 }
 
-/* Header Socials */
 .header__socials {
   display: flex;
   column-gap: 1.25rem;
 }
 
 .header__social-link {
-  color: var(--title-color-dark); /* Use theme variable */
+  color: var(--title-color-dark);
   font-size: 1.25rem;
   transition: 0.3s;
 }
 
-/* For light mode */
 [data-theme="light"] .header__social-link {
   color: var(--title-color-light);
 }
 
 .header__social-link:hover {
-  color: var(--hover-color-dark); /* Use theme variable */
+  color: var(--hover-color-dark);
 }
 
-/* For light mode hover */
 [data-theme="light"] .header__social-link:hover {
   color: var(--hover-color-light);
 }
 
-/* Scroll Down Section */
 .scroll__down {
   position: absolute;
   bottom: 1.5rem;
@@ -223,19 +205,17 @@
 
 .home__scroll-name {
   font-size: var(--small-font-size);
-  color: var(--title-color-dark); /* Use theme variable */
+  color: var(--title-color-dark);
 }
 
-/* For light mode */
 [data-theme="light"] .home__scroll-name {
   color: var(--title-color-light);
 }
 
-/* Mouse Animation */
 .mouse {
-  border: 2px solid var(--title-color-dark); /* Use theme variable */
+  border: 2px solid var(--title-color-dark);
   display: block;
-  height: 1.4rem; /* Smaller */
+  height: 1.4rem;
   width: 1rem;
   margin: auto;
   margin-top: 0.5rem;
@@ -243,13 +223,12 @@
   position: relative;
 }
 
-/* For light mode */
 [data-theme="light"] .mouse {
   border: 2px solid var(--title-color-light);
 }
 
 .wheel {
-  background-color: var(--title-color-dark); /* Use theme variable */
+  background-color: var(--title-color-dark);
   border-radius: 100%;
   width: 0.2rem;
   height: 0.2rem;
@@ -260,7 +239,6 @@
   animation: ani-mouse 2s linear infinite;
 }
 
-/* For light mode */
 [data-theme="light"] .wheel {
   background-color: var(--title-color-light);
 }
@@ -276,24 +254,22 @@
   }
 }
 
-/* Animated Shapes */
 .shapes {
   position: absolute;
-  left: 50%; /* Center horizontally */
-  top: 50%; /* Center vertically */
+  left: 50%;
+  top: 50%;
   height: 100%;
   width: 100%;
   pointer-events: none;
-  transform: translate(-50%, -50%); /* Adjust to center */
+  transform: translate(-50%, -50%);
 }
 
 .shape {
   position: absolute;
   opacity: 0.5;
-  transform: scale(0.9); /* Scaled down */
+  transform: scale(0.9);
 }
 
-/* Adjusted shape positions for centering */
 .s1 { left: 10%; top: 10%; }
 .s2 { left: 20%; top: 20%; }
 .s3 { left: 5%; bottom: 20%; }
@@ -305,34 +281,33 @@
 .s9 { right: 5%; top: 10%; }
 .s10 { top: 30%; right: 5%; }
 .s11 { bottom: 10%; right: 10%; }
-.s12 { left: 40%; top: 20%; } /* New circle */
-.s13 { left: 60%; top: 30%; } /* New square */
-.s14 { left: 50%; bottom: 15%; } /* New triangle */
-.s15 { left: 30%; top: 40%; } /* New ellipse */
-.s16 { left: 70%; top: 10%; } /* New triangle */
-.s17 { left: 80%; bottom: 20%; } /* New inverted triangle */
+.s12 { left: 40%; top: 20%; }
+.s13 { left: 60%; top: 30%; }
+.s14 { left: 50%; bottom: 15%; }
+.s15 { left: 30%; top: 40%; }
+.s16 { left: 70%; top: 10%; }
+.s17 { left: 80%; bottom: 20%; }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
   .home {
     padding: 1rem;
   }
 
   .intro {
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center align items */
+    flex-direction: column;
+    align-items: center;
   }
 
   .left {
-    margin-bottom: 1rem; /* Add margin for spacing */
-    display: flex; /* Ensure flex display for centering */
-    justify-content: center; /* Center the content */
-    width: 100%; /* Full width for centering */
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   .right {
-    padding-left: 0; /* Remove left padding */
-    text-align: center; /* Center text */
+    padding-left: 0;
+    text-align: center;
   }
 
   .home__name {
@@ -367,11 +342,11 @@
   }
 
   .home__img {
-    max-width: 75%; /* Adjust max width for smaller screens */
+    max-width: 75%;
   }
 
   .right {
-    padding-left: 0; /* Remove left padding */
-    font-size: 1rem; /* Adjust font size for smaller screens */
+    padding-left: 0;
+    font-size: 1rem;
   }
 }

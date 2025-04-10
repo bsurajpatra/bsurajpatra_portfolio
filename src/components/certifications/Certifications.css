@@ -8,7 +8,7 @@
 }
 
 .certifications__item {
-    background: #fff8e1; /* Light Beige */
+    background: #fff8e1;
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -17,7 +17,7 @@
     align-items: flex-start;
     position: relative;
     gap: 1rem;
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: column;
 }
 
 .certifications__info {
@@ -29,45 +29,45 @@
 .certifications__title {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #000000; /* Set title color to black */
+    color: #000000;
 }
 
 .certifications__company {
     font-size: 1rem;
-    color: #000000; /* Set company name color to black */
+    color: #000000;
     margin: 0.5rem 0;
 }
 
 .certifications__actions {
-    position: absolute; /* Change to absolute for positioning */
-    top: 1.5rem; /* Align to the top */
-    right: 1.5rem; /* Align to the right */
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
     display: flex;
-    flex-direction: row; /* Keep buttons in a row for desktop */
-    gap: 0.5rem; /* Space between buttons */
+    flex-direction: row;
+    gap: 0.5rem;
 }
 
 .certifications__view-button,
 .certifications__hide-button {
-    background-color: black; /* Black button */
-    color: rgb(255, 255, 255); /* White text */
+    background-color: black;
+    color: rgb(255, 255, 255);
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 130px; /* Fixed width for buttons */
+    width: 130px;
     text-align: center;
 }
 
 .certifications__view-button:hover,
 .certifications__hide-button:hover {
-    background-color: rgba(100, 100, 100, 0.8); /* Change to a darker shade on hover */
+    background-color: rgba(100, 100, 100, 0.8);
 }
 
 .certifications__item--expanded {
     flex-direction: column;
-    align-items: stretch; /* Stretch to full width */
+    align-items: stretch;
 }
 
 .certifications__dropdown {
@@ -90,47 +90,50 @@
 }
 
 .certifications__certificate-image {
-    max-width: 100%; /* Ensure image is responsive */
+    max-width: 100%;
     max-height: 300px;
     object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    margin: 0 auto; /* Center the image */
+    margin: 0 auto;
 }
 
-/* Responsive Adjustments */
 @media screen and (max-width: 768px) {
     .certifications__item {
-        padding: 1rem; /* Reduce padding for smaller screens */
+        padding: 1rem;
     }
 
     .certifications__title {
-        font-size: 1.1rem; /* Adjust title size */
+        font-size: 1.1rem;
+        margin-bottom: 0.1rem;
     }
 
     .certifications__company {
-        font-size: 0.9rem; /* Adjust company size */
+        font-size: 0.9rem;
+        margin: 0.1rem 0;
     }
 
     .certifications__actions {
-        position: relative; /* Change to relative for mobile */
-        margin-top: 1rem; /* Add margin for spacing */
-        justify-content: center; /* Center buttons for mobile */
-        flex-direction: column; /* Stack buttons vertically */
-        margin-left: 20px; /* Move buttons to the right */
-        margin-bottom: 3T0px; /* Move buttons down */
+        position: relative;
+        margin-top: 0.5rem;
+        padding: 0.5rem;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
     }
 
     .certifications__view-button {
-        margin-left: 5px; /* Adjust horizontal position */
-        margin-top: 5px; /* Adjust vertical position */
-        width: 100%; /* Make button full width */
-        max-width: 150px; /* Set a max width for the button */
+        margin-left: 0;
+        margin-top: 0.2rem;
+        width: 100%;
+        max-width: 150px;
     }
 }
 
 @media screen and (max-width: 350px) {
     .certifications__item {
-        padding: 0.5rem; /* Further reduce padding for very small screens */
+        padding: 0.5rem;
     }
 }

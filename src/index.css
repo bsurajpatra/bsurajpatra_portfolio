@@ -1,8 +1,6 @@
-/*=============== Google Fonts ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;500;600;700;800;900&display=swap");
 
 :root {
-  /*=============== Colors ===============*/
   --first-color: hsl(353, 100%, 65%);
   --title-color: hsl(244, 100%, 26%);
   --text-color: hsl(244, 16%, 43%);
@@ -10,7 +8,6 @@
   --container-color: #fff;
   --border-color: rgba(0, 0, 0, 0.05);
 
-  /*=============== Font and Typohraphy ===============*/
   --body-font: "Noto Sans", san-serif;
   --h1-font-size: 2.25rem;
   --h2-font-size: 1.5rem;
@@ -19,15 +16,12 @@
   --small-font-size: 0.875rem;
   --smaller-font-size: 0.813rem;
 
-  /*=============== Font Weight ===============*/
   --font-medium: 500;
   --font-semibold: 600;
   --font-bold: 700;
 
-  /*=============== Box Shadow ===============*/
   --shadow: 0px 5px 20px 0px rgb(69 67 96 / 10%);
 
-  /*=============== Border Radius ===============*/
   --border-radius: 20px;
 }
 
@@ -42,7 +36,6 @@
   --border-color: rgba(167, 174, 185, 0.1);
 }
 
-/*=============== Responsive Typohraphy ===============*/
 @media screen and (max-width: 1024px) {
   :root {
     --h1-font-size: 1.75rem;
@@ -54,7 +47,6 @@
   }
 }
 
-/*=============== Base ===============*/
 * {
   margin: 0;
   padding: 0;
@@ -110,7 +102,6 @@ img {
   vertical-align: middle;
 }
 
-/*=============== Resusable CSS Classes ===============*/
 
 .container {
   max-width: 1080px;
