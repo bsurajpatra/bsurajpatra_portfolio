@@ -9,6 +9,7 @@ import Contact from './components/contact/Contact';
 import useLocalStorage from 'use-local-storage'
 import SkillsAndTechnology from './components/skillandtechnology/SkillsAndTechnology';
 import Certifications from './components/certifications/Certifications';
+import Footer from './components/footer/Footer';
 
 function App() {
     const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -31,6 +32,7 @@ function App() {
                 <Projects />
                 <Certifications />  
                 <Contact theme={theme} />
+                <Footer />
             </main>
         </div>
     );
