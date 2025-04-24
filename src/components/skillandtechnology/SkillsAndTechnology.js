@@ -4,11 +4,25 @@ import './SkillsAndTechnology.css';
 const skillsData = [
     {
         category: "🖥️ Programming Languages",
-        items: ["C", "Java", "Python", "SQL", "HTML", "CSS", "JavaScript"],
+        items: ["C", "Java", "Python", "SQL"],
     },
     {
-        category: "🛠️ Development & Technologies",
-        items: ["MERN Stack Web Development", "Full Stack Development", "Linux Administration", "Generative AI Prompting"],
+        category: "🌐 Web Technologies",
+        items: ["HTML", "CSS", "JavaScript"],
+    },
+    {
+        category: "⚙️ Frameworks & Platforms",
+        items: [
+            "MERN Stack Web Development",
+            "Spring Boot + React Full Stack Development",
+            "Tomcat Server",
+            "Linux Administration",
+            "Generative AI Prompting"
+        ],
+    },
+    {
+        category: "🗄️ Databases",
+        items: ["MySQL", "PostgreSQL", "MongoDB"],
     },
     {
         category: "📊 Data Structures & Algorithms (DSA)",
@@ -16,23 +30,39 @@ const skillsData = [
     },
     {
         category: "🎨 Design",
-        items: ["Graphics Designing"],
+        items: ["Graphic Design"],
     },
     {
         category: "📂 Version Control & DevOps",
-        items: ["Git", "GitHub", "GitLab"],
+        items: ["Git", "GitHub", "GitLab", "Docker"],
     },
     {
         category: "⚡ Agile & Project Management",
-        items: ["Agile & Scrum", "Team Management","Presentation", "Public Speaking", "Design Thinking", "Strategic Vision"],
+        items: [
+            "Agile & Scrum",
+            "Team Management",
+            "Presentation",
+            "Public Speaking",
+            "Design Thinking",
+            "Strategic Vision"
+        ],
     },
     {
-        category: "📎 Productivity & Office Tools",
+        category: "📎 Office & Productivity Tools",
         items: ["MS Office", "PowerBI", "Libre Office"],
     },
     {
         category: "🛠️ Developer Tools",
-        items: ["VS Code", "Eclipse", "MySQL Workbench", "GitHub", "GitLab", "Postman", "Vercel", "Render"],
+        items: [
+            "VS Code",
+            "Eclipse",
+            "MySQL Workbench",
+            "Postman"
+        ],
+    },
+    {
+        category: "☁️ Deployment & Hosting",
+        items: ["Vercel", "Render"],
     },
 ];
 
