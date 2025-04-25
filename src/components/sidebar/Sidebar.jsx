@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import Logo from "../../assets/logo.png";
 
@@ -19,6 +19,10 @@ import {
 
 const Sidebar = (props) => {
     const [toggle, showMenu] = useState(false);
+
+    const toggleSidebar = () => {
+        showMenu(!toggle);
+    };
 
     return (
         <>
@@ -90,7 +94,7 @@ const Sidebar = (props) => {
                 </div>
             </aside>
 
-            <div className={toggle ? 'nav__toggle nav__toggle-open' : 'nav__toggle'} onClick={() => showMenu(!toggle)}>
+            <div className={toggle ? 'nav__toggle nav__toggle-open' : 'nav__toggle'} onClick={toggleSidebar}>
                 <RiMenu2Line />
             </div>
         </>
