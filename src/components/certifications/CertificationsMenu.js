@@ -1,5 +1,6 @@
 import Salesforce from "../../assets/salesforce.png";
-import Git from "../../assets/Git.jpg";
+import MongoDB from "../../assets/MongoDB.jpg";
+import GitHub from "../../assets/GitHub Foundations.jpg";
 import CIP from "../../assets/cip.png";
 import GoogleIT from "../../assets/googleit.jpg";
 import IBMBack from "../../assets/ibmback.jpg";
@@ -10,12 +11,29 @@ import Lingua from "../../assets/lingua.jpg";
 import RedHat from "../../assets/redhat.jpg";
 import Spring from "../../assets/Spring.jpg";
 import be10x from "../../assets/be10x.jpg";
-import nptel from "../../assets/nptel java.jpg";
 import nvidia from "../../assets/nvidiadl.jpg";
 
 const Menu = [
 	{
-		id: 1,
+		id:1,
+		title: "MongoDB Certified Developer Associate",
+		company: "MongoDB",
+		certificate: {
+			src: MongoDB,
+			style: { width: '100%', height: 'auto' }
+		}
+	},
+	{
+		id: 2,
+		title: "GitHub Foundations",
+		company: "GitHub",
+		certificate:{
+			src: GitHub,
+			style: { width: '100%', height: 'auto' }
+		}
+	},
+	{
+		id: 3,
 		title: "Fundamentals of Deep Learning",
 		company: "NVIDIA",
 		certificate: {
@@ -23,15 +41,7 @@ const Menu = [
 			style: { width: '100%', height: 'auto' }
 		}
 	},
-	{
-		id: 2,
-		title: "Git and GitHub",
-		company: "PW Skills",
-		certificate: {
-			src: Git,
-			style: { width: '100%', height: 'auto' }
-		}
-	},
+	
 	{
 		id: 3,
 		title: "Salesforce Certified AI Associate",
@@ -130,16 +140,8 @@ const Menu = [
 			src: be10x,
 			style: { width: '100%', height: 'auto' }
 		}
-	},
-	{
-		id: 14,
-		title: "Programming in JAVA",
-		company: "NPTEL",
-		certificate: {
-			src: nptel,
-			style: { width: '100%', height: 'auto' }
-		}
 	}
+	
 ];
 
 export default Menu;
