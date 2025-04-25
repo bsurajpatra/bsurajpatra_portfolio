@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Sidebar.css";
-import Logo from "../../assets/logo.png";
 
 import {
     RiHome2Line,
@@ -27,8 +26,6 @@ const Sidebar = (props) => {
     return (
         <>
             <aside className={toggle ? 'aside show-menu' : 'aside'}>
-                
-
                 <nav className="nav">
                     <div className="nav__menu">
                         <ul className="nav__list">
@@ -85,7 +82,7 @@ const Sidebar = (props) => {
                     </div>
                 </nav>
 
-                <div className="nav__footer">
+                <div className="nav__controls">
                     <button onClick={() => { props.switchTheme(); showMenu(!toggle) }} className="nav__link footer__button">
                         {props.theme === 'light' ? <RiMoonLine /> : <RiSunLine />}
                     </button>
