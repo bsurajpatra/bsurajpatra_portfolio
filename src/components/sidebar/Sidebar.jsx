@@ -12,7 +12,9 @@ import {
     RiSunLine,
     RiMenu2Line,
     RiCodeLine,
-    RiAwardLine
+    RiAwardLine,
+    RiToolsLine,
+    RiSettings3Line
 } from "react-icons/ri";
 
 
@@ -56,7 +58,7 @@ const Sidebar = (props) => {
 
                             <li className="nav__item">
                                 <a href="#skills" className="nav__link">
-                                    <RiCodeLine />
+                                    <RiToolsLine />
                                 </a>
                             </li>
 
@@ -70,6 +72,12 @@ const Sidebar = (props) => {
                             <li className="nav__item">
                                 <a href="#certifications" className="nav__link">
                                     <RiAwardLine />
+                                </a>
+                            </li>
+
+                            <li className="nav__item">
+                                <a href="#coding-profiles" className="nav__link">
+                                    <RiCodeLine />
                                 </a>
                             </li>
 
