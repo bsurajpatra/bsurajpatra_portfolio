@@ -1,4 +1,5 @@
 import React from 'react'
+import './Shapes.css';
 
 const Shapes = () => {
     return (
@@ -6,7 +7,7 @@ const Shapes = () => {
             <svg
                 width="27"
                 height="29"
-                class="shape s1"
+                className="shape s1 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <path
@@ -19,7 +20,7 @@ const Shapes = () => {
             <svg
                 width="26"
                 height="26"
-                class="shape s2"
+                className="shape s2 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <path
@@ -34,7 +35,7 @@ const Shapes = () => {
             <svg
                 width="30"
                 height="25"
-                class="shape s3"
+                className="shape s3 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <path
@@ -47,7 +48,7 @@ const Shapes = () => {
             <svg
                 width="15"
                 height="23"
-                class="shape s4"
+                className="shape s4 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <rect
@@ -64,7 +65,7 @@ const Shapes = () => {
             <svg
                 width="15"
                 height="23"
-                class="shape s5"
+                className="shape s5 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <rect
@@ -81,7 +82,7 @@ const Shapes = () => {
             <svg
                 width="49"
                 height="17"
-                class="shape s6"
+                className="shape s6 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <g fill="#FF4C60" fill-rule="evenodd">
@@ -93,7 +94,7 @@ const Shapes = () => {
             <svg
                 width="26"
                 height="26"
-                class="shape s7"
+                className="shape s7 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <path
@@ -108,7 +109,7 @@ const Shapes = () => {
             <svg
                 width="19"
                 height="21"
-                class="shape s8"
+                className="shape s8 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <rect
@@ -125,7 +126,7 @@ const Shapes = () => {
             <svg
                 width="30"
                 height="25"
-                class="shape s9"
+                className="shape s9 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <path
@@ -138,7 +139,7 @@ const Shapes = () => {
             <svg
                 width="47"
                 height="29"
-                class="shape s10"
+                className="shape s10 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <g fill="#44D7B6" fill-rule="evenodd">
@@ -150,7 +151,7 @@ const Shapes = () => {
             <svg
                 width="33"
                 height="20"
-                class="shape s11"
+                className="shape s11 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <path
@@ -163,7 +164,7 @@ const Shapes = () => {
             <svg
                 width="30"
                 height="30"
-                class="shape s12"
+                className="shape s12 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <circle cx="15" cy="15" r="15" fill="#FF4C60" />
@@ -172,7 +173,7 @@ const Shapes = () => {
             <svg
                 width="40"
                 height="40"
-                class="shape s13"
+                className="shape s13 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <rect x="5" y="5" width="30" height="30" fill="#44D7B6" />
@@ -181,7 +182,7 @@ const Shapes = () => {
             <svg
                 width="25"
                 height="25"
-                class="shape s14"
+                className="shape s14 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <polygon points="12.5,0 25,25 0,25" fill="#6C6CE5" />
@@ -190,7 +191,7 @@ const Shapes = () => {
             <svg
                 width="35"
                 height="35"
-                className="shape s15"
+                className="shape s15 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <ellipse cx="17.5" cy="17.5" rx="17.5" ry="10" fill="#FFD15C" />
@@ -199,7 +200,7 @@ const Shapes = () => {
             <svg
                 width="30"
                 height="30"
-                className="shape s16"
+                className="shape s16 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <path d="M15 0 L30 30 H0 Z" fill="#FF6F61" />
@@ -208,11 +209,38 @@ const Shapes = () => {
             <svg
                 width="30"
                 height="30"
-                className="shape s17"
+                className="shape s17 animated-shape"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <path d="M29 30 L15 0 L1 30 Z" fill="#6C6CE5" />
             </svg>
+            <svg
+    width="20"
+    height="20"
+    className="shape s18 animated-shape"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <circle cx="10" cy="10" r="10" fill="#FF4C60" />
+</svg>
+
+<svg
+    width="30"
+    height="15"
+    className="shape s19 animated-shape"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <rect width="30" height="15" fill="#6C6CE5" />
+</svg>
+
+<svg
+    width="24"
+    height="24"
+    className="shape s20 animated-shape"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <polygon points="12,0 24,24 0,24" fill="#44D7B6" />
+</svg>
+
         </div>
     )
 }

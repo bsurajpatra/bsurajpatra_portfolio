@@ -1,6 +1,5 @@
 import React from 'react';
 import './Footer.css'; 
-import Resume from '../../assets/resume.pdf';
 
 
 const Footer = () => {
