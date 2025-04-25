@@ -78,6 +78,10 @@ body[data-theme='dark'] .profile-card {
 }
 
 @media (max-width: 768px) {
+    .coding-profiles {
+        margin-left: 1rem; 
+    }
+
     .profiles {
         flex-direction: column;
         align-items: center;
