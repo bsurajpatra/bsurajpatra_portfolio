@@ -43,3 +43,12 @@
 .footer__socials a:hover {
     color: rgba(255, 255, 255, 0.8);
 }
+
+.footer__content a {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer__content a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
