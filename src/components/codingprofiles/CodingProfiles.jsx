@@ -3,46 +3,68 @@ import './CodingProfiles.css';
 import codechefLogo from '../../assets/codechef.jpg'; 
 import leetcodeLogo from '../../assets/leetcode.png'; 
 import geeksforgeeksLogo from '../../assets/gfglogo.jpeg'; 
+import { motion } from "framer-motion";
 
 const CodingProfiles = () => {
-    const codechefUsername = "klu_2300031514"; 
-    const leetcodeUsername = "klu2300031514"; 
-    const geeksforgeeksUsername = "user_n7dd51vjk9y"; 
+    const profiles = [
+        {
+            id: 1,
+            platform: "CodeChef",
+            username: "klu_2300031514",
+            logo: codechefLogo,
+            url: "https://www.codechef.com/users/klu_2300031514"
+        },
+        {
+            id: 2,
+            platform: "LeetCode",
+            username: "klu2300031514",
+            logo: leetcodeLogo,
+            url: "https://leetcode.com/u/klu2300031514/"
+        },
+        {
+            id: 3,
+            platform: "GeeksforGeeks",
+            username: "user_n7dd51vjk9y",
+            logo: geeksforgeeksLogo,
+            url: "https://www.geeksforgeeks.org/user/user_n7dd51vjk9y/"
+        }
+    ];
 
     return (
-        <section className="coding-profiles" id="coding-profiles">
+        <section className="coding-profiles container section" id="coding-profiles">
             <h2 className="section__title">My Coding Profiles</h2>
-            <div className="profiles">
-                <div className="profile-card" aria-label="CodeChef Profile">
-                    <img src={codechefLogo} alt="CodeChef Logo" className="profile-logo" />
-                    <div className="profile-info">
-                        <h3>CodeChef</h3>
-                        <p className="username">{codechefUsername}</p>
-                        <a href="https://www.codechef.com/users/klu_2300031514" target="_blank" rel="noopener noreferrer">
-                            <button className="profile-button">Visit Profile</button>
-                        </a>
-                    </div>
-                </div>
-                <div className="profile-card" aria-label="LeetCode Profile">
-                    <img src={leetcodeLogo} alt="LeetCode Logo" className="profile-logo" />
-                    <div className="profile-info">
-                        <h3>LeetCode</h3>
-                        <p className="username">{leetcodeUsername}</p>
-                        <a href="https://leetcode.com/u/klu2300031514/" target="_blank" rel="noopener noreferrer">
-                            <button className="profile-button">Visit Profile</button>
-                        </a>
-                    </div>
-                </div>
-                <div className="profile-card" aria-label="GeeksforGeeks Profile">
-                    <img src={geeksforgeeksLogo} alt="GeeksforGeeks Logo" className="profile-logo" />
-                    <div className="profile-info">
-                        <h3>GeeksforGeeks</h3>
-                        <p className="username">{geeksforgeeksUsername}</p>
-                        <a href="https://www.geeksforgeeks.org/user/user_n7dd51vjk9y/" target="_blank" rel="noopener noreferrer">
-                            <button className="profile-button">Visit Profile</button>
-                        </a>
-                    </div>
-                </div>
+
+            <div className="coding-profiles__container grid">
+                {profiles.map((profile) => (
+                    <motion.div
+                        layout
+                        animate={{ opacity: 1 }}
+                        initial={{ opacity: 0 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="coding-profiles__card"
+                        key={profile.id}
+                    >
+                        <div className="coding-profiles__info">
+                            <img 
+                                src={profile.logo} 
+                                alt={`${profile.platform} Logo`} 
+                                className="coding-profiles__logo" 
+                            />
+                            <h3 className="coding-profiles__title">{profile.platform}</h3>
+                            <p className="coding-profiles__username">{profile.username}</p>
+                            <a 
+                                href={profile.url} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                            >
+                                <button className="coding-profiles__button">
+                                    Visit Profile
+                                </button>
+                            </a>
+                        </div>
+                    </motion.div>
+                ))}
             </div>
         </section>
     );

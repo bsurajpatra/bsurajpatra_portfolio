@@ -3,6 +3,8 @@ import './About.css';
 import Image from '../../assets/about-profile.jpg';
 import Resume from '../../assets/resume.pdf';
 
+
+
 const About = () => {
     const downloadResume = async () => {
         window.open(Resume, '_blank');

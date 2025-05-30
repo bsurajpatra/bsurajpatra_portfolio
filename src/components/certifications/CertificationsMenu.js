@@ -16,7 +16,7 @@ import nvidia from "../../assets/nvidiadl.jpg";
 const Menu = [
 	{
 		id:1,
-		title: "MongoDB Certified Developer Associate",
+		title: "MongoDB Certified Associate Developer",
 		company: "MongoDB",
 		certificate: {
 			src: MongoDB,
