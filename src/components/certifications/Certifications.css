@@ -165,6 +165,16 @@
 }
 
 @media screen and (max-width: 768px) {
+    .certifications__container {
+        flex-direction: column;
+        max-width: 500px;
+        padding: 0 1rem;
+    }
+
+    .certifications__column {
+        gap: 1.5rem;
+    }
+
     .certifications__item {
         min-height: 180px;
         padding: 1.5rem;
@@ -182,6 +192,11 @@
 }
 
 @media screen and (max-width: 350px) {
+    .certifications__container {
+        max-width: 400px;
+        padding: 0 0.5rem;
+    }
+
     .certifications__item {
         min-height: 160px;
         padding: 1rem;
