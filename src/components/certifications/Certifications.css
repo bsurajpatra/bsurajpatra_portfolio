@@ -167,7 +167,7 @@
 @media screen and (max-width: 768px) {
     .certifications__container {
         flex-direction: column;
-        max-width: 500px;
+        max-width: 400px;
         padding: 0 1rem;
     }
 
@@ -193,7 +193,7 @@
 
 @media screen and (max-width: 350px) {
     .certifications__container {
-        max-width: 400px;
+        max-width: 300px;
         padding: 0 0.5rem;
     }
 
