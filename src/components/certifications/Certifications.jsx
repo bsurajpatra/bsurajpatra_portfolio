@@ -1,55 +1,102 @@
 import React, { useState } from "react";
 import "./Certifications.css"; 
 import Menu from "./CertificationsMenu"; 
+import { motion, AnimatePresence } from "framer-motion";
+import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
 
 const Certifications = () => {
 	const [items, setItems] = useState(Menu);
-	const [showCertificate, setShowCertificate] = useState(null);
+	const [expandedCertificates, setExpandedCertificates] = useState({});
 
 	const toggleCertificate = (id) => {
-		setShowCertificate(prevId => prevId === id ? null : id);
+		setExpandedCertificates(prev => ({
+			...prev,
+			[id]: !prev[id]
+		}));
 	};
+
+	// Split items into two arrays
+	const midPoint = Math.ceil(items.length / 2);
+	const leftColumn = items.slice(0, midPoint);
+	const rightColumn = items.slice(midPoint);
+
+	const renderColumn = (columnItems) => (
+		<div className="certifications__column">
+			{columnItems.map((elem) => {
+				const { id, title, company, certificate } = elem;
+				const isActive = expandedCertificates[id];
+
+				return (
+					<div 
+						className="certifications__item-wrapper" 
+						key={id}
+					>
+						<motion.div 
+							className="certifications__item" 
+							initial={{ opacity: 0, x: -20 }}
+							animate={{ opacity: 1, x: 0 }}
+							transition={{ duration: 0.3 }}
+						>
+							<div className="certifications__content">
+								<h3 className="certifications__title">{title}</h3>
+								<span className="certifications__company">{company}</span>
+							</div>
+							
+							<div className="certifications__actions">
+								<button 
+									className="certifications__view-button" 
+									onClick={() => toggleCertificate(id)}
+									aria-expanded={isActive}
+									aria-controls={`certificate-${id}`}
+								>
+									{isActive ? (
+										<>
+											<RiEyeOffLine />
+											Hide Certificate
+										</>
+									) : (
+										<>
+											<RiEyeLine />
+											View Certificate
+										</>
+									)}
+								</button>
+							</div>
+						</motion.div>
+
+						<AnimatePresence>
+							{isActive && certificate && (
+								<motion.div 
+									className="certifications__dropdown"
+									initial={{ opacity: 0, height: 0 }}
+									animate={{ opacity: 1, height: "auto" }}
+									exit={{ opacity: 0, height: 0 }}
+									transition={{ duration: 0.3 }}
+									id={`certificate-${id}`}
+								>
+									<img 
+										src={certificate.src}
+										alt={`${title} Certificate`}
+										className="certifications__certificate-image"
+										loading="lazy"
+									/>
+								</motion.div>
+							)}
+						</AnimatePresence>
+					</div>
+				);
+			})}
+		</div>
+	);
 
 	return (
 		<section className="certifications container section" id="certifications">
 			<h2 className="section__title">Certifications</h2>
 
-			<ul className="certifications__list">
-				{items.map((elem) => {
-					const { id, title, company, certificate } = elem;
-					const isActive = showCertificate === id;
-
-					return (
-						<li 
-							className={`certifications__item ${isActive ? 'certifications__item--expanded' : ''}`} 
-							key={id}
-						>
-							<div className="certifications__info">
-								<h3 className="certifications__title">{title}</h3>
-								<span className="certifications__company">{company}</span>
-							</div>
-							<div className="certifications__actions">
-								<button 
-									className="certifications__view-button" 
-									onClick={() => toggleCertificate(id)}
-								>
-									{isActive ? "Hide Certificate" : "View Certificate"}
-								</button>
-							</div>
-
-							{isActive && certificate && (
-								<div className="certifications__dropdown">
-									<img 
-										src={certificate.src}
-										alt={`${title} Certificate`}
-										className="certifications__certificate-image"
-									/>
-								</div>
-							)}
-						</li>
-					);
-				})}
-			</ul>
+			<div className="certifications__container">
+				{renderColumn(leftColumn)}
+				{renderColumn(rightColumn)}
+			</div>
 		</section>
 	);
 };
