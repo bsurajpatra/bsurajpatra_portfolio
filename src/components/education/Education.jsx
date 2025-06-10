@@ -10,7 +10,7 @@ const data = [
         id: 1,
         image: Image1,
         title: "Bachelor of Technology (B.Tech) in Computer Science and Engineering",
-        description: "K L E F Deemed To Be University | 2023 - 2027 | Vijayawada, Andhra Pradesh, India | GPA: 9.51/10"
+        description: "K L E F Deemed To Be University | 2023 - 2027 | Vijayawada, Andhra Pradesh, India | GPA: 9.38/10"
     },
     
     
