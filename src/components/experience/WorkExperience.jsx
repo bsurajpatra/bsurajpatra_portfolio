@@ -25,7 +25,7 @@ const WorkExperience = [
         id: 2,
         title: "Networking Intern",
         company: "Cisco Networking Academy",
-        yearsActive: "May 2024 - August 2024",
+        yearsActive: "May 2024 - July 2024",
         location: "Remote",
         image: { src: Cisco, style: { width: '100px', height: 'auto' } },
         certificate: { src: CiscoCertificate, style: { width: '100%', height: 'auto' } },
