@@ -20,14 +20,15 @@
 .certifications__item-wrapper {
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.02);
-    border-left: 3px solid rgb(249, 123, 139);
+    background: var(--container-color);
+    border-left: 3px solid var(--first-color);
     transition: all 0.3s ease;
+    box-shadow: var(--shadow);
 }
 
 .certifications__item-wrapper:hover {
-    background: rgba(249, 123, 139, 0.05);
-    border-left-color: rgb(249, 123, 139);
+    background: var(--body-color);
+    border-left-color: var(--first-color);
 }
 
 .certifications__item {
@@ -46,7 +47,7 @@
 .certifications__title {
     font-size: var(--h3-font-size);
     font-weight: var(--font-bold);
-    color: #E0E0E0;
+    color: var(--title-color);
     margin: 0;
     line-height: 1.4;
     display: flex;
@@ -59,15 +60,15 @@
     content: '';
     width: 8px;
     height: 8px;
-    background: rgb(249, 123, 139);
+    background: var(--first-color);
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(249, 123, 139, 0.5);
+    box-shadow: 0 0 10px var(--first-color);
     flex-shrink: 0;
 }
 
 .certifications__company {
     font-size: var(--normal-font-size);
-    color: #B0B0B0;
+    color: var(--text-color);
     padding-left: 1.5rem;
     position: relative;
     height: 2rem;
@@ -82,7 +83,7 @@
     top: 50%;
     width: 12px;
     height: 1px;
-    background: rgb(249, 123, 139);
+    background: var(--first-color);
     transform: translateY(-50%);
 }
 
@@ -96,8 +97,8 @@
 
 .certifications__view-button {
     background: transparent;
-    color: rgb(249, 123, 139);
-    border: 1px solid rgb(249, 123, 139);
+    color: var(--first-color);
+    border: 1px solid var(--first-color);
     padding: 0.5rem 1.5rem;
     border-radius: var(--border-radius);
     font-weight: var(--font-medium);
@@ -110,17 +111,17 @@
 }
 
 .certifications__view-button:hover {
-    background: rgb(249, 123, 139);
+    background: var(--first-color);
     color: #fff;
     transform: translateY(-2px);
-    box-shadow: 0 0 15px rgba(249, 123, 139, 0.3);
+    box-shadow: 0 0 15px var(--first-color);
 }
 
 .certifications__dropdown {
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--container-color);
     animation: fadeIn 0.3s ease-out;
-    border-top: 1px solid rgba(249, 123, 139, 0.2);
+    border-top: 1px solid var(--border-color);
     width: 100%;
 }
 
@@ -140,7 +141,7 @@
     max-height: 400px;
     object-fit: contain;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow);
     transition: all 0.3s ease;
 }
 
