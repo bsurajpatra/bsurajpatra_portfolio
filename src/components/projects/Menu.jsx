@@ -26,7 +26,7 @@ const Menu = [
 		image: KarmaSync,
 		title: "KarmaSync",
 		category: ["MERN"],
-		url: "",
+		url: null,
 		repositoryUrl: "https://github.com/bsurajpatra/KarmaSync",
 		description: "An intuitive project management tool to organize, assign, and complete tasks with ease."
 	}
