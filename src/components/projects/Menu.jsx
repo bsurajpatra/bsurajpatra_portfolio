@@ -1,5 +1,6 @@
 import KLEats from "../../assets/kleats.png";
 import Portfolio from "../../assets/portfolio.png";
+import KarmaSync from "../../assets/KarmaSync.png";
 
 const Menu = [
 	{
@@ -19,6 +20,15 @@ const Menu = [
 		url: "https://bsurajpatra-portfolio.vercel.app/",
 		repositoryUrl: "https://github.com/bsurajpatra/bsurajpatra_portfolio",
 		description: "A personal portfolio showcasing my skills, projects, and experience."
+	},
+	{
+		id: 3,
+		image: KarmaSync,
+		title: "KarmaSync",
+		category: ["MERN"],
+		url: "",
+		repositoryUrl: "https://github.com/bsurajpatra/KarmaSync",
+		description: "An intuitive project management tool to organize, assign, and complete tasks with ease."
 	}
 ];
 
