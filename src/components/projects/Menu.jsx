@@ -26,8 +26,8 @@ const Menu = [
 		image: KarmaSync,
 		title: "KarmaSync",
 		category: ["MERN"],
-		url: null,
-		repositoryUrl: "https://github.com/bsurajpatra/KarmaSync",
+		url: "https://karmasync.vercel.app/",
+		repositoryUrl: "https://github.com/bsurajpatra/KarmaSync_info",
 		description: "An intuitive project management tool to organize, assign, and complete tasks with ease."
 	}
 ];
