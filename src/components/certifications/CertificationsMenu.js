@@ -3,9 +3,7 @@ import MongoDB from "../../assets/MongoDB.jpg";
 import GitHub from "../../assets/GitHub Foundations.jpg";
 import CIP from "../../assets/cip.png";
 import GoogleIT from "../../assets/googleit.jpg";
-import IBMBack from "../../assets/ibmback.jpg";
 import MetaFront from "../../assets/MetaFront.jpg";
-import SAS from "../../assets/SAS.jpg";
 import NxtWave from "../../assets/nxtwave.png";
 import Lingua from "../../assets/lingua.jpg";
 import RedHat from "../../assets/redhat.jpg";
@@ -71,15 +69,6 @@ const Menu = [
 	},
 	{
 		id: 7,
-		title: "Back-end JavaScript Developer Professional",
-		company: "IBM - Coursera",
-		certificate: {
-			src: IBMBack,
-			style: { width: '100%', height: 'auto' }
-		}
-	},
-	{
-		id: 8,
 		title: "Front-end Developer",
 		company: "Meta - Coursera",
 		certificate: {
@@ -88,16 +77,7 @@ const Menu = [
 		}
 	},
 	{
-		id: 9,
-		title: "SAS Statistical Business Analyst",
-		company: "SAS - Coursera",
-		certificate: {
-			src: SAS,
-			style: { width: '100%', height: 'auto' }
-		}
-	},
-	{
-		id: 10,
+		id: 8,
 		title: "AI for Students: Build Your Own Generative AI Model",
 		company: "NxtWave",
 		certificate: {
@@ -106,7 +86,7 @@ const Menu = [
 		}
 	},
 	{
-		id: 11,
+		id: 9,
 		title: "Linguaskill General - English Language Proficiency",
 		company: "Cambridge University Press and Assessment",
 		certificate: {
@@ -115,7 +95,7 @@ const Menu = [
 		}
 	},
 	{
-		id: 12,
+		id: 10,
 		title: "Red Hat Academy - Program Learner",
 		company: "Red Hat",
 		certificate: {
@@ -124,7 +104,7 @@ const Menu = [
 		}
 	},
 	{
-		id: 13,
+		id: 11,
 		title: "Spring Framework",
 		company: "LearnQuest - Coursera",
 		certificate: {
@@ -133,7 +113,7 @@ const Menu = [
 		}
 	},
 	{
-		id: 14,
+		id: 12,
 		title: "AI Tools Workshop",
 		company: "be10x",
 		certificate: {
