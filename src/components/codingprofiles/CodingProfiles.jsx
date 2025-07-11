@@ -26,7 +26,7 @@ const CodingProfiles = () => {
             platform: "GeeksforGeeks",
             username: "bsurajpatra",
             logo: geeksforgeeksLogo,
-            url: "https://www.geeksforgeeks.org/user/user_n7dd51vjk9y/"
+            url: "https://www.geeksforgeeks.org/user/bsurajpatra/"
         }
     ];
 
