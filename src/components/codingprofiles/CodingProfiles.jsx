@@ -24,7 +24,7 @@ const CodingProfiles = () => {
         {
             id: 3,
             platform: "GeeksforGeeks",
-            username: "user_n7dd51vjk9y",
+            username: "bsurajpatra",
             logo: geeksforgeeksLogo,
             url: "https://www.geeksforgeeks.org/user/user_n7dd51vjk9y/"
         }
