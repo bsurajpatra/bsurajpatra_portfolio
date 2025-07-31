@@ -56,7 +56,7 @@ const Menu = [
 		id: 6,
 		image: KLEatsFinance,
 		title: "KL Eats Finance (Coming Soon)",
-		category: ["React + Vite ,Node.js ,Supabase"],
+		category: ["React + Vite, Node.js, Supabase"],
 		url: null,
 		repositoryUrl: null,
 		description: "A finance management system for KL Eats."
