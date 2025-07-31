@@ -3,6 +3,7 @@ import Portfolio from "../../assets/portfolio.png";
 import KarmaSync from "../../assets/KarmaSync.png";
 import SafeWebVerify from "../../assets/safewebverify.jpg";
 import AaharExpress from "../../assets/aaharexpress.png";
+import KLEatsFinance from "../../assets/finance_kleats.png";
 
 
 const Menu = [
@@ -50,6 +51,15 @@ const Menu = [
 		url: null,
 		repositoryUrl: "https://github.com/bsurajpatra/AaharExpressDemo",
 		description: "A demo showcasing the user interface and user experience design of the AaharExpress website."
+	},
+	{
+		id: 6,
+		image: KLEatsFinance,
+		title: "KL Eats Finance (Coming Soon)",
+		category: ["React + Vite ,Node.js ,Supabase"],
+		url: null,
+		repositoryUrl: null,
+		description: "A finance management system for KL Eats."
 	}
 ];
 
