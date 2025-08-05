@@ -9,7 +9,6 @@ import Contact from './components/contact/Contact';
 import useLocalStorage from 'use-local-storage'
 import SkillsAndTechnology from './components/skillandtechnology/SkillsAndTechnology';
 import Certifications from './components/certifications/Certifications';
-import CodingProfiles from './components/codingprofiles/CodingProfiles';
 import Footer from './components/footer/Footer';
 
 function App() {
@@ -32,7 +31,6 @@ function App() {
                 <SkillsAndTechnology />   
                 <Projects />
                 <Certifications />
-                <CodingProfiles />
                 <Contact theme={theme} />
                 <Footer />
             </main>
