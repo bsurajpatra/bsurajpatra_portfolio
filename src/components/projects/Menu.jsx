@@ -39,7 +39,7 @@ const Menu = [
 		image: Portfolio,
 		title: "Personal Portfolio",
 		category: ["React"],
-		url: "https://bsurajpatra-portfolio.vercel.app/",
+		url: "https://bsurajpatra.me/",
 		repositoryUrl: "https://github.com/bsurajpatra/bsurajpatra_portfolio",
 		description: "A personal portfolio showcasing my skills, projects, and experience."
 	},
@@ -48,7 +48,7 @@ const Menu = [
 		image: AaharExpress,
 		title: "AaharExpress Demo",
 		category: ["UI/UX"],
-		url: null,
+		url: "https://www.aaharexpressindia.me/",
 		repositoryUrl: "https://github.com/bsurajpatra/AaharExpressDemo",
 		description: "A demo showcasing the user interface and user experience design of the AaharExpress website."
 	},
@@ -65,3 +65,4 @@ const Menu = [
 
 
 export default Menu;
+
