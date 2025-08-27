@@ -29,9 +29,9 @@ const Menu = [
 		id: 3,
 		image: KLEats,
 		title: "KL Eats",
-		category: ["EJS, Node.js"],
+		category: ["Next.js, Node.js, MySQL"],
 		url: "https://kleats.in/",
-		repositoryUrl: null,
+		repositoryUrl: "https://github.com/KLEats",
 		description: "KL Eats makes campus dining easy with meal pre-ordering."
 	},
 	{
@@ -55,10 +55,10 @@ const Menu = [
 	{
 		id: 6,
 		image: KLEatsFinance,
-		title: "KL Eats Finance (Coming Soon)",
-		category: ["React + Vite, Node.js, Supabase"],
-		url: null,
-		repositoryUrl: null,
+		title: "KL Eats Finance",
+		category: ["React + Vite, Node.js, MySQL"],
+		url: "https://finance.kleats.in/",
+		repositoryUrl: "https://github.com/KLEats/finance_kleats",
 		description: "A finance management system for KL Eats."
 	}
 ];
