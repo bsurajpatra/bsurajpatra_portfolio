@@ -26,7 +26,7 @@
     width: 80px;
     height: 80px;
     object-fit: contain;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     border-radius: 50%;
 }
 
@@ -40,10 +40,46 @@
     color: var(--title-color);
 }
 
-.coding-profiles__username {
-    font-size: var(--small-font-size);
-    color: var(--text-color);
+.coding-profiles__user {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
     margin-bottom: 1rem;
+}
+
+.coding-profiles__link {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.coding-profiles__username {
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+}
+
+.coding-profiles__rank {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    background-color: var(--first-color-alt);
+    color: #fff;
+    font-size: 0.7rem;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+/* Platform-specific badge colors */
+.coding-profiles__rank--codechef {
+    background-color: #7B3F00; /* CodeChef brown */
+}
+
+.coding-profiles__rank--leetcode {
+    background-color: #f89f1b; /* LeetCode orange */
+}
+
+.coding-profiles__rank--codeforces {
+    background-color: #8c8c8c; /* Codeforces gray for Newbie */
 }
 
 .coding-profiles__button {

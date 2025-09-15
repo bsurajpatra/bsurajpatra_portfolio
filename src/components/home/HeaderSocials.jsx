@@ -3,8 +3,7 @@ import LinkedInLogo from '../../assets/LinkedInLogo.png';
 import XLogo from '../../assets/XLogo.png';
 import GitHubLogo from '../../assets/GithubLogo.png';
 import InstagramLogo from '../../assets/InstagramLogo.png';
-import CredlyLogo from '../../assets/credly.png';
-
+import TelegramLogo from '../../assets/telegram.png';
 const HeaderSocials = () => {
     return (
         <div className='home__socials'>
@@ -24,8 +23,8 @@ const HeaderSocials = () => {
                 <img src={InstagramLogo} alt="Instagram Logo" className="social-logo" />
             </a>
 
-            <a href='https://www.credly.com/users/b-suraj-patra' className='home__social-link' target='_blank' rel='noreferrer'>
-                <img src={CredlyLogo} alt="Credly Logo" className="social-logo" />
+            <a href='https://t.me/bsurajpatra' className='home__social-link' target='_blank' rel='noreferrer'>
+                <img src={TelegramLogo} alt="Telegram Logo" className="social-logo" />
             </a>
         </div>
     );

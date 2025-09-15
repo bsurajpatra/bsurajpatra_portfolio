@@ -1,5 +1,4 @@
 import KLEats from "../../assets/kleats.png";
-import Portfolio from "../../assets/portfolio.png";
 import KarmaSync from "../../assets/KarmaSync.png";
 import SafeWebVerify from "../../assets/safewebverify.jpg";
 import AaharExpress from "../../assets/aaharexpress.png";
@@ -36,15 +35,6 @@ const Menu = [
 	},
 	{
 		id: 4,
-		image: Portfolio,
-		title: "Personal Portfolio",
-		category: ["React"],
-		url: "https://bsurajpatra.me/",
-		repositoryUrl: "https://github.com/bsurajpatra/bsurajpatra_portfolio",
-		description: "A personal portfolio showcasing my skills, projects, and experience."
-	},
-	{
-		id: 5,
 		image: AaharExpress,
 		title: "AaharExpress Demo",
 		category: ["UI/UX"],
@@ -53,7 +43,7 @@ const Menu = [
 		description: "A demo showcasing the user interface and user experience design of the AaharExpress website."
 	},
 	{
-		id: 6,
+		id: 5,
 		image: KLEatsFinance,
 		title: "KL Eats Finance",
 		category: ["React + Vite, Node.js, MySQL"],

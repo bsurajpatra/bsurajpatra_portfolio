@@ -2,7 +2,7 @@ import React from 'react';
 import './CodingProfiles.css';
 import codechefLogo from '../../assets/codechef.jpg'; 
 import leetcodeLogo from '../../assets/leetcode.png'; 
-import geeksforgeeksLogo from '../../assets/gfglogo.jpeg'; 
+import codeforcesLogo from '../../assets/codeforces.png';
 import { motion } from "framer-motion";
 
 const CodingProfiles = () => {
@@ -10,23 +10,26 @@ const CodingProfiles = () => {
         {
             id: 1,
             platform: "CodeChef",
-            username: "klu_2300031514",
+            username: "bsurajpatra",
+            rank: "2*",
             logo: codechefLogo,
-            url: "https://www.codechef.com/users/klu_2300031514"
+            url: "https://www.codechef.com/users/bsurajpatra"
         },
         {
             id: 2,
             platform: "LeetCode",
-            username: "klu2300031514",
+            username: "bsurajpatra",
+            rank: null,
             logo: leetcodeLogo,
-            url: "https://leetcode.com/u/klu2300031514/"
+            url: "https://leetcode.com/u/bsurajpatra/"
         },
         {
             id: 3,
-            platform: "GeeksforGeeks",
+            platform: "CodeForces",
             username: "bsurajpatra",
-            logo: geeksforgeeksLogo,
-            url: "https://www.geeksforgeeks.org/user/bsurajpatra/"
+            rank: "Newbie",
+            logo: codeforcesLogo,
+            url: "https://codeforces.com/profile/bsurajpatra"
         }
     ];
 
@@ -52,8 +55,14 @@ const CodingProfiles = () => {
                                 className="coding-profiles__logo" 
                             />
                             <h3 className="coding-profiles__title">{profile.platform}</h3>
-                            <p className="coding-profiles__username">{profile.username}</p>
+                            <div className="coding-profiles__user">
+                                <span className="coding-profiles__username">{profile.username}</span>
+                                {profile.rank && (
+                                    <span className={`coding-profiles__rank coding-profiles__rank--${profile.platform.replace(/\s+/g, '-').toLowerCase()}`}>{profile.rank}</span>
+                                )}
+                            </div>
                             <a 
+                                className="coding-profiles__link"
                                 href={profile.url} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
