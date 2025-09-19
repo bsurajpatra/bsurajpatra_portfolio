@@ -4,52 +4,35 @@ import './SkillsAndTechnology.css';
 const skillsData = [
     {
         category: "🖥️ Programming Languages",
-        items: ["C", "Java", "Python", "SQL"],
-    },
-    {
-        category: "🌐 Web Technologies",
-        items: ["HTML", "CSS", "JavaScript"],
+        items: ["C", "Java", "JavaScript"],
     },
     {
         category: "⚙️ Frameworks & Platforms",
         items: [
             "MERN Stack Web Development",
-            "Spring Boot + React Full Stack Development",
-            "Tomcat Server",
-            "Linux Administration",
-            "Generative AI Prompting"
+            "Spring Boot + React Full Stack Development"
         ],
     },
     {
         category: "🗄️ Databases",
-        items: ["MySQL", "PostgreSQL", "MongoDB"],
+        items: ["SQL", "MySQL", "PostgreSQL", "MongoDB"],
     },
     {
         category: "📊 Data Structures & Algorithms (DSA)",
-        items: ["Intermediate DSA"],
-    },
-    {
-        category: "🎨 Design",
-        items: ["Graphic Design"],
+        items: ["Proficient DSA"],
     },
     {
         category: "📂 Version Control & DevOps",
-        items: ["Git", "GitHub", "GitLab", "Docker"],
+        items: ["Git", "GitHub", "GitLab", "Docker", "Jenkins"],
     },
     {
         category: "⚡ Agile & Project Management",
         items: [
             "Agile & Scrum",
             "Team Management",
-            "Presentation",
-            "Public Speaking",
             "Design Thinking",
             "Strategic Vision"
         ],
-    },
-    {
-        category: "📎 Office & Productivity Tools",
-        items: ["MS Office", "PowerBI", "Libre Office"],
     },
     {
         category: "🛠️ Developer Tools",
@@ -60,11 +43,9 @@ const skillsData = [
             "Postman"
         ],
     },
-    {
-        category: "☁️ Deployment & Hosting",
-        items: ["Vercel", "Render"],
-    },
 ];
+
+
 
 const SkillsAndTechnology = () => {
     return (
