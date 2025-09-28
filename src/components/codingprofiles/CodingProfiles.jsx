@@ -21,7 +21,7 @@ const CodingProfiles = () => {
             username: "bsurajpatra",
             rank: null,
             logo: leetcodeLogo,
-            url: "https://leetcode.com/u/bsurajpatra/"
+            url: "https://leetcode.com/u/bsurajpatra1/"
         },
         {
             id: 3,
