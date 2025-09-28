@@ -18,7 +18,7 @@ const CodingProfiles = () => {
         {
             id: 2,
             platform: "LeetCode",
-            username: "bsurajpatra",
+            username: "bsurajpatra1",
             rank: null,
             logo: leetcodeLogo,
             url: "https://leetcode.com/u/bsurajpatra1/"
@@ -78,5 +78,6 @@ const CodingProfiles = () => {
         </section>
     );
 };
+
 
 export default CodingProfiles;
