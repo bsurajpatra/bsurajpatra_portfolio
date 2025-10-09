@@ -50,12 +50,14 @@ const Experience = () => {
                                         style={image.style} 
                                     />
                                 )}
-                                <button 
-                                    className="certificate-button" 
-                                    onClick={() => toggleCertificate(id)}
-                                >
-                                    {showCertificate === id ? "Hide Certificate" : "View Certificate"}
-                                </button>
+                                {certificate && (
+                                    <button 
+                                        className="certificate-button" 
+                                        onClick={() => toggleCertificate(id)}
+                                    >
+                                        {showCertificate === id ? "Hide Certificate" : "View Certificate"}
+                                    </button>
+                                )}
                             </div>
                             
                             {showCertificate === id && certificate && (
