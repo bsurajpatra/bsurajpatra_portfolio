@@ -4,6 +4,7 @@ import Home from './components/home/Home';
 import About from './components/about/About';
 import Education from './components/education/Education';
 import Experience from './components/experience/Experience';
+import GitHub from './components/github/GitHub';
 import Projects from './components/projects/Projects';
 import Contact from './components/contact/Contact';
 import useLocalStorage from 'use-local-storage'
@@ -33,6 +34,7 @@ function App() {
                 <Projects />
                 <Certifications />
                 <CodingProfiles />
+                <GitHub />
                 <Research />
                 <Experience />
                 <Contact theme={theme} />

@@ -1,0 +1,243 @@
+.github-section {
+  /* uses container + section spacing from theme */
+}
+
+.github-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.github-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.github-platform {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-bold);
+  background-color: var(--first-color);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.github-link {
+  color: var(--first-color);
+  font-weight: var(--font-semibold);
+}
+
+.github-platform::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-image: url('../../assets/GithubLogo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.github-platform:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.github-platform--lg {
+  padding: 0.5rem 1rem;
+  font-size: calc(var(--small-font-size) + 1px);
+}
+
+.github-content {
+  background-color: var(--container-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+.github-separator {
+  height: 1px;
+  background: var(--border-color);
+  margin: 1.25rem 0;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .github-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .github-content {
+    padding: 1rem;
+  }
+
+  .github-meta {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+}
+
+/* Profile */
+.github-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.github-username a {
+  color: var(--title-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.github-bio {
+  color: var(--text-color);
+}
+
+.external-link-icon {
+  font-size: 0.85em;
+  color: var(--first-color);
+}
+
+/* Cards */
+.github-stats-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.github-card {
+  background: var(--container-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.github-card-title {
+  display: block;
+  font-size: var(--smaller-font-size);
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+
+.github-card-value {
+  font-size: var(--h3-font-size);
+  color: var(--title-color);
+  font-weight: var(--font-bold);
+}
+
+@media screen and (max-width: 1024px) {
+  .github-stats-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media screen and (max-width: 640px) {
+  .github-stats-cards { grid-template-columns: 1fr; }
+}
+
+/* Graph styling similar to GitHub */
+.github-graph {
+  display: flex;
+  gap: 3px;
+}
+
+.github-graph-week {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.github-graph-day {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+.github-graph-wrapper {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Hide graph on tablets/phones, show on desktop */
+@media screen and (max-width: 1024px) {
+  .github-graph-wrapper { display: none; }
+}
+
+.github-graph-title {
+  font-size: var(--h3-font-size);
+  margin-bottom: 0.75rem;
+}
+
+.github-graph-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.github-graph-container {
+  overflow: visible;
+}
+
+.github-graph-container::-webkit-scrollbar { display: none; }
+
+/* removed inner width wrapper */
+
+@media screen and (max-width: 640px) {
+  .github-month-labels { margin-left: 10px; }
+}
+
+/* Light/Dark color tokens similar to GitHub */
+:root {
+  --gh-0: #ebedf0;
+  --gh-1: #9be9a8;
+  --gh-2: #40c463;
+  --gh-3: #30a14e;
+  --gh-4: #216e39;
+}
+
+[data-theme="dark"] {
+  --gh-0: #000000;
+  --gh-1: #0e4429;
+  --gh-2: #006d32;
+  --gh-3: #26a641;
+  --gh-4: #39d353;
+}
+
+.github-month-labels {
+  position: relative;
+  height: 18px;
+  margin-left: 18px;
+  width: 100%;
+}
+
+.github-month-label {
+  position: absolute;
+  font-size: 10px;
+  color: var(--text-color);
+}
+
+.github-day-labels {
+  display: flex;
+  flex-direction: column;
+  margin-right: 6px;
+}
+
+.github-day-labels div {
+  height: 16px;
+  line-height: 16px;
+  font-size: 10px;
+  color: var(--text-color);
+}
+
+

@@ -14,7 +14,8 @@ import {
     RiCodeLine,
     RiAwardLine,
     RiToolsLine,
-    RiBookOpenLine
+    RiBookOpenLine,
+    RiBarChartLine
 } from "react-icons/ri";
 
 
@@ -62,6 +63,7 @@ const Sidebar = (props) => {
                                 </a>
                             </li>
 
+
                             <li className="nav__item">
                                 <a href="#certifications" className="nav__link">
                                     <RiAwardLine />
@@ -71,6 +73,12 @@ const Sidebar = (props) => {
                             <li className="nav__item">
                                 <a href="#coding-profiles" className="nav__link">
                                     <RiCodeLine />
+                                </a>
+                            </li>
+
+                            <li className="nav__item">
+                                <a href="#github" className="nav__link">
+                                    <RiBarChartLine />
                                 </a>
                             </li>
 
