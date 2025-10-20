@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 const USERNAME = "bsurajpatra";
@@ -39,6 +39,7 @@ export default function ContributionGraph() {
   const [contributions, setContributions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [snakeIndex, setSnakeIndex] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -72,9 +73,6 @@ export default function ContributionGraph() {
     fetchData();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {JSON.stringify(error)}</div>;
-
   const weeks = [];
   for (let i = 0; i < contributions.length; i += 7) {
     weeks.push(contributions.slice(i, i + 7));
@@ -100,6 +98,52 @@ export default function ContributionGraph() {
 
   const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
+  // Random-walk snake across the grid (all directions)
+  const cellSize = 14; // match CSS
+  const gap = 3; // match CSS
+  const gridWidth = weeks.length;
+  const gridHeight = 7;
+  const headRef = useRef({ x: Math.max(0, Math.floor(gridWidth / 2)), y: 3 });
+  const trailRef = useRef([]);
+
+  useEffect(() => {
+    if (!gridWidth || !gridHeight) return undefined;
+    headRef.current = { x: Math.max(0, Math.floor(gridWidth / 2)), y: Math.max(0, Math.min(3, gridHeight - 1)) };
+    trailRef.current = [];
+
+    let raf;
+    let lastTick = 0;
+    const tickIntervalMs = 80;
+    const loop = (t) => {
+      if (t - lastTick >= tickIntervalMs) {
+        const { x, y } = headRef.current;
+        const neighbors = [
+          { x: x + 1, y }, { x: x - 1, y }, { x, y: y + 1 }, { x, y: y - 1 },
+          { x: x + 1, y: y + 1 }, { x: x + 1, y: y - 1 }, { x: x - 1, y: y + 1 }, { x: x - 1, y: y - 1 }
+        ].filter((p) => p.x >= 0 && p.x < gridWidth && p.y >= 0 && p.y < gridHeight);
+        const next = neighbors.length ? neighbors[Math.floor(Math.random() * neighbors.length)] : { x, y };
+        headRef.current = next;
+        trailRef.current.unshift(next);
+        const maxLen = 12;
+        if (trailRef.current.length > maxLen) trailRef.current.length = maxLen;
+        setSnakeIndex((idx) => idx + 1);
+        lastTick = t;
+      }
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(raf);
+  }, [gridWidth, gridHeight]);
+
+  const snakeTrail = trailRef.current.map((p, i) => ({
+    x: p.x * (cellSize + gap),
+    y: p.y * (cellSize + gap),
+    alpha: Math.max(0.3, 1 - i / Math.max(1, trailRef.current.length))
+  }));
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {JSON.stringify(error)}</div>;
+
   return (
     <div className="github-graph-wrapper">
       <h3 className="github-graph-title">Contributions · {yearStart} - {yearEnd}</h3>
@@ -115,21 +159,32 @@ export default function ContributionGraph() {
               <div key={m.index} className="github-month-label" style={{ left: `${m.index * 17}px` }}>{m.label}</div>
             ))}
           </div>
-          <div className="github-graph">
-            {weeks.map((week, i) => (
-              <div key={i} className="github-graph-week">
-                {week.map((day) => (
-                  <div
-                    key={day.date}
-                    className="github-graph-day"
-                    title={`${day.date}: ${day.contributionCount} contributions`}
-                    style={{
-                      backgroundColor: getColor(day.contributionCount),
-                    }}
-                  />
-                ))}
-              </div>
-            ))}
+          <div className="github-graph-stage">
+            <div className="github-graph">
+              {weeks.map((week, i) => (
+                <div key={i} className="github-graph-week">
+                  {week.map((day) => (
+                    <div
+                      key={day.date}
+                      className="github-graph-day"
+                      title={`${day.date}: ${day.contributionCount} contributions`}
+                      style={{
+                        backgroundColor: getColor(day.contributionCount),
+                      }}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+            <div className="snake-overlay" aria-hidden="true">
+              {snakeTrail.map((seg, i) => (
+                <div
+                  key={`seg-${i}-${seg.x}-${seg.y}`}
+                  className="snake-segment"
+                  style={{ left: `${seg.x}px`, top: `${seg.y}px`, opacity: seg.alpha }}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

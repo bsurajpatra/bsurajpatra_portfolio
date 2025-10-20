@@ -1,6 +1,4 @@
-.github-section {
-  /* uses container + section spacing from theme */
-}
+
 
 .github-header {
   display: flex;
@@ -148,6 +146,29 @@
 .github-graph {
   display: flex;
   gap: 3px;
+}
+.github-graph-stage {
+  position: relative;
+}
+
+.snake-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.snake-segment {
+  position: absolute;
+  width: 14px; /* match .github-graph-day */
+  height: 14px; /* match .github-graph-day */
+  border-radius: 3px;
+  background: var(--first-color);
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+  mix-blend-mode: multiply;
+}
+
+@media screen and (max-width: 1024px) {
+  .snake-overlay { display: none; }
 }
 
 .github-graph-week {

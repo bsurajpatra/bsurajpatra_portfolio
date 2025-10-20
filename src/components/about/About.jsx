@@ -1,7 +1,6 @@
 import React from 'react';
 import './About.css';
 import Image from '../../assets/about-profile.jpg';
-import Resume from '../../assets/resume.pdf';
 
 
 
