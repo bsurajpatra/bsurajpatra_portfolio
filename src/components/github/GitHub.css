@@ -149,6 +149,8 @@
 }
 .github-graph-stage {
   position: relative;
+  width: 100%;
+  overflow: visible;
 }
 
 .snake-overlay {
@@ -167,9 +169,14 @@
   mix-blend-mode: multiply;
 }
 
-@media screen and (max-width: 1024px) {
-  .snake-overlay { display: none; }
+/* Dark mode snake visibility */
+[data-theme="dark"] .snake-segment {
+  background: #00ff88;
+  box-shadow: 0 0 8px rgba(0,255,136,0.3);
+  mix-blend-mode: normal;
 }
+
+/* Snake visible on all screen sizes */
 
 .github-graph-week {
   display: flex;
@@ -190,9 +197,38 @@
   align-items: center;
 }
 
-/* Hide graph on tablets/phones, show on desktop */
+/* Responsive scaling instead of hiding */
+.github-graph-container {
+  transform-origin: left top;
+  min-width: max-content;
+}
+
 @media screen and (max-width: 1024px) {
-  .github-graph-wrapper { display: none; }
+  .github-graph-container { 
+    transform: scale(0.85); 
+    transform-origin: left top;
+  }
+  .github-graph-title { margin-bottom: 0.5rem; }
+  .github-graph-row { justify-content: flex-start; }
+  .github-day-labels {
+    margin-right: 4px;
+    padding-right: 2px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .github-graph-container { 
+    transform: scale(0.7); 
+    transform-origin: left top;
+  }
+  .github-day-labels div { font-size: 8px; height: 12px; line-height: 12px; }
+  .github-month-labels { height: 14px; }
+  .github-graph-row { justify-content: flex-start; }
+  .github-day-labels {
+    margin-right: 3px;
+    padding-right: 1px;
+    padding-top: 12px;
+  }
 }
 
 .github-graph-title {
@@ -202,12 +238,19 @@
 
 .github-graph-row {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+  gap: 8px;
 }
 
 .github-graph-container {
-  overflow: visible;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  width: max-content;
+  min-width: 100%;
+  padding-bottom: 8px;
 }
 
 .github-graph-container::-webkit-scrollbar { display: none; }
@@ -252,6 +295,13 @@
   display: flex;
   flex-direction: column;
   margin-right: 6px;
+  flex-shrink: 0;
+  position: sticky;
+  left: 0;
+  background: var(--container-color);
+  z-index: 1;
+  padding-right: 4px;
+  padding-top: 16px;
 }
 
 .github-day-labels div {
@@ -259,6 +309,26 @@
   line-height: 16px;
   font-size: 10px;
   color: var(--text-color);
+}
+
+/* Mobile alignment fixes */
+@media screen and (max-width: 1024px) {
+  .github-day-labels {
+    padding-top: 14px;
+  }
+  .github-day-labels div {
+    height: 14px;
+    line-height: 14px;
+    font-size: 9px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .github-day-labels div {
+    height: 12px;
+    line-height: 12px;
+    font-size: 8px;
+  }
 }
 
 
