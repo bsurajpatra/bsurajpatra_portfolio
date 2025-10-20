@@ -3,11 +3,40 @@ import KarmaSync from "../../assets/KarmaSync.png";
 import SafeWebVerify from "../../assets/safewebverify.jpg";
 import AaharExpress from "../../assets/aaharexpress.png";
 import KLEatsFinance from "../../assets/finance_kleats.png";
+import FaceAttend from "../../assets/FaceAttend.png";
 
 
 const Menu = [
 	{
 		id: 1,
+		image: KLEats,
+		title: "KL Eats",
+		category: ["Next.js, Node.js, MySQL"],
+		url: "https://kleats.in/",
+		repositoryUrl: "https://github.com/KLEats",
+		description: "KL Eats makes campus dining easy with meal pre-ordering."
+		
+	},
+	{
+		id: 2,
+		image: FaceAttend,
+		title: "FaceAttend",
+		category: ["React Native, Node.js, FaceNet, MongoDB"],
+		url: null,
+		repositoryUrl: "https://github.com/bsurajpatra/FaceAttend",
+		description: "FaceAttend is a system that automates attendance using facial recognition."
+	},
+	{
+		id: 3,
+		image: KLEatsFinance,
+		title: "KL Eats Finance",
+		category: ["React + Vite, Node.js, MySQL"],
+		url: "https://finance.kleats.in/",
+		repositoryUrl: "https://github.com/KLEats/finance_kleats",
+		description: "A finance management system for KL Eats."
+	},
+	{
+		id: 4,
 		image: SafeWebVerify,
 		title: "SafeWebVerify",
 		category: ["MERN, AI/ML"],
@@ -16,7 +45,7 @@ const Menu = [
 		description: "SafeWebVerify is an AI/ML-powered web app that detects phishing websites in real-time with 98% accuracy."
 	},
 	{
-		id: 2,
+		id: 5,
 		image: KarmaSync,
 		title: "KarmaSync",
 		category: ["MERN"],
@@ -25,16 +54,7 @@ const Menu = [
 		description: "An intuitive project management tool to organize, assign, and complete tasks with ease."
 	},
 	{
-		id: 3,
-		image: KLEats,
-		title: "KL Eats",
-		category: ["Next.js, Node.js, MySQL"],
-		url: "https://kleats.in/",
-		repositoryUrl: "https://github.com/KLEats",
-		description: "KL Eats makes campus dining easy with meal pre-ordering."
-	},
-	{
-		id: 4,
+		id: 6,
 		image: AaharExpress,
 		title: "AaharExpress Demo",
 		category: ["UI/UX"],
@@ -42,15 +62,7 @@ const Menu = [
 		repositoryUrl: "https://github.com/bsurajpatra/AaharExpressDemo",
 		description: "A demo showcasing the user interface and user experience design of the AaharExpress website."
 	},
-	{
-		id: 5,
-		image: KLEatsFinance,
-		title: "KL Eats Finance",
-		category: ["React + Vite, Node.js, MySQL"],
-		url: "https://finance.kleats.in/",
-		repositoryUrl: "https://github.com/KLEats/finance_kleats",
-		description: "A finance management system for KL Eats."
-	}
+	
 ];
 
 
