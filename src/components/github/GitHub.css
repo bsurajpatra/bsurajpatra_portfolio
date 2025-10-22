@@ -106,40 +106,46 @@
   color: var(--first-color);
 }
 
-/* Cards */
-.github-stats-cards {
+/* GitHub Stats Cards */
+.github-stats-container {
+  padding: 1rem 0;
+}
+
+.github-stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+  max-width: 100%;
 }
 
-.github-card {
-  background: var(--container-color);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  padding: 1rem;
-  box-shadow: var(--shadow);
+.github-stats-card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  overflow: hidden;
 }
 
-.github-card-title {
+.github-stats-image {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
   display: block;
-  font-size: var(--smaller-font-size);
-  color: var(--text-color);
-  margin-bottom: 0.25rem;
-}
-
-.github-card-value {
-  font-size: var(--h3-font-size);
-  color: var(--title-color);
-  font-weight: var(--font-bold);
 }
 
 @media screen and (max-width: 1024px) {
-  .github-stats-cards { grid-template-columns: repeat(2, 1fr); }
+  .github-stats-grid { 
+    grid-template-columns: 1fr; 
+    gap: 0.75rem;
+  }
 }
 
 @media screen and (max-width: 640px) {
-  .github-stats-cards { grid-template-columns: 1fr; }
+  .github-stats-grid { 
+    grid-template-columns: 1fr; 
+    gap: 0.5rem;
+  }
 }
 
 /* Graph styling similar to GitHub */
