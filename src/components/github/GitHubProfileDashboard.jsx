@@ -13,7 +13,7 @@ export default function GitHubProfileDashboard() {
         </div>
         <div className="github-stats-card">
           <img 
-            src="https://streak-stats.demolab.com?user=bsurajpatra&theme=tokyonight" 
+            src="https://github-readme-streak-stats-eight.vercel.app/?user=bsurajpatra&theme=tokyonight" 
             alt="GitHub Streak" 
             className="github-stats-image"
           />
