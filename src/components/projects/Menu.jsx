@@ -22,7 +22,7 @@ const Menu = [
 		image: FaceAttend,
 		title: "FaceAttend",
 		category: ["React Native, Node.js, FaceNet, MongoDB"],
-		url: null,
+		url: "https://faceattendai.netlify.app/",
 		repositoryUrl: "https://github.com/bsurajpatra/FaceAttend",
 		description: "FaceAttend is a system that automates attendance using facial recognition."
 	},
@@ -67,4 +67,5 @@ const Menu = [
 
 
 export default Menu;
+
 
