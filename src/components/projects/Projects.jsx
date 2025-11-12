@@ -1,20 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Projects.css";
 
 import Menu from "./Menu";
-import { RiGithubLine, RiLink, RiInformationLine } from "react-icons/ri";
+import { RiGithubLine, RiLink } from "react-icons/ri";
 
 import { motion } from "framer-motion";
 
 const Projects = () => {
-	const [items, setItems] = useState(Menu);
-	const [showDescription, setShowDescription] = useState(null);
-
-	const toggleDescription = (id, e) => {
-		e.preventDefault();
-		e.stopPropagation();
-		setShowDescription(showDescription === id ? null : id);
-	};
+	const items = Menu;
 
 	return (
 		<section className="projects container section" id="projects">

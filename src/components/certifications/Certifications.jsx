@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
 
 const Certifications = () => {
-	const [items, setItems] = useState(Menu);
+	const items = Menu;
 	const [expandedCertificates, setExpandedCertificates] = useState({});
 
 	const toggleCertificate = (id) => {

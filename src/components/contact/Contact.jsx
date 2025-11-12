@@ -18,12 +18,6 @@ const Contact = (props) => {
 
         setLoading(true);
 
-        const data = {
-            name,
-            email,
-            message,
-        };
-
         emailjs
         .send(
             process.env.REACT_APP_EMAILJS_SERVICE_ID,

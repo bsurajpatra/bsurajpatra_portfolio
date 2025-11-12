@@ -39,7 +39,7 @@ export default function ContributionGraph() {
   const [contributions, setContributions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [snakeIndex, setSnakeIndex] = useState(0);
+  const [, setSnakeIndex] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
