@@ -5,6 +5,7 @@ import Lingua from "../../assets/lingua.jpg";
 import RedHat from "../../assets/redhat.jpg";
 import nvidia from "../../assets/nvidiadl.jpg";
 import awscp from "../../assets/awscp.jpg";
+import scrum from "../../assets/scrum.jpg";
 
 const Menu = [
     {
@@ -67,6 +68,15 @@ const Menu = [
         company: "NVIDIA",
         certificate: {
             src: nvidia,
+            style: { width: '100%', height: 'auto' }
+        }
+    },
+    {
+        id: 8,
+        title: "Scrum Fundamentals",
+        company: "SCRUMstudy",
+        certificate: {
+            src: scrum,
             style: { width: '100%', height: 'auto' }
         }
     }
