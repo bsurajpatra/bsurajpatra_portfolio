@@ -113,10 +113,15 @@
 
 .github-stats-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  max-width: 100%;
+  grid-template-columns: 1fr;
+  justify-items: center;   /* centers the card horizontally */
 }
+
+.github-stats-image {
+  max-width: 1080px;
+  width: 100%;
+}
+
 
 .github-stats-card {
   background: transparent;

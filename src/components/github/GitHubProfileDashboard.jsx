@@ -6,13 +6,6 @@ export default function GitHubProfileDashboard() {
       <div className="github-stats-grid">
         <div className="github-stats-card">
           <img 
-            src="https://github-readme-stats.vercel.app/api?username=bsurajpatra&show_icons=true&theme=tokyonight&cache_seconds=86400" 
-            alt="GitHub Stats" 
-            className="github-stats-image"
-          />
-        </div>
-        <div className="github-stats-card">
-          <img 
             src="https://github-readme-streak-stats-eight.vercel.app/?user=bsurajpatra&theme=tokyonight" 
             alt="GitHub Streak" 
             className="github-stats-image"

@@ -1,9 +1,9 @@
 import KLEats from "../../assets/kleats.png";
 import KarmaSync from "../../assets/KarmaSync.png";
 import SafeWebVerify from "../../assets/safewebverify.jpg";
-import AaharExpress from "../../assets/aaharexpress.png";
 import KLEatsFinance from "../../assets/finance_kleats.png";
 import FaceAttend from "../../assets/FaceAttend.png";
+import SwatVsTheUndead from "../../assets/swatvstheundead.png";
 
 
 const Menu = [
@@ -55,12 +55,12 @@ const Menu = [
 	},
 	{
 		id: 6,
-		image: AaharExpress,
-		title: "AaharExpress Demo",
-		category: ["UI/UX"],
-		url: "https://www.aaharexpressindia.me/",
-		repositoryUrl: "https://github.com/bsurajpatra/AaharExpressDemo",
-		description: "A demo showcasing the user interface and user experience design of the AaharExpress website."
+		image: SwatVsTheUndead,
+		title: "SWAT vs the Undead",
+		category: ["Game & UX"],
+		url: "https://bsurajpatra.itch.io/swat-vs-the-undead",
+		repositoryUrl: null,
+		description: "A Unity and C# powered FPS survival game with wave-based zombie combat."
 	},
 	
 ];

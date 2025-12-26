@@ -43,6 +43,17 @@ const skillsData = [
             "Postman"
         ],
     },
+    {
+        category: "🎮 Game Development & UX",
+        items: [
+            "Unity Engine (2D/3D)",
+            "C# Gameplay Scripting",
+            "Player-Centered UX Design",
+            "Interaction Design for Games"
+        ],
+    }
+    
+    
 ];
 
 

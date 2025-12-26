@@ -2,7 +2,6 @@ import Salesforce from "../../assets/salesforce.png";
 import MongoDB from "../../assets/MongoDB.jpg";
 import GitHub from "../../assets/GitHub Foundations.jpg";
 import Lingua from "../../assets/lingua.jpg";
-import RedHat from "../../assets/redhat.jpg";
 import nvidia from "../../assets/nvidiadl.jpg";
 import awscp from "../../assets/awscp.jpg";
 import scrum from "../../assets/scrum.jpg";
@@ -37,15 +36,6 @@ const Menu = [
     },
     {
         id: 4,
-        title: "Red Hat Academy - Program Learner",
-        company: "Red Hat",
-        certificate: {
-            src: RedHat,
-            style: { width: '100%', height: 'auto' }
-        }
-    },
-    {
-        id: 5,
         title: "Salesforce Certified AI Associate",
         company: "Salesforce",
         certificate: {
@@ -54,7 +44,7 @@ const Menu = [
         }
     },
     {
-        id: 6,
+        id: 5,
         title: "Linguaskill General - English Language Proficiency",
         company: "Cambridge University Press and Assessment",
         certificate: {
@@ -63,7 +53,7 @@ const Menu = [
         }
     },
     {
-        id: 7,
+        id: 6,
         title: "Fundamentals of Deep Learning",
         company: "NVIDIA",
         certificate: {
@@ -72,7 +62,7 @@ const Menu = [
         }
     },
     {
-        id: 8,
+        id: 7,
         title: "Scrum Fundamentals",
         company: "SCRUMstudy",
         certificate: {
