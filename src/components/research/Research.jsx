@@ -30,7 +30,7 @@ const Research = () => {
 
     return (
         <section className="research container section" id="research">
-            <h2 className="section__title">Research & Publications</h2>
+            <h2 className="section__title">Patents & Publications</h2>
 
             <div className="research__list">
                 {items.map((item) => (
