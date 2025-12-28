@@ -130,6 +130,8 @@
   padding: 0;
   box-shadow: none;
   overflow: hidden;
+  width: 500px;
+  height: 300px;
 }
 
 .github-stats-image {
