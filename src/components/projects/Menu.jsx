@@ -59,7 +59,7 @@ const Menu = [
 		title: "SWAT vs the Undead",
 		category: ["Game & UX"],
 		url: "https://bsurajpatra.itch.io/swat-vs-the-undead",
-		repositoryUrl: null,
+		repositoryUrl: "https://github.com/bsurajpatra/swat-vs-the-undead",
 		description: "A Unity and C# powered FPS survival game with wave-based zombie combat."
 	},
 	
