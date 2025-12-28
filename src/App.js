@@ -13,6 +13,7 @@ import Certifications from './components/certifications/Certifications';
 import CodingProfiles from './components/codingprofiles/CodingProfiles';
 import Research from './components/research/Research';
 import Footer from './components/footer/Footer';
+import Achievements from './components/achievements/Achievements';
 
 function App() {
     const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -32,6 +33,7 @@ function App() {
                 <Education />
                 <SkillsAndTechnology />   
                 <Projects />
+                <Achievements />
                 <Certifications />
                 <CodingProfiles />
                 <GitHub />
