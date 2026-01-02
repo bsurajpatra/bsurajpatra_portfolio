@@ -1,19 +1,12 @@
 import React, { useState } from "react";
-import "./Certifications.css"; 
-import Menu from "./CertificationsMenu"; 
+import "./Certifications.css";
+import Menu from "./CertificationsMenu";
 import { motion, AnimatePresence } from "framer-motion";
-import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
+import { RiEyeLine, RiCloseLine } from "react-icons/ri";
 
 const Certifications = () => {
 	const items = Menu;
-	const [expandedCertificates, setExpandedCertificates] = useState({});
-
-	const toggleCertificate = (id) => {
-		setExpandedCertificates(prev => ({
-			...prev,
-			[id]: !prev[id]
-		}));
-	};
+	const [selectedCertificate, setSelectedCertificate] = useState(null);
 
 	// Split items into two arrays
 	const midPoint = Math.ceil(items.length / 2);
@@ -23,67 +16,32 @@ const Certifications = () => {
 	const renderColumn = (columnItems) => (
 		<div className="certifications__column">
 			{columnItems.map((elem) => {
-				const { id, title, company, certificate } = elem;
-				const isActive = expandedCertificates[id];
+				const { id, title, company } = elem;
 
 				return (
-					<div 
-						className="certifications__item-wrapper" 
+					<motion.div
+						className="certifications__item"
 						key={id}
+						initial={{ opacity: 0, x: -20 }}
+						animate={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.3 }}
 					>
-						<motion.div 
-							className="certifications__item" 
-							initial={{ opacity: 0, x: -20 }}
-							animate={{ opacity: 1, x: 0 }}
-							transition={{ duration: 0.3 }}
-						>
-							<div className="certifications__content">
-								<h3 className="certifications__title">{title}</h3>
-								<span className="certifications__company">{company}</span>
-							</div>
-							
-							<div className="certifications__actions">
-								<button 
-									className="certifications__view-button" 
-									onClick={() => toggleCertificate(id)}
-									aria-expanded={isActive}
-									aria-controls={`certificate-${id}`}
-								>
-									{isActive ? (
-										<>
-											<RiEyeOffLine />
-											Hide Certificate
-										</>
-									) : (
-										<>
-											<RiEyeLine />
-											View Certificate
-										</>
-									)}
-								</button>
-							</div>
-						</motion.div>
+						<div className="certifications__content">
+							<h3 className="certifications__title">{title}</h3>
+							<span className="certifications__company">{company}</span>
+						</div>
 
-						<AnimatePresence>
-							{isActive && certificate && (
-								<motion.div 
-									className="certifications__dropdown"
-									initial={{ opacity: 0, height: 0 }}
-									animate={{ opacity: 1, height: "auto" }}
-									exit={{ opacity: 0, height: 0 }}
-									transition={{ duration: 0.3 }}
-									id={`certificate-${id}`}
-								>
-									<img 
-										src={certificate.src}
-										alt={`${title} Certificate`}
-										className="certifications__certificate-image"
-										loading="lazy"
-									/>
-								</motion.div>
-							)}
-						</AnimatePresence>
-					</div>
+						<div className="certifications__actions">
+							<button
+								className="certifications__view-button"
+								onClick={() => setSelectedCertificate(elem)}
+								title="View Certificate"
+							>
+								<RiEyeLine />
+								View Certificate
+							</button>
+						</div>
+					</motion.div>
 				);
 			})}
 		</div>
@@ -97,6 +55,41 @@ const Certifications = () => {
 				{renderColumn(leftColumn)}
 				{renderColumn(rightColumn)}
 			</div>
+
+			<AnimatePresence>
+				{selectedCertificate && (
+					<motion.div
+						className="certificate-modal__overlay"
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						onClick={() => setSelectedCertificate(null)}
+					>
+						<motion.div
+							className="certificate-modal__content"
+							initial={{ y: 50, opacity: 0 }}
+							animate={{ y: 0, opacity: 1 }}
+							exit={{ y: 50, opacity: 0 }}
+							onClick={(e) => e.stopPropagation()}
+						>
+							<button className="certificate-modal__close" onClick={() => setSelectedCertificate(null)}>
+								<RiCloseLine />
+							</button>
+
+							<h3 className="certificate-modal__title">{selectedCertificate.title}</h3>
+							<p className="certificate-modal__company">{selectedCertificate.company}</p>
+
+							<div className="certificate-modal__img-wrapper">
+								<img
+									src={selectedCertificate.certificate.src}
+									alt={`${selectedCertificate.title} Certificate`}
+									className="certificate-modal__img"
+								/>
+							</div>
+						</motion.div>
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</section>
 	);
 };

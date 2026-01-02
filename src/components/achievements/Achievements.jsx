@@ -23,11 +23,14 @@ const Achievements = () => {
           >
             <span className="achievements__badge">{badge}</span>
 
-            {getIcon(icon)}
+            <div className="achievements__icon-wrapper">
+              {getIcon(icon)}
+            </div>
 
-            <h3 className="achievements__title">{title}</h3>
-
-            <p className="achievements__description">{description}</p>
+            <div className="achievements__content">
+              <h3 className="achievements__title">{title}</h3>
+              <p className="achievements__description">{description}</p>
+            </div>
           </motion.div>
         ))}
       </div>
