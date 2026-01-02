@@ -409,8 +409,20 @@
 }
 
 @media screen and (max-width: 480px) {
+  .home {
+    padding: 6rem 1.5rem 8rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+  }
+
   .home__content {
+    grid-template-columns: 1fr;
     gap: 1.5rem;
+    justify-items: center;
   }
 
   .home__img-border {
@@ -426,18 +438,27 @@
     font-size: var(--small-font-size);
   }
 
+  .home__highlights {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: none;
+  }
+
   .home__buttons {
     flex-direction: column;
     width: 100%;
+    gap: 0.75rem;
   }
 
   .btn-primary,
   .btn-secondary {
     width: 100%;
     text-align: center;
+    padding: 0.875rem 1.75rem;
+    font-size: var(--small-font-size);
   }
 
   .scroll__down {
-    bottom: 1rem;
+    bottom: 2rem;
   }
 }

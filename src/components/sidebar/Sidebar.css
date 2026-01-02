@@ -30,7 +30,7 @@ aside {
 }
 
 .nav__link:hover {
-  color: hsl(43, 100%, 68%);
+  color: var(--first-color);
 }
 
 .footer__button {
@@ -65,7 +65,7 @@ aside {
   border: 1px solid var(--title-color);
 }
 
-[data-theme="dark"] .nav__toggle > svg {
+[data-theme="dark"] .nav__toggle>svg {
   color: var(--title-color);
 }
 

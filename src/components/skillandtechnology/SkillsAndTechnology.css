@@ -134,4 +134,31 @@
     .skills__list-container {
         grid-template-columns: 1fr;
     }
+
+    .skills__box {
+        padding: 1.5rem;
+    }
+
+    .skills__category-header {
+        font-size: 1.15rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .skills__pill {
+        padding: 0.4rem 0.75rem;
+    }
+
+    .skills__text {
+        font-size: 0.875rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .skills__box {
+        padding: 1.25rem;
+    }
+
+    .skills__items-wrapper {
+        gap: 0.6rem;
+    }
 }
