@@ -3,12 +3,71 @@ import { toast, ToastContainer } from "react-toastify";
 import emailjs from "@emailjs/browser";
 import "./Contact.css";
 import "react-toastify/dist/ReactToastify.css";
+import {
+    RiLinkedinBoxFill,
+    RiTwitterXFill,
+    RiInstagramFill,
+    RiTelegramFill,
+    RiWhatsappFill,
+    RiMailFill
+} from "react-icons/ri";
 
 const Contact = (props) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
+
+    const contactLinks = [
+        {
+            id: 1,
+            icon: <RiLinkedinBoxFill />,
+            name: "LinkedIn",
+            value: "b-suraj-patra",
+            url: "https://www.linkedin.com/in/b-suraj-patra/",
+            color: "#0077b5"
+        },
+        {
+            id: 2,
+            icon: <RiTwitterXFill />,
+            name: "X (Twitter)",
+            value: "@bsurajpatra",
+            url: "https://x.com/bsurajpatra?t=LxiiiVr8RwoIUJHTbajsBg&s=09",
+            color: "#000000"
+        },
+        {
+            id: 3,
+            icon: <RiInstagramFill />,
+            name: "Instagram",
+            value: "@suraj_patra_0",
+            url: "https://www.instagram.com/suraj_patra_0/",
+            color: "#E4405F"
+        },
+        {
+            id: 4,
+            icon: <RiTelegramFill />,
+            name: "Telegram",
+            value: "@bsurajpatra",
+            url: "https://t.me/bsurajpatra",
+            color: "#0088cc"
+        },
+        {
+            id: 5,
+            icon: <RiWhatsappFill />,
+            name: "WhatsApp",
+            value: "+91 8763232589",
+            url: "https://wa.me/918763232589",
+            color: "#25D366"
+        },
+        {
+            id: 6,
+            icon: <RiMailFill />,
+            name: "Email",
+            value: "ankitsuraj1111@gmail.com",
+            url: "mailto:ankitsuraj1111@gmail.com",
+            color: "#EA4335"
+        }
+    ];
 
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -19,17 +78,17 @@ const Contact = (props) => {
         setLoading(true);
 
         emailjs
-        .send(
-            process.env.REACT_APP_EMAILJS_SERVICE_ID,
-            process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-            {
-                from_name: name,  
-                from_email: email,
-                message: message
-            },
-            process.env.REACT_APP_EMAILJS_PUBLIC_API
-        )
-    
+            .send(
+                process.env.REACT_APP_EMAILJS_SERVICE_ID,
+                process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+                {
+                    from_name: name,
+                    from_email: email,
+                    message: message
+                },
+                process.env.REACT_APP_EMAILJS_PUBLIC_API
+            )
+
             .then(
                 (result) => {
                     setLoading(false);
@@ -53,6 +112,29 @@ const Contact = (props) => {
                     <p className="contact__details">
                         I'd love to hear from you! Whether you have a question or just want to chat, feel free to drop me a message. 👋
                     </p>
+
+                    <div className="contact__socials">
+                        <h4 className="contact__socials-title">Direct Contact</h4>
+                        <div className="contact__links">
+                            {contactLinks.map((link) => (
+                                <a
+                                    key={link.id}
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="contact__link"
+                                    style={{ '--link-color': link.color }}
+                                    title={`${link.name}: ${link.value}`}
+                                >
+                                    <span className="contact__link-icon">{link.icon}</span>
+                                    <div className="contact__link-info">
+                                        <span className="contact__link-name">{link.name}</span>
+                                        <span className="contact__link-value">{link.value}</span>
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
                 <form onSubmit={submitHandler} className="contact__form">

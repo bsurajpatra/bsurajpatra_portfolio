@@ -1,27 +1,37 @@
-.shapes {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-  }
-  
-  .shape {
-    position: absolute;
-    animation: float 2s ease-in-out infinite;
-  }
-  
-  .s1 { top: 10%; left: 20%; animation-delay: 0s; }
-  .s2 { top: 20%; left: 70%; animation-delay: 1s; }
-  .s3 { top: 40%; left: 50%; animation-delay: 2s; }
-  .s18 { top: 15%; left: 5%; animation-delay: 0.5s; }
-.s19 { top: 35%; left: 10%; animation-delay: 1.5s; }
-.s20 { top: 60%; left: 8%; animation-delay: 2.5s; }
+.home__bg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.9;
+}
 
-  
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
-  }
-  
+/* Add a subtle background glow for better realism */
+.shapes::after {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(108, 108, 229, 0.2) 0%, rgba(108, 108, 229, 0) 70%);
+  top: 20%;
+  right: 10%;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(80px);
+}
+
+.shapes::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(235, 87, 87, 0.05) 0%, rgba(235, 87, 87, 0) 70%);
+  bottom: 10%;
+  left: 5%;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(80px);
+}
