@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 const USERNAME = "bsurajpatra";
@@ -37,6 +38,7 @@ const getColor = (count) => {
 
 export default function ContributionGraph() {
   const [contributions, setContributions] = useState([]);
+  const [totalContributions, setTotalContributions] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [, setSnakeIndex] = useState(0);
@@ -59,9 +61,12 @@ export default function ContributionGraph() {
         if (result.errors) {
           setError(result.errors);
         } else {
-          const weeks = result.data.user.contributionsCollection.contributionCalendar.weeks;
+          const calendar = result.data.user.contributionsCollection.contributionCalendar;
+          const weeks = calendar.weeks;
+          const total = calendar.totalContributions;
           const daily = weeks.flatMap((week) => week.contributionDays);
           setContributions(daily);
+          setTotalContributions(total);
         }
       } catch (err) {
         setError(err);
@@ -78,10 +83,6 @@ export default function ContributionGraph() {
     weeks.push(contributions.slice(i, i + 7));
   }
 
-  const firstDate = contributions[0] ? new Date(contributions[0].date) : new Date();
-  const lastDate = contributions.length ? new Date(contributions[contributions.length - 1].date) : new Date();
-  const yearStart = firstDate.getFullYear();
-  const yearEnd = lastDate.getFullYear();
   const monthLabels = [];
   const seenMonths = new Set();
   weeks.forEach((week, index) => {
@@ -96,37 +97,46 @@ export default function ContributionGraph() {
     }
   });
 
-  const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const dayLabels = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
 
-  // Random-walk snake across the grid (all directions)
-  const cellSize = 14; // match CSS
-  const gap = 3; // match CSS
+  // Snake logic
+  const cellSize = 12;
+  const gap = 3;
   const gridWidth = weeks.length;
   const gridHeight = 7;
-  const headRef = useRef({ x: Math.max(0, Math.floor(gridWidth / 2)), y: 3 });
+  const headRef = useRef({ x: 0, y: 0 });
   const trailRef = useRef([]);
 
   useEffect(() => {
     if (!gridWidth || !gridHeight) return undefined;
-    headRef.current = { x: Math.max(0, Math.floor(gridWidth / 2)), y: Math.max(0, Math.min(3, gridHeight - 1)) };
-    trailRef.current = [];
+    headRef.current = { x: Math.floor(gridWidth / 2), y: 3 };
 
     let raf;
     let lastTick = 0;
-    const tickIntervalMs = 80;
+    const tickIntervalMs = 150;
+
     const loop = (t) => {
       if (t - lastTick >= tickIntervalMs) {
         const { x, y } = headRef.current;
-        const neighbors = [
-          { x: x + 1, y }, { x: x - 1, y }, { x, y: y + 1 }, { x, y: y - 1 },
-          { x: x + 1, y: y + 1 }, { x: x + 1, y: y - 1 }, { x: x - 1, y: y + 1 }, { x: x - 1, y: y - 1 }
-        ].filter((p) => p.x >= 0 && p.x < gridWidth && p.y >= 0 && p.y < gridHeight);
-        const next = neighbors.length ? neighbors[Math.floor(Math.random() * neighbors.length)] : { x, y };
+        const directions = [
+          { dx: 1, dy: 0 }, { dx: -1, dy: 0 }, { dx: 0, dy: 1 }, { dx: 0, dy: -1 }
+        ];
+
+        // Pick a semi-random but constrained direction
+        const dir = directions[Math.floor(Math.random() * directions.length)];
+        let nx = x + dir.dx;
+        let ny = y + dir.dy;
+
+        if (nx < 0 || nx >= gridWidth) nx = x - dir.dx;
+        if (ny < 0 || ny >= gridHeight) ny = y - dir.dy;
+
+        const next = { x: nx, y: ny };
         headRef.current = next;
+
         trailRef.current.unshift(next);
-        const maxLen = 12;
-        if (trailRef.current.length > maxLen) trailRef.current.length = maxLen;
-        setSnakeIndex((idx) => idx + 1);
+        if (trailRef.current.length > 8) trailRef.current.pop();
+
+        setSnakeIndex(i => i + 1);
         lastTick = t;
       }
       raf = requestAnimationFrame(loop);
@@ -135,70 +145,85 @@ export default function ContributionGraph() {
     return () => cancelAnimationFrame(raf);
   }, [gridWidth, gridHeight]);
 
-  const snakeTrail = trailRef.current.map((p, i) => ({
-    x: p.x * (cellSize + gap),
-    y: p.y * (cellSize + gap),
-    alpha: Math.max(0.3, 1 - i / Math.max(1, trailRef.current.length))
-  }));
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {JSON.stringify(error)}</div>;
+  if (loading) return <div className="github-loading">Analyzing commits...</div>;
+  if (error) return <div className="github-error">Heatmap unavailable</div>;
 
   return (
-    <div className="github-graph-wrapper">
-      <h3 className="github-graph-title">Contributions · {yearStart} - {yearEnd}</h3>
-      <div className="github-graph-row">
-        <div className="github-day-labels">
-          {dayLabels.map((d, idx) => (
-            <div key={idx}>{idx % 2 === 0 ? d : ''}</div>
-          ))}
-        </div>
-        <div className="github-graph-container">
-          <div className="github-month-labels">
-            {monthLabels.map((m) => (
-              <div key={m.index} className="github-month-label" style={{ left: `${m.index * 17}px` }}>{m.label}</div>
+    <div className="github-activity">
+      <div className="activity-header">
+        <h3 className="activity-title">Contribution Heatmap</h3>
+        <span className="activity-count">{totalContributions} contributions in the last year</span>
+      </div>
+
+      <div className="heatmap-container">
+        <div className="heatmap-wrapper">
+          <div className="heatmap-labels-months">
+            {monthLabels.map((m, i) => (
+              <span
+                key={i}
+                className="month-label"
+                style={{ left: `${m.index * (cellSize + gap)}px` }}
+              >
+                {m.label}
+              </span>
             ))}
           </div>
-          <div className="github-graph-stage">
-            <div className="github-graph">
-              {weeks.map((week, i) => (
-                <div key={i} className="github-graph-week">
-                  {week.map((day) => (
-                    <div
-                      key={day.date}
-                      className="github-graph-day"
-                      title={`${day.date}: ${day.contributionCount} contributions`}
-                      style={{
-                        backgroundColor: getColor(day.contributionCount),
-                      }}
-                    />
-                  ))}
-                </div>
+
+          <div className="heatmap-grid-row">
+            <div className="heatmap-labels-days">
+              {dayLabels.map((d, i) => (
+                <span key={i} className="day-label">{d}</span>
               ))}
             </div>
-            <div className="snake-overlay" aria-hidden="true">
-              {snakeTrail.map((seg, i) => (
-                <div
-                  key={`seg-${i}-${seg.x}-${seg.y}`}
-                  className="snake-segment"
-                  style={{ left: `${seg.x}px`, top: `${seg.y}px`, opacity: seg.alpha }}
-                />
-              ))}
+
+            <div className="heatmap-grid-stage">
+              <div className="heatmap-grid">
+                {weeks.map((week, i) => (
+                  <div key={i} className="heatmap-column">
+                    {week.map((day) => (
+                      <div
+                        key={day.date}
+                        className="heatmap-cell"
+                        style={{ backgroundColor: getColor(day.contributionCount) }}
+                        title={`${day.contributionCount} contributions on ${day.date}`}
+                      />
+                    ))}
+                  </div>
+                ))}
+              </div>
+
+              <div className="snake-layer">
+                {trailRef.current.map((p, i) => (
+                  <div
+                    key={i}
+                    className="snake-dot"
+                    style={{
+                      left: `${p.x * (cellSize + gap)}px`,
+                      top: `${p.y * (cellSize + gap)}px`,
+                      opacity: 1 - (i * 0.12),
+                      transform: `scale(${1 - (i * 0.05)})`
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="heatmap-footer">
+            <div className="heatmap-legend">
+              <span>Less</span>
+              <div className="legend-cells">
+                <div className="heatmap-cell" style={{ backgroundColor: "var(--gh-0)" }} />
+                <div className="heatmap-cell" style={{ backgroundColor: "var(--gh-1)" }} />
+                <div className="heatmap-cell" style={{ backgroundColor: "var(--gh-2)" }} />
+                <div className="heatmap-cell" style={{ backgroundColor: "var(--gh-3)" }} />
+                <div className="heatmap-cell" style={{ backgroundColor: "var(--gh-4)" }} />
+              </div>
+              <span>More</span>
             </div>
           </div>
         </div>
-      </div>
-      <div style={{ marginTop: '8px', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '6px' }}>
-        <span style={{ fontSize: '10px', color: 'var(--text-color)' }}>Less</span>
-        <div className="github-graph-day" style={{ background: 'var(--gh-0)' }} />
-        <div className="github-graph-day" style={{ background: 'var(--gh-1)' }} />
-        <div className="github-graph-day" style={{ background: 'var(--gh-2)' }} />
-        <div className="github-graph-day" style={{ background: 'var(--gh-3)' }} />
-        <div className="github-graph-day" style={{ background: 'var(--gh-4)' }} />
-        <span style={{ fontSize: '10px', color: 'var(--text-color)' }}>More</span>
       </div>
     </div>
   );
 }
-
-

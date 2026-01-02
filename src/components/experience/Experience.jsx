@@ -1,93 +1,132 @@
 import React, { useState } from "react";
 import "./Experience.css";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import Button from "./Button";
 import WorkExperience from "./WorkExperience";
+import { motion, AnimatePresence } from "framer-motion";
+import { RiBuilding4Line, RiCalendarLine, RiMapPin2Line, RiAwardLine, RiCloseLine } from "react-icons/ri";
 
 const Experience = () => {
-    const [tabIndex, setTabIndex] = useState(0);
-    const [showCertificate, setShowCertificate] = useState(null);
-
-    // Function to toggle certificate display
-    const toggleCertificate = (id) => {
-        if (showCertificate === id) {
-            setShowCertificate(null);
-        } else {
-            setShowCertificate(id);
-        }
-    };
+    const [activeTab, setActiveTab] = useState(0);
+    const [selectedCertificate, setSelectedCertificate] = useState(null);
 
     return (
         <section className="experience container section" id="experience">
-            <h2 className="section__title">Experience</h2>
+            <h2 className="section__title">Professional Journey</h2>
 
-            <div className="resume__container">
-                <Tabs
-                    className="tabs"
-                    selectedIndex={tabIndex}
-                    onSelect={(index) => setTabIndex(index)}
-                    selectedTabClassName="is-active"
-                    selectedTabPanelClassName="is-active"
-                >
-                    <TabList className="tab__list">
-                        {WorkExperience.map(({ id, company }) => (
-                            <Tab className="tab" key={`company-${id}`}>
-                                <Button className="tab__button">
-                                    {company}
-                                </Button>
-                            </Tab>
-                        ))}
-                    </TabList>
+            <div className="experience__container">
+                {/* Company Sidebar/Navigation */}
+                <div className="experience__tabs">
+                    {WorkExperience.map((work, index) => (
+                        <button
+                            key={work.id}
+                            className={`experience__tab ${index === activeTab ? "active" : ""}`}
+                            onClick={() => setActiveTab(index)}
+                        >
+                            <span className="experience__tab-number">0{index + 1}</span>
+                            <span className="experience__tab-company">{work.company}</span>
+                        </button>
+                    ))}
+                    <div
+                        className="experience__tab-indicator"
+                        style={{ transform: `translateY(${activeTab * 60}px)` }}
+                    />
+                </div>
 
-                    {WorkExperience.map(({ id, company, yearsActive, title, location, information, image, certificate }) => (
-                        <TabPanel className="tab__panel" key={`panel-${id}`}>
-                            <div className="panel-header">
-                                {image && (
-                                    <img 
-                                        src={image.src} 
-                                        alt={`${company} logo`} 
-                                        className="panel-logo" 
-                                        style={image.style} 
-                                    />
-                                )}
-                                {certificate && (
-                                    <button 
-                                        className="certificate-button" 
-                                        onClick={() => toggleCertificate(id)}
-                                    >
-                                        {showCertificate === id ? "Hide Certificate" : "View Certificate"}
-                                    </button>
+                {/* Content Area */}
+                <div className="experience__content">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeTab}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.4 }}
+                            className="experience__panel"
+                        >
+                            <div className="experience__panel-header">
+                                <div className="experience__company-info">
+                                    <h3 className="experience__job-title">
+                                        {WorkExperience[activeTab].title}
+                                        <span className="experience__at"> @ </span>
+                                        <span className="experience__company-name">{WorkExperience[activeTab].company}</span>
+                                    </h3>
+
+                                    <div className="experience__meta">
+                                        <div className="experience__meta-item">
+                                            <RiCalendarLine />
+                                            <span>{WorkExperience[activeTab].yearsActive}</span>
+                                        </div>
+                                        <div className="experience__meta-item">
+                                            <RiMapPin2Line />
+                                            <span>{WorkExperience[activeTab].location}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {WorkExperience[activeTab].image && (
+                                    <div className="experience__logo-box">
+                                        <img
+                                            src={WorkExperience[activeTab].image.src}
+                                            alt={WorkExperience[activeTab].company}
+                                            className="experience__logo"
+                                        />
+                                    </div>
                                 )}
                             </div>
-                            
-                            {showCertificate === id && certificate && (
-                                <div className="certificate-container">
-                                    <img 
-                                        src={certificate.src}
-                                        alt={`${company} Certificate`}
-                                        style={certificate.style}
-                                        className="certificate-image"
-                                    />
-                                    <button 
-                                        className="close-certificate"
-                                        onClick={() => setShowCertificate(null)}
+
+                            <ul className="experience__list">
+                                {WorkExperience[activeTab].information.map((info, i) => (
+                                    <motion.li
+                                        key={i}
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: i * 0.1 }}
                                     >
-                                        ×
-                                    </button>
-                                </div>
-                            )}
-                            
-                            <h2 className="tab__panel-title">{title} @ {company}</h2>
-                            <p className="tab__panel-subtitle">{yearsActive} | {location}</p>
-                            <ul className="tab__panel-list">
-                                {information.map((info, index) => (
-                                    <li key={`info-${index}`}>{info}</li>
+                                        {info}
+                                    </motion.li>
                                 ))}
                             </ul>
-                        </TabPanel>
-                    ))}
-                </Tabs>
+
+                            {WorkExperience[activeTab].certificate && (
+                                <button
+                                    className="experience__certificate-btn"
+                                    onClick={() => setSelectedCertificate(WorkExperience[activeTab].certificate.src)}
+                                >
+                                    <RiAwardLine /> View Experience Certificate
+                                </button>
+                            )}
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
             </div>
+
+            {/* Certificate Modal */}
+            <AnimatePresence>
+                {selectedCertificate && (
+                    <motion.div
+                        className="exp-modal__overlay"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedCertificate(null)}
+                    >
+                        <motion.div
+                            className="exp-modal__content"
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                className="exp-modal__close"
+                                onClick={() => setSelectedCertificate(null)}
+                            >
+                                <RiCloseLine />
+                            </button>
+                            <img src={selectedCertificate} alt="Experience Certificate" />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };

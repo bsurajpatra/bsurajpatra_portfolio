@@ -1,122 +1,149 @@
-.coding-profiles {
-    padding: 6rem 0 2rem;
-}
-
 .coding-profiles__container {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.875rem;
+    gap: 2rem;
+    padding-top: 2rem;
 }
 
-.coding-profiles__card {
+.profile__card {
+    background: var(--container-color);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .profile__card {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.profile__card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Header */
+.profile__card-header {
+    padding: 1.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--accent-color), #1a1a1a);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
     position: relative;
     overflow: hidden;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    background-color: var(--container-color);
-    transition: transform 0.3s, box-shadow 0.3s;
-    padding: 1.5rem;
 }
 
-.coding-profiles__card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.coding-profiles__logo {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin-bottom: 1.25rem;
-    border-radius: 50%;
-}
-
-.coding-profiles__info {
-    text-align: center;
-}
-
-.coding-profiles__title {
-    font-size: var(--h3-font-size);
-    margin-bottom: 0.5rem;
-    color: var(--title-color);
-}
-
-.coding-profiles__user {
-    display: inline-flex;
+.profile__logo-wrapper {
+    width: 54px;
+    height: 54px;
+    background: #fff;
+    border-radius: 0.85rem;
+    padding: 0.4rem;
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.25rem;
-    margin-bottom: 1rem;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+    z-index: 1;
 }
 
-.coding-profiles__link {
-    display: block;
-    margin-top: 0.5rem;
+.profile__logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
-.coding-profiles__username {
-    font-size: var(--normal-font-size);
-    color: var(--text-color);
+.profile__header-info {
+    z-index: 1;
 }
 
-.coding-profiles__rank {
-    display: inline-block;
-    padding: 0.2rem 0.5rem;
-    border-radius: 999px;
-    background-color: var(--first-color-alt);
+.profile__platform {
+    font-size: 1.15rem;
     color: #fff;
-    font-size: 0.7rem;
-    line-height: 1;
-    vertical-align: middle;
+    font-weight: var(--font-bold);
+    margin-bottom: 0.35rem;
 }
 
-/* Platform-specific badge colors */
-.coding-profiles__rank--codechef {
-    background-color: #7B3F00; /* CodeChef brown */
+.profile__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
 }
 
-.coding-profiles__rank--leetcode {
-    background-color: #f89f1b; /* LeetCode orange */
+.profile__username {
+    font-size: var(--smaller-font-size);
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--body-font);
 }
 
-.coding-profiles__rank--codeforces {
-    background-color: #8c8c8c; /* Codeforces gray for Newbie */
-}
-
-.coding-profiles__button {
-    color: #fff;
-    background-color: var(--first-color);
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius);
-    font-weight: var(--font-medium);
-    transition: 0.3s;
+.profile__rank-badge {
     display: inline-block;
-    cursor: pointer;
-    border: none;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.5rem;
+    font-size: 0.65rem;
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: fit-content;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.coding-profiles__button:hover {
-    background-color: var(--first-color-alt);
-    transform: scale(1.05);
+/* Card Body */
+.profile__card-body {
+    padding: 1rem;
+    /* Reduced padding to keep things tight */
 }
 
+/* Visit Button */
+.profile__visit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1.1rem;
+    color: #fff;
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.profile__visit-btn:hover {
+    filter: brightness(1.15);
+}
+
+.profile__visit-btn svg {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.profile__visit-btn:hover svg {
+    transform: translate(2px, -2px);
+}
+
+/* Responsive */
 @media screen and (max-width: 1024px) {
     .coding-profiles__container {
-        grid-template-columns: repeat(2, 330px);
-        justify-content: center;
-        row-gap: 1.875rem;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media screen and (max-width: 768px) {
     .coding-profiles__container {
-        grid-template-columns: 310px;
-        justify-content: center;
-        row-gap: 1.875rem;
+        grid-template-columns: 1fr;
+        max-width: 350px;
+        margin: 0 auto;
     }
 }
 
 @media screen and (max-width: 350px) {
-    .coding-profiles__container {
-        grid-template-columns: 1fr;
+    .profile__card-header {
+        padding: 1.5rem 1rem;
+        gap: 1rem;
     }
 }
