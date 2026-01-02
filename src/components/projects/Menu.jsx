@@ -11,26 +11,26 @@ const Menu = [
 		id: 1,
 		image: KLEats,
 		title: "KL Eats",
-		category: ["Next.js, Node.js, MySQL"],
+		category: ["Next.js, Node.js, MySQL, TailwindCSS, Shadcn UI, Cashfree, Redis"],
 		url: "https://kleats.in/",
 		repositoryUrl: "https://github.com/KLEats",
-		description: "KL Eats makes campus dining easy with meal pre-ordering."
-		
+		description: "KLEats is a campus food pre-ordering platform that helps students order meals in advance and enables canteens to manage orders, payments, and settlements efficiently."
+
 	},
 	{
 		id: 2,
 		image: FaceAttend,
 		title: "FaceAttend",
-		category: ["React Native, Node.js, FaceNet, MongoDB"],
+		category: ["React Native (Expo), Node.js, Express, MongoDB, Python, Flask, FaceNet, JWT"],
 		url: "https://faceattendai.netlify.app/",
 		repositoryUrl: "https://github.com/bsurajpatra/FaceAttend",
-		description: "FaceAttend is a system that automates attendance using facial recognition."
+		description: "FaceAttend is a face recognition–based attendance system for educational institutions that automatically marks attendance in real time, prevents proxy attendance through secure kiosk mode, and provides detailed analytics and reports."
 	},
 	{
 		id: 3,
 		image: KLEatsFinance,
 		title: "KL Eats Finance",
-		category: ["React + Vite, Node.js, MySQL"],
+		category: ["React + Vite, Node.js, Express, MySQL"],
 		url: "https://finance.kleats.in/",
 		repositoryUrl: "https://github.com/KLEats/finance_kleats",
 		description: "A finance management system for KL Eats."
@@ -39,30 +39,30 @@ const Menu = [
 		id: 4,
 		image: SafeWebVerify,
 		title: "SafeWebVerify",
-		category: ["MERN, AI/ML"],
+		category: ["React, Node.js, Express, MongoDB, Python, Flask, scikit-learn, JWT"],
 		url: null,
 		repositoryUrl: "https://github.com/bsurajpatra/SafeWebVerify",
-		description: "SafeWebVerify is an AI/ML-powered web app that detects phishing websites in real-time with 98% accuracy."
+		description: "SafeWebVerify is a full-stack phishing detection platform that uses machine learning to analyze URLs and classify them as legitimate or phishing in real time.",
 	},
 	{
 		id: 5,
 		image: KarmaSync,
 		title: "KarmaSync",
-		category: ["MERN"],
+		category: ["React, Node.js, Express, MongoDB, JWT, SMTP, EmailJS"],
 		url: "https://karmasync.vercel.app/",
 		repositoryUrl: "https://github.com/bsurajpatra/KarmaSync_info",
-		description: "An intuitive project management tool to organize, assign, and complete tasks with ease."
+		description: "Karma Sync is a lightweight Agile project management tool that helps individuals and teams plan, track, and collaborate on projects using Kanban boards, sprints, user stories, and daily to-do tracking — all from a single dashboard."
 	},
 	{
 		id: 6,
 		image: SwatVsTheUndead,
 		title: "SWAT vs the Undead",
-		category: ["Game & UX"],
+		category: ["Unity Engine, C#, Unity Asset Store, Mixamo"],
 		url: "https://bsurajpatra.itch.io/swat-vs-the-undead",
 		repositoryUrl: "https://github.com/bsurajpatra/swat-vs-the-undead",
-		description: "A Unity and C# powered FPS survival game with wave-based zombie combat."
+		description: "SWAT vs the Undead is a single-player FPS arena survival game where players fight waves of zombies, manage health and ammunition, and survive increasingly difficult encounters."
 	},
-	
+
 ];
 
 

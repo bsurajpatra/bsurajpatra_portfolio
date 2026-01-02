@@ -1,98 +1,137 @@
-.skills {
-    padding: 2rem;
-    background-color: transparent; 
-    color: var(--text-color);
-}
-
-.skills__list {
+.skills__list-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.5rem;
-    list-style: none;
-    padding: 0;
 }
 
-.skills__category {
-    background: var(--card-bg); 
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    backdrop-filter: blur(5px);
+.skills__box {
+    padding: 2rem;
+    border-radius: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.skills__category:hover {
+.skills__box:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.skills__category-title {
+/* Color Variants */
+.skills__box-0 {
+    background-color: #ffe8ee;
+    /* Light Red/Pink */
+    border-left: 5px solid #ff4d79;
+}
+
+.skills__box-1 {
+    background-color: #e6f0ff;
+    /* Light Blue */
+    border-left: 5px solid #3399ff;
+}
+
+.skills__box-2 {
+    background-color: #e6fffa;
+    /* Light Tez/Green */
+    border-left: 5px solid #00cc99;
+}
+
+.skills__box-3 {
+    background-color: #fff8e6;
+    /* Light Orange/Yellow */
+    border-left: 5px solid #ffcc00;
+}
+
+.skills__box-4 {
+    background-color: #f3e6ff;
+    /* Light Purple */
+    border-left: 5px solid #9933ff;
+}
+
+[data-theme="dark"] .skills__box-0 {
+    background-color: rgba(255, 77, 121, 0.25);
+    border-color: rgba(255, 77, 121, 0.8);
+}
+
+[data-theme="dark"] .skills__box-1 {
+    background-color: rgba(51, 153, 255, 0.25);
+    border-color: rgba(51, 153, 255, 0.8);
+}
+
+[data-theme="dark"] .skills__box-2 {
+    background-color: rgba(0, 204, 153, 0.25);
+    border-color: rgba(0, 204, 153, 0.8);
+}
+
+[data-theme="dark"] .skills__box-3 {
+    background-color: rgba(255, 204, 0, 0.25);
+    border-color: rgba(255, 204, 0, 0.8);
+}
+
+[data-theme="dark"] .skills__box-4 {
+    background-color: rgba(153, 51, 255, 0.25);
+    border-color: rgba(153, 51, 255, 0.8);
+}
+
+
+.skills__category-header {
     font-size: 1.25rem;
-    font-weight: bold;
-    color: var(--heading-color);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--title-color);
+    font-weight: var(--font-bold);
+}
+
+.skills__items-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+}
+
+.skills__pill {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    transition: 0.3s;
 }
 
-.skills__items {
-    list-style: none;
-    padding-left: 1rem;
+
+
+[data-theme="dark"] .skills__pill {
+    background-color: rgba(255, 255, 255, 0.08);
+    /* Lighter pill on dark bg */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--title-color);
 }
 
-.skills__item {
-    font-size: 1rem;
+.skills__pill:hover {
+    transform: translateY(-2px);
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .skills__pill:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    /* Slightly brighter on hover */
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.skills__icon {
+    font-size: 1.25rem;
+    display: flex;
+    color: var(--title-color);
+}
+
+.skills__text {
+    font-size: 0.938rem;
     color: var(--text-color);
-    margin-bottom: 0.25rem;
-    padding-left: 10px;
-    position: relative;
+    font-weight: var(--font-medium);
 }
 
-.skills__item::before {
-    content: "•";
-    color: var(--accent-color); 
-    position: absolute;
-    left: 0;
-    font-size: 1rem;
-}
-
-.card-color-1 {
-    background-color: #e3f2fd;
-}
-
-.card-color-2 {
-    background-color: #bbdefb; 
-}
-
-.card-color-3 {
-    background-color: #90caf9; 
-}
-
-.card-color-4 {
-    background-color: #64b5f6;
-}
-
-:root {
-    --card-bg: linear-gradient(135deg, #e3f2fd, #bbdefb); 
-    --text-color: #0d47a1; 
-    --heading-color: #0d47a1; 
-    --accent-color: #64b5f6; 
-}
-
-[data-theme="dark"] {
-    --card-bg: linear-gradient(135deg, #0d47a1, #bbdefb);
-    --text-color: #e3f2fd; 
-    --heading-color: #e3f2fd; 
-    --accent-color: #90caf9; 
-}
-
-@media screen and (max-width: 768px) {
-    .skills__list {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .skills__list {
+@media screen and (max-width: 576px) {
+    .skills__list-container {
         grid-template-columns: 1fr;
     }
 }
