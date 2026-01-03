@@ -17,106 +17,108 @@ const Shapes = () => {
         window.addEventListener('resize', handleResize);
         handleResize();
 
-        const particles = [];
-        const particleCount = 60;
-        const connectionDistance = 150;
-        const mouse = { x: null, y: null, radius: 150 };
+        const gridSpacing = 60; // Increased spacing for a 'wider' feel
+        const binaries = [];
+        const binaryCount = 35; // Slightly fewer but larger
+        const circuits = [];
+        const circuitCount = 12;
 
-        class Particle {
+        class BinaryStream {
             constructor() {
-                this.x = Math.random() * canvas.width;
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.floor(Math.random() * (canvas.width / gridSpacing)) * gridSpacing;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = (Math.random() - 0.5) * 0.5;
-                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.speed = Math.random() * 2 + 1;
+                this.chars = Array.from({ length: 12 }, () => Math.round(Math.random()).toString());
+                this.opacity = Math.random() * 0.4 + 0.1;
+                this.fontSize = Math.floor(Math.random() * 10) + 16; // Increased font size
             }
 
             update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
-                if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
-
-                // Mouse interaction
-                if (mouse.x !== null && mouse.y !== null) {
-                    let dx = mouse.x - this.x;
-                    let dy = mouse.y - this.y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < mouse.radius) {
-                        const forceDirectionX = dx / distance;
-                        const forceDirectionY = dy / distance;
-                        const force = (mouse.radius - distance) / mouse.radius;
-                        this.x -= forceDirectionX * force * 2;
-                        this.y -= forceDirectionY * force * 2;
-                    }
+                this.y += this.speed;
+                if (this.y > canvas.height + 250) {
+                    this.reset();
+                    this.y = -150;
                 }
             }
 
             draw() {
-                ctx.fillStyle = 'rgba(108, 108, 229, 0.8)';
-                // In light mode we might want a different color, 
-                // but let's use a subtle theme-aware color if possible.
-                // For now, using a neutral soft blue/purple.
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
+                ctx.font = `bold ${this.fontSize}px 'Courier New'`; // Added bold
+                ctx.fillStyle = `rgba(108, 108, 229, ${this.opacity})`;
+                this.chars.forEach((char, i) => {
+                    ctx.fillText(char, this.x, this.y - (i * 22));
+                });
             }
         }
 
-        const init = () => {
-            particles.length = 0;
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
+        class CircuitLine {
+            constructor() {
+                this.reset();
             }
-        };
+
+            reset() {
+                this.x = Math.floor(Math.random() * (canvas.width / gridSpacing)) * gridSpacing;
+                this.y = Math.floor(Math.random() * (canvas.height / gridSpacing)) * gridSpacing;
+                this.length = Math.random() * 150 + 100; // Increased length
+                this.speed = Math.random() * 2 + 1.5;
+                this.direction = Math.random() > 0.5 ? 'h' : 'v';
+                this.progress = 0;
+                this.opacity = Math.random() * 0.7 + 0.3;
+            }
+
+            update() {
+                this.progress += this.speed;
+                if (this.progress > this.length + 600) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.shadowBlur = 15; // Increased glow
+                ctx.shadowColor = 'rgba(108, 108, 229, 0.9)';
+                ctx.strokeStyle = `rgba(108, 108, 229, ${this.opacity})`;
+                ctx.lineWidth = 4; // Increased line width
+
+                if (this.direction === 'h') {
+                    ctx.moveTo(this.x + this.progress - 70, this.y);
+                    ctx.lineTo(this.x + this.progress, this.y);
+                } else {
+                    ctx.moveTo(this.x, this.y + this.progress - 70);
+                    ctx.lineTo(this.x, this.y + this.progress);
+                }
+                ctx.stroke();
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        for (let i = 0; i < binaryCount; i++) binaries.push(new BinaryStream());
+        for (let i = 0; i < circuitCount; i++) circuits.push(new CircuitLine());
+
 
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
+            binaries.forEach(b => {
+                b.update();
+                b.draw();
+            });
 
-                for (let j = i; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
+            circuits.forEach(c => {
+                c.update();
+                c.draw();
+            });
 
-                    if (distance < connectionDistance) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(108, 108, 229, ${0.4 * (1 - distance / connectionDistance)})`;
-                        ctx.lineWidth = 1;
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                        ctx.closePath();
-                    }
-                }
-            }
             animationFrameId = requestAnimationFrame(animate);
         };
 
-        const handleMouseMove = (event) => {
-            mouse.x = event.x;
-            mouse.y = event.y;
-        };
-
-        const handleMouseLeave = () => {
-            mouse.x = null;
-            mouse.y = null;
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-        window.addEventListener('mouseleave', handleMouseLeave);
-
-        init();
         animate();
 
         return () => {
             window.removeEventListener('resize', handleResize);
-            window.removeEventListener('mousemove', handleMouseMove);
-            window.removeEventListener('mouseleave', handleMouseLeave);
             cancelAnimationFrame(animationFrameId);
         };
     }, []);

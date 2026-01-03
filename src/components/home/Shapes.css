@@ -1,3 +1,21 @@
+.shapes {
+  position: absolute;
+  top: 0;
+  left: -110px;
+  /* Offset side bar margin */
+  width: 100vw;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background: transparent;
+}
+
+@media screen and (max-width: 1024px) {
+  .shapes {
+    left: 0;
+  }
+}
+
 .home__bg-canvas {
   position: absolute;
   top: 0;
@@ -6,32 +24,9 @@
   height: 100%;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
-/* Add a subtle background glow for better realism */
-.shapes::after {
-  content: '';
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(108, 108, 229, 0.2) 0%, rgba(108, 108, 229, 0) 70%);
-  top: 20%;
-  right: 10%;
-  pointer-events: none;
-  z-index: -1;
-  filter: blur(80px);
-}
+/* Scanline effect removed as per user request */
 
-.shapes::before {
-  content: '';
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(235, 87, 87, 0.05) 0%, rgba(235, 87, 87, 0) 70%);
-  bottom: 10%;
-  left: 5%;
-  pointer-events: none;
-  z-index: -1;
-  filter: blur(80px);
-}
+/* Decorative glows removed as per user request to ensure full transparency */
