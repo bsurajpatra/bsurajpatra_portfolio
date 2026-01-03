@@ -15,16 +15,17 @@ const Certifications = () => {
 
 	const renderColumn = (columnItems) => (
 		<div className="certifications__column">
-			{columnItems.map((elem) => {
+			{columnItems.map((elem, index) => {
 				const { id, title, company } = elem;
 
 				return (
 					<motion.div
 						className="certifications__item"
 						key={id}
-						initial={{ opacity: 0, x: -20 }}
-						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.3 }}
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.4, delay: index * 0.1 }}
+						viewport={{ once: true }}
 					>
 						<div className="certifications__content">
 							<h3 className="certifications__title">{title}</h3>

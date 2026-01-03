@@ -12,6 +12,8 @@ import {
     RiMailFill
 } from "react-icons/ri";
 
+import { motion } from "framer-motion";
+
 const Contact = (props) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -107,7 +109,13 @@ const Contact = (props) => {
             <h2 className="section__title">Get In Touch</h2>
 
             <div className="contact__container grid">
-                <div className="contact__info">
+                <motion.div
+                    className="contact__info"
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                >
                     <h3 className="contact__title">Let's Connect!</h3>
                     <p className="contact__details">
                         I'd love to hear from you! Whether you have a question or just want to chat, feel free to drop me a message. 👋
@@ -116,8 +124,8 @@ const Contact = (props) => {
                     <div className="contact__socials">
                         <h4 className="contact__socials-title">Direct Contact</h4>
                         <div className="contact__links">
-                            {contactLinks.map((link) => (
-                                <a
+                            {contactLinks.map((link, index) => (
+                                <motion.a
                                     key={link.id}
                                     href={link.url}
                                     target="_blank"
@@ -125,19 +133,30 @@ const Contact = (props) => {
                                     className="contact__link"
                                     style={{ '--link-color': link.color }}
                                     title={`${link.name}: ${link.value}`}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
+                                    viewport={{ once: true }}
                                 >
                                     <span className="contact__link-icon">{link.icon}</span>
                                     <div className="contact__link-info">
                                         <span className="contact__link-name">{link.name}</span>
                                         <span className="contact__link-value">{link.value}</span>
                                     </div>
-                                </a>
+                                </motion.a>
                             ))}
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
-                <form onSubmit={submitHandler} className="contact__form">
+                <motion.form
+                    onSubmit={submitHandler}
+                    className="contact__form"
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                >
                     <div className="contact__form-group">
                         <div className="contact__form-div">
                             <input
@@ -173,7 +192,7 @@ const Contact = (props) => {
                     <button type="submit" className="btn">
                         {loading ? "Sending..." : "Send Message"}
                     </button>
-                </form>
+                </motion.form>
                 <ToastContainer position="bottom-right" theme={props.theme} />
             </div>
         </section>

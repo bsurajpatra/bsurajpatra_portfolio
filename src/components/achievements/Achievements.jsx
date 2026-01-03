@@ -15,10 +15,14 @@ const Achievements = () => {
       <h2 className="section__title">Achievements</h2>
 
       <div className="achievements__container">
-        {Menu.map(({ id, title, description, badge, icon }) => (
+        {Menu.map(({ id, title, description, badge, icon }, index) => (
           <motion.div
             key={id}
             className="achievements__card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            viewport={{ once: true }}
             whileHover={{ scale: 1.02 }}
           >
             <span className="achievements__badge">{badge}</span>

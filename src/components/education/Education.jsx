@@ -3,6 +3,8 @@ import './Education.css';
 import KLU from '../../assets/klulogo.avif'
 import SPS from '../../assets/spslogo.png'
 
+import { motion } from 'framer-motion';
+
 const data = [
 
     {
@@ -33,16 +35,23 @@ const Education = () => {
             <h2 className="section__title">Education</h2>
 
             <div className="education__container grid">
-                {data.map(({ id, image, title, description }) => {
+                {data.map(({ id, image, title, description }, index) => {
                     return (
-                        <div className="education__card" key={id}>
+                        <motion.div
+                            className="education__card"
+                            key={id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                        >
                             <img src={image} alt='' className='education__img' />
 
                             <div className="education__content">
                                 <h3 className="education__title">{title}</h3>
                                 <p className="education__description">{description}</p>
                             </div>
-                        </div>
+                        </motion.div>
                     )
                 })}
             </div>

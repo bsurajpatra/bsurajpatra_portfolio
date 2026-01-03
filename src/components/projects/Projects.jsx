@@ -44,16 +44,17 @@ const Projects = () => {
 			<h2 className="section__title">Projects</h2>
 
 			<div className="projects__container grid">
-				{items.map((elem) => {
+				{items.map((elem, index) => {
 					const { id, image, title } = elem;
 
 					return (
 						<motion.div
 							layout
-							animate={{ opacity: 1, scale: 1 }}
-							initial={{ opacity: 0, scale: 0.8 }}
+							initial={{ opacity: 0, y: 30 }}
+							whileInView={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, scale: 0.8 }}
-							transition={{ duration: 0.3 }}
+							transition={{ duration: 0.4, delay: index * 0.1 }}
+							viewport={{ once: true }}
 							className="projects__card"
 							key={id}>
 							<div className="projects__thumbnail-simple">

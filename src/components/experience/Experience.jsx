@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Experience.css";
 import WorkExperience from "./WorkExperience";
 import { motion, AnimatePresence } from "framer-motion";
-import { RiBuilding4Line, RiCalendarLine, RiMapPin2Line, RiAwardLine, RiCloseLine } from "react-icons/ri";
+import { RiCalendarLine, RiMapPin2Line, RiAwardLine, RiCloseLine } from "react-icons/ri";
 
 const Experience = () => {
     const [activeTab, setActiveTab] = useState(0);
@@ -14,7 +14,13 @@ const Experience = () => {
 
             <div className="experience__container">
                 {/* Company Sidebar/Navigation */}
-                <div className="experience__tabs">
+                <motion.div
+                    className="experience__tabs"
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                >
                     {WorkExperience.map((work, index) => (
                         <button
                             key={work.id}
@@ -29,7 +35,7 @@ const Experience = () => {
                         className="experience__tab-indicator"
                         style={{ transform: `translateY(${activeTab * 60}px)` }}
                     />
-                </div>
+                </motion.div>
 
                 {/* Content Area */}
                 <div className="experience__content">

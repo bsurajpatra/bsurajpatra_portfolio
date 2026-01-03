@@ -10,6 +10,7 @@ import {
 } from 'react-icons/si';
 import { TbSql, TbBrandVscode, TbBrandCSharp } from "react-icons/tb";
 import { BsKanban } from "react-icons/bs";
+import { motion } from 'framer-motion';
 
 const skillsData = [
     {
@@ -88,17 +89,32 @@ const SkillsAndTechnology = () => {
 
             <div className="skills__list-container">
                 {skillsData.map(({ category, items }, index) => (
-                    <div key={index} className={`skills__box skills__box-${index % 5}`}>
+                    <motion.div
+                        key={index}
+                        className={`skills__box skills__box-${index % 5}`}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                    >
                         <h3 className="skills__category-header">{category}</h3>
                         <div className="skills__items-wrapper">
                             {items.map((skill, i) => (
-                                <div key={i} className="skills__pill">
+                                <motion.div
+                                    key={i}
+                                    className="skills__pill"
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.3, delay: (index * 0.1) + (i * 0.05) }}
+                                    viewport={{ once: true }}
+                                    whileHover={{ y: -2 }}
+                                >
                                     <span className="skills__icon">{skill.icon}</span>
                                     <span className="skills__text">{skill.name}</span>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </section>
