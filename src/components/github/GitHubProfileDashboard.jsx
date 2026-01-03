@@ -5,8 +5,24 @@ import {
   RiBookmarkLine,
   RiStarLine,
   RiGitRepositoryLine,
-  RiExternalLinkLine
+  RiExternalLinkLine,
+  RiCodeSSlashLine
 } from "react-icons/ri";
+import {
+  SiJavascript,
+  SiPython,
+  SiHtml5,
+  SiCss3,
+  SiTypescript
+} from "react-icons/si";
+
+const LANGUAGE_ICONS = {
+  JavaScript: <SiJavascript />,
+  Python: <SiPython />,
+  HTML: <SiHtml5 />,
+  CSS: <SiCss3 />,
+  TypeScript: <SiTypescript />,
+};
 
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 const USERNAME = "bsurajpatra";
@@ -30,10 +46,19 @@ query($userName: String!) {
       }
       totalCommitContributions
     }
-    repositories(first: 100, ownerAffiliations: OWNER) {
+    repositories(first: 100, ownerAffiliations: OWNER, orderBy: {field: UPDATED_AT, direction: DESC}) {
       totalCount
       nodes {
         stargazerCount
+        languages(first: 10) {
+          edges {
+            size
+            node {
+              name
+              color
+            }
+          }
+        }
       }
     }
     starredRepositories {
@@ -74,9 +99,30 @@ export default function GitHubProfileDashboard() {
             0
           );
 
+          // Process languages
+          const languageMap = {};
+          user.repositories.nodes.forEach(repo => {
+            repo.languages.edges.forEach(edge => {
+              const lang = edge.node.name;
+              const size = edge.size;
+              const color = edge.node.color;
+              if (languageMap[lang]) {
+                languageMap[lang].size += size;
+              } else {
+                languageMap[lang] = { size, color };
+              }
+            });
+          });
+
+          const popularLanguages = Object.entries(languageMap)
+            .map(([name, data]) => ({ name, ...data }))
+            .sort((a, b) => b.size - a.size)
+            .slice(0, 5);
+
           setUserData({
             ...user,
-            totalStars
+            totalStars,
+            popularLanguages
           });
         }
       } catch (err) {
@@ -144,6 +190,14 @@ export default function GitHubProfileDashboard() {
               </span>
             </div>
           </div>
+          <a
+            href={`https://github.com/${USERNAME}`}
+            target="_blank"
+            rel="noreferrer"
+            className="github-view-btn"
+          >
+            View Profile <RiExternalLinkLine />
+          </a>
         </div>
 
         <div className="github-stats-grid-v2">
@@ -158,14 +212,24 @@ export default function GitHubProfileDashboard() {
           ))}
         </div>
 
-        <a
-          href={`https://github.com/${USERNAME}`}
-          target="_blank"
-          rel="noreferrer"
-          className="github-view-btn"
-        >
-          View GitHub Profile <RiExternalLinkLine />
-        </a>
+        <div className="github-languages">
+          <h4 className="languages-title">
+            <RiCodeSSlashLine /> Popular Languages
+          </h4>
+          <div className="github-stats-grid-v2">
+            {userData.popularLanguages.map((lang, index) => (
+              <div key={index} className="github-stat-card-v2" style={{ '--stat-color': lang.color || 'var(--first-color)' }}>
+                <span className="github-stat-icon">
+                  {LANGUAGE_ICONS[lang.name] || <RiCodeSSlashLine />}
+                </span>
+                <div className="github-stat-details">
+                  <span className="github-stat-value">{lang.name}</span>
+                  <span className="github-stat-label">Main Language</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
