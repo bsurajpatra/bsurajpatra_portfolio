@@ -6,7 +6,9 @@ import {
   RiStarLine,
   RiGitRepositoryLine,
   RiExternalLinkLine,
-  RiCodeSSlashLine
+  RiCodeSSlashLine,
+  RiFireLine,
+  RiMedalLine
 } from "react-icons/ri";
 import {
   SiJavascript,
@@ -23,6 +25,30 @@ const LANGUAGE_ICONS = {
   CSS: <SiCss3 />,
   TypeScript: <SiTypescript />,
 };
+
+const ACHIEVEMENTS = [
+  {
+    name: "Pull Shark",
+    icon: "https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png",
+    description: "Merged pull requests",
+    count: 2
+  },
+  {
+    name: "YOLO",
+    icon: "https://github.githubassets.com/assets/yolo-default-be0bbff04951.png",
+    description: "Merged first PR without review"
+  },
+  {
+    name: "Quickdraw",
+    icon: "https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png",
+    description: "Closed issue/PR within 5 mins"
+  },
+  {
+    name: "Pair Extraordinaire",
+    icon: "https://github.githubassets.com/assets/pair-extraordinaire-default-579438a20e01.png",
+    description: "Co-authored commits"
+  }
+];
 
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 const USERNAME = "bsurajpatra";
@@ -43,6 +69,12 @@ query($userName: String!) {
     contributionsCollection {
       contributionCalendar {
         totalContributions
+        weeks {
+          contributionDays {
+            contributionCount
+            date
+          }
+        }
       }
       totalCommitContributions
     }
@@ -99,6 +131,24 @@ export default function GitHubProfileDashboard() {
             0
           );
 
+          // Calculate longest streak
+          const weeks = user.contributionsCollection.contributionCalendar.weeks;
+          const daily = weeks.flatMap((week) => week.contributionDays);
+
+          let longestStreak = 0;
+          let currentStreak = 0;
+
+          daily.forEach(day => {
+            if (day.contributionCount > 0) {
+              currentStreak++;
+              if (currentStreak > longestStreak) {
+                longestStreak = currentStreak;
+              }
+            } else {
+              currentStreak = 0;
+            }
+          });
+
           // Process languages
           const languageMap = {};
           user.repositories.nodes.forEach(repo => {
@@ -122,7 +172,8 @@ export default function GitHubProfileDashboard() {
           setUserData({
             ...user,
             totalStars,
-            popularLanguages
+            popularLanguages,
+            longestStreak
           });
         }
       } catch (err) {
@@ -168,6 +219,12 @@ export default function GitHubProfileDashboard() {
       value: userData.followers.totalCount,
       icon: <RiUserFollowLine />,
       color: "#2ecc71"
+    },
+    {
+      label: "Longest Streak",
+      value: `${userData.longestStreak} Days`,
+      icon: <RiFireLine />,
+      color: "#ff4d4d"
     }
   ];
 
@@ -210,6 +267,26 @@ export default function GitHubProfileDashboard() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="github-languages">
+          <h4 className="languages-title">
+            <RiMedalLine /> GitHub Achievements
+          </h4>
+          <div className="github-achievements-grid">
+            {ACHIEVEMENTS.map((achievement, index) => (
+              <div key={index} className="github-achievement-card">
+                <div className="achievement-badge-wrapper">
+                  <img src={achievement.icon} alt={achievement.name} className="github-achievement-badge" />
+                  {achievement.count > 1 && <span className="achievement-count">x{achievement.count}</span>}
+                </div>
+                <div className="github-stat-details">
+                  <span className="github-stat-value">{achievement.name}</span>
+                  <span className="github-stat-label">{achievement.description}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="github-languages">
