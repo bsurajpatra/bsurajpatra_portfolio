@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import './App.css';
 import Sidebar from './components/sidebar/Sidebar';
 import Home from './components/home/Home';
@@ -19,6 +20,17 @@ function App() {
     const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
 
+    useEffect(() => {
+        const handleBeforeInstallPrompt = (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            // e.preventDefault();
+            console.log('👍 ', 'beforeinstallprompt', e);
+        };
+        window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+        return () => window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    }, []);
+
     const switchTheme = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
@@ -31,7 +43,7 @@ function App() {
                 <Home />
                 <About />
                 <Education />
-                <SkillsAndTechnology />   
+                <SkillsAndTechnology />
                 <Projects />
                 <Achievements />
                 <Certifications />

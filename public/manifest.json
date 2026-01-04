@@ -1,6 +1,8 @@
 {
     "short_name": "Suraj Portfolio",
     "name": "B Suraj Patra - Full Stack Developer",
+    "description": "Portfolio of B Suraj Patra, a Full Stack Developer passionate about FOSS and building scalable web applications.",
+    "id": "/",
     "icons": [
         {
             "src": "logo.png",
@@ -16,11 +18,13 @@
         {
             "src": "logo.png",
             "type": "image/png",
-            "sizes": "512x512"
+            "sizes": "512x512",
+            "purpose": "any"
         }
     ],
-    "start_url": ".",
+    "start_url": "/",
     "display": "standalone",
     "theme_color": "#4a00e0",
-    "background_color": "#ffffff"
+    "background_color": "#ffffff",
+    "orientation": "portrait"
 }
