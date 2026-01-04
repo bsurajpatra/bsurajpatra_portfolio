@@ -101,6 +101,9 @@
 }
 
 .home__highlight-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
   background: var(--container-color);
   padding: 1.5rem;
   border-radius: 1rem;
@@ -116,24 +119,29 @@
 }
 
 .home__highlight-icon {
-  font-size: 2rem;
+  font-size: 2.25rem;
   color: var(--first-color);
-  margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
+  flex-shrink: 0;
+}
+
+.home__highlight-info {
+  text-align: left;
 }
 
 .home__highlight-title {
   font-size: var(--normal-font-size);
   font-weight: var(--font-semibold);
   color: var(--title-color);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
 }
 
 .home__highlight-desc {
   font-size: var(--small-font-size);
   color: var(--text-color);
   margin: 0;
+  line-height: 1.4;
 }
 
 /* Buttons */
@@ -343,7 +351,8 @@
 
   .home__highlights {
     grid-template-columns: 1fr;
-    max-width: 400px;
+    max-width: 450px;
+    width: 100%;
   }
 
   .home__buttons {
@@ -378,7 +387,8 @@
   }
 
   .home__highlight-card {
-    padding: 1.25rem;
+    padding: 1rem;
+    gap: 1rem;
   }
 
   .home__highlight-icon {
@@ -402,7 +412,7 @@
 
 @media screen and (max-width: 480px) {
   .home {
-    padding: 6rem 1.5rem 8rem;
+    padding: 4.5rem 1.5rem 7.5rem;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -440,6 +450,7 @@
     flex-direction: column;
     width: 100%;
     gap: 0.75rem;
+    margin-bottom: 3rem;
   }
 
   .btn-primary,
