@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Sidebar from './components/sidebar/Sidebar';
 import Home from './components/home/Home';
@@ -15,12 +15,18 @@ import CodingProfiles from './components/codingprofiles/CodingProfiles';
 import Research from './components/research/Research';
 import Footer from './components/footer/Footer';
 import Achievements from './components/achievements/Achievements';
+import CoreLoader from './components/loader/CoreLoader';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
     const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        // Always show loader on refresh as per user request for longer animation
+        setIsLoading(true);
+
         const handleBeforeInstallPrompt = (e) => {
             // Prevent the mini-infobar from appearing on mobile
             // e.preventDefault();
@@ -31,30 +37,42 @@ function App() {
         return () => window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
     }, []);
 
+    const handleLoaderComplete = () => {
+        setIsLoading(false);
+    };
+
     const switchTheme = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
     }
 
     return (
-        <div className="app" data-theme={theme}>
-            <Sidebar theme={theme} switchTheme={switchTheme} />
-            <main className='main'>
-                <Home />
-                <About />
-                <Education />
-                <SkillsAndTechnology />
-                <Projects />
-                <Achievements />
-                <Certifications />
-                <CodingProfiles />
-                <GitHub />
-                <Research />
-                <Experience />
-                <Contact theme={theme} />
-                <Footer />
-            </main>
-        </div>
+        <>
+            <AnimatePresence mode="wait">
+                {isLoading && (
+                    <CoreLoader key="loader" onComplete={handleLoaderComplete} />
+                )}
+            </AnimatePresence>
+
+            <div className="app" data-theme={theme} style={{ visibility: isLoading ? 'hidden' : 'visible' }}>
+                <Sidebar theme={theme} switchTheme={switchTheme} />
+                <main className='main'>
+                    <Home />
+                    <About />
+                    <Education />
+                    <SkillsAndTechnology />
+                    <Projects />
+                    <Achievements />
+                    <Certifications />
+                    <CodingProfiles />
+                    <GitHub />
+                    <Research />
+                    <Experience />
+                    <Contact theme={theme} />
+                    <Footer />
+                </main>
+            </div>
+        </>
     );
 }
 

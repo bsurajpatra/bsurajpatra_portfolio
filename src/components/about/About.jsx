@@ -18,7 +18,7 @@ const About = () => {
         {
             icon: <RiMapPinUserLine />,
             title: "Where I'm From",
-            text: "Odisha → Andhra"
+            text: "Odisha → Andhra Pradesh"
         },
         {
             icon: <RiTerminalBoxLine />,
