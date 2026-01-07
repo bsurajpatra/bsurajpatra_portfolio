@@ -19,8 +19,7 @@ import CoreLoader from './components/loader/CoreLoader';
 import { AnimatePresence } from 'framer-motion';
 
 function App() {
-    const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
+    const [theme, setTheme] = useLocalStorage('theme', 'light');
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
