@@ -5,6 +5,7 @@ import Lingua from "../../assets/lingua.jpg";
 import nvidia from "../../assets/nvidiadl.jpg";
 import awscp from "../../assets/awscp.jpg";
 import scrum from "../../assets/scrum.jpg";
+import smartcoder from "../../assets/Smart Coder.png";
 
 const Menu = [
     {
@@ -35,7 +36,17 @@ const Menu = [
         }
     },
     {
-        id: 4,
+        id:4,
+        title: "Smart Coder (Gold)",
+        company:"Smart Interviews",
+        certificate:{
+            src: smartcoder,
+            style:{ width: '100%', height: 'auto'}
+        }
+        
+    },
+    {
+        id: 5,
         title: "Salesforce Certified AI Associate",
         company: "Salesforce",
         certificate: {
@@ -44,7 +55,7 @@ const Menu = [
         }
     },
     {
-        id: 5,
+        id: 6,
         title: "Linguaskill General - English Language Proficiency",
         company: "Cambridge University Press and Assessment",
         certificate: {
@@ -53,7 +64,7 @@ const Menu = [
         }
     },
     {
-        id: 6,
+        id: 7,
         title: "Fundamentals of Deep Learning",
         company: "NVIDIA",
         certificate: {
@@ -62,7 +73,7 @@ const Menu = [
         }
     },
     {
-        id: 7,
+        id: 8,
         title: "Scrum Fundamentals",
         company: "SCRUMstudy",
         certificate: {
