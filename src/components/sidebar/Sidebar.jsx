@@ -34,73 +34,73 @@ const Sidebar = (props) => {
                     <div className="nav__menu">
                         <ul className="nav__list">
                             <li className="nav__item">
-                                <a href="#home" className="nav__link">
+                                <a href="#home" className="nav__link" data-tooltip="Home">
                                     <RiHome2Line />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#about" className="nav__link">
+                                <a href="#about" className="nav__link" data-tooltip="About">
                                     <RiUser3Line />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#education" className="nav__link">
+                                <a href="#education" className="nav__link" data-tooltip="Education">
                                     <RiGraduationCapLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#skills" className="nav__link">
+                                <a href="#skills" className="nav__link" data-tooltip="Skills">
                                     <RiToolsLine />
                                 </a>
                             </li>
 
 
                             <li className="nav__item">
-                                <a href="#projects" className="nav__link">
+                                <a href="#projects" className="nav__link" data-tooltip="Projects">
                                     <RiStackLine />
                                 </a>
                             </li>
                             <li className="nav__item">
-                                <a href="#achievements" className="nav__link">
+                                <a href="#achievements" className="nav__link" data-tooltip="Achievements">
                                     <RiTrophyLine />
                                 </a>
                             </li>
                             <li className="nav__item">
-                                <a href="#certifications" className="nav__link">
+                                <a href="#certifications" className="nav__link" data-tooltip="Certifications">
                                     <RiAwardLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#coding-profiles" className="nav__link">
+                                <a href="#coding-profiles" className="nav__link" data-tooltip="Coding Profiles">
                                     <RiCodeLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#github" className="nav__link">
+                                <a href="#github" className="nav__link" data-tooltip="GitHub Stats">
                                     <RiBarChartLine />
                                 </a>
                             </li>
 
-                            
+
                             <li className="nav__item">
-                                <a href="#research" className="nav__link">
+                                <a href="#research" className="nav__link" data-tooltip="Research">
                                     <RiBookOpenLine />
                                 </a>
                             </li>
-                            
+
                             <li className="nav__item">
-                                <a href="#experience" className="nav__link">
+                                <a href="#experience" className="nav__link" data-tooltip="Experience">
                                     <RiBriefcase2Line />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#contact" className="nav__link">
+                                <a href="#contact" className="nav__link" data-tooltip="Contact">
                                     <RiChat3Line />
                                 </a>
                             </li>
@@ -109,7 +109,11 @@ const Sidebar = (props) => {
                 </nav>
 
                 <div className="nav__controls">
-                    <button onClick={() => { props.switchTheme(); showMenu(!toggle) }} className="nav__link footer__button">
+                    <button
+                        onClick={() => { props.switchTheme(); showMenu(!toggle) }}
+                        className="nav__link footer__button"
+                        data-tooltip={props.theme === 'light' ? "Dark Mode" : "Light Mode"}
+                    >
                         {props.theme === 'light' ? <RiMoonLine /> : <RiSunLine />}
                     </button>
                 </div>

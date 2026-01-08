@@ -27,11 +27,69 @@ aside {
   color: var(--title-color);
   font-weight: var(--font-bold);
   transition: 0.3s;
+  position: relative;
 }
 
 .nav__link:hover {
   color: var(--first-color);
 }
+
+.nav__link[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: calc(100% + 15px);
+  top: 50%;
+  transform: translateY(-50%) translateX(-10px);
+  background-color: var(--title-color);
+  color: var(--body-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  font-size: var(--small-font-size);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.nav__link[data-tooltip]:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+.nav__link[data-tooltip]::before {
+  content: '';
+  position: absolute;
+  left: calc(100% + 5px);
+  top: 50%;
+  transform: translateY(-50%) translateX(-10px);
+  border: 5px solid transparent;
+  border-right-color: var(--title-color);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.nav__link[data-tooltip]:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Hide tooltips on mobile/smaller screens where sidebar behavior might be different */
+@media screen and (max-width: 1024px) {
+
+  .nav__link[data-tooltip]::after,
+  .nav__link[data-tooltip]::before {
+    display: none;
+  }
+}
+
 
 .footer__button {
   background-color: transparent;
