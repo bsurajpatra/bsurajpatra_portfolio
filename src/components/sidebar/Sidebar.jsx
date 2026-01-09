@@ -19,7 +19,6 @@ import {
     RiTrophyLine
 } from "react-icons/ri";
 
-
 const Sidebar = (props) => {
     const [toggle, showMenu] = useState(false);
 
@@ -29,10 +28,11 @@ const Sidebar = (props) => {
 
     return (
         <>
-            <aside className={toggle ? 'aside show-menu' : 'aside'}>
+            <aside className={toggle ? "aside show-menu" : "aside"}>
                 <nav className="nav">
                     <div className="nav__menu">
                         <ul className="nav__list">
+
                             <li className="nav__item">
                                 <a href="#home" className="nav__link" data-tooltip="Home">
                                     <RiHome2Line />
@@ -57,17 +57,36 @@ const Sidebar = (props) => {
                                 </a>
                             </li>
 
-
                             <li className="nav__item">
                                 <a href="#projects" className="nav__link" data-tooltip="Projects">
                                     <RiStackLine />
                                 </a>
                             </li>
+
+                            {/* <li className="nav__item">
+                                <a href="#engagements" className="nav__link" data-tooltip="Community Engagement">
+                                    <RiGroupLine />
+                                </a>
+                            </li> */}
+
+                            <li className="nav__item">
+                                <a href="#experience" className="nav__link" data-tooltip="Experience">
+                                    <RiBriefcase2Line />
+                                </a>
+                            </li>
+
+                            <li className="nav__item">
+                                <a href="#research" className="nav__link" data-tooltip="Patents">
+                                    <RiBookOpenLine />
+                                </a>
+                            </li>
+
                             <li className="nav__item">
                                 <a href="#achievements" className="nav__link" data-tooltip="Achievements">
                                     <RiTrophyLine />
                                 </a>
                             </li>
+
                             <li className="nav__item">
                                 <a href="#certifications" className="nav__link" data-tooltip="Certifications">
                                     <RiAwardLine />
@@ -81,21 +100,8 @@ const Sidebar = (props) => {
                             </li>
 
                             <li className="nav__item">
-                                <a href="#github" className="nav__link" data-tooltip="GitHub Stats">
+                                <a href="#github" className="nav__link" data-tooltip="Developer Insights">
                                     <RiBarChartLine />
-                                </a>
-                            </li>
-
-
-                            <li className="nav__item">
-                                <a href="#research" className="nav__link" data-tooltip="Research">
-                                    <RiBookOpenLine />
-                                </a>
-                            </li>
-
-                            <li className="nav__item">
-                                <a href="#experience" className="nav__link" data-tooltip="Experience">
-                                    <RiBriefcase2Line />
                                 </a>
                             </li>
 
@@ -104,22 +110,26 @@ const Sidebar = (props) => {
                                     <RiChat3Line />
                                 </a>
                             </li>
+
                         </ul>
                     </div>
                 </nav>
 
                 <div className="nav__controls">
                     <button
-                        onClick={() => { props.switchTheme(); showMenu(!toggle) }}
+                        onClick={() => { props.switchTheme(); showMenu(!toggle); }}
                         className="nav__link footer__button"
-                        data-tooltip={props.theme === 'light' ? "Dark Mode" : "Light Mode"}
+                        data-tooltip={props.theme === "light" ? "Dark Mode" : "Light Mode"}
                     >
-                        {props.theme === 'light' ? <RiMoonLine /> : <RiSunLine />}
+                        {props.theme === "light" ? <RiMoonLine /> : <RiSunLine />}
                     </button>
                 </div>
             </aside>
 
-            <div className={toggle ? 'nav__toggle nav__toggle-open' : 'nav__toggle'} onClick={toggleSidebar}>
+            <div
+                className={toggle ? "nav__toggle nav__toggle-open" : "nav__toggle"}
+                onClick={toggleSidebar}
+            >
                 <RiMenu2Line />
             </div>
         </>

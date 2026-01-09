@@ -56,19 +56,21 @@ function App() {
             <div className="app" data-theme={theme} style={{ visibility: isLoading ? 'hidden' : 'visible' }}>
                 <Sidebar theme={theme} switchTheme={switchTheme} />
                 <main className='main'>
-                    <Home />
-                    <About />
-                    <Education />
-                    <SkillsAndTechnology />
-                    <Projects />
-                    <Achievements />
-                    <Certifications />
-                    <CodingProfiles />
-                    <GitHub />
-                    <Research />
-                    <Experience />
-                    <Contact theme={theme} />
-                    <Footer />
+                  <Home />
+                <About />
+                <Education />
+                <SkillsAndTechnology />
+                <Projects />
+                {/* <CommunityEngagement /> */}
+                <Experience />
+                <Research />
+                <Achievements />
+                <Certifications />
+                <CodingProfiles />
+                <GitHub />
+                <Contact theme={theme} />
+                <Footer />
+
                 </main>
             </div>
         </>
