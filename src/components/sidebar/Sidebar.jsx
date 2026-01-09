@@ -16,7 +16,8 @@ import {
     RiToolsLine,
     RiBookOpenLine,
     RiBarChartLine,
-    RiTrophyLine
+    RiTrophyLine,
+    RiGroupLine
 } from "react-icons/ri";
 
 const Sidebar = (props) => {
@@ -63,12 +64,6 @@ const Sidebar = (props) => {
                                 </a>
                             </li>
 
-                            {/* <li className="nav__item">
-                                <a href="#engagements" className="nav__link" data-tooltip="Community Engagement">
-                                    <RiGroupLine />
-                                </a>
-                            </li> */}
-
                             <li className="nav__item">
                                 <a href="#experience" className="nav__link" data-tooltip="Experience">
                                     <RiBriefcase2Line />
@@ -82,14 +77,20 @@ const Sidebar = (props) => {
                             </li>
 
                             <li className="nav__item">
+                                <a href="#certifications" className="nav__link" data-tooltip="Certifications">
+                                    <RiAwardLine />
+                                </a>
+                            </li>
+
+                            <li className="nav__item">
                                 <a href="#achievements" className="nav__link" data-tooltip="Achievements">
                                     <RiTrophyLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#certifications" className="nav__link" data-tooltip="Certifications">
-                                    <RiAwardLine />
+                                <a href="#engagements" className="nav__link" data-tooltip="Community Engagement">
+                                    <RiGroupLine />
                                 </a>
                             </li>
 
