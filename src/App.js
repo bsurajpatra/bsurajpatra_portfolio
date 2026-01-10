@@ -15,6 +15,7 @@ import CodingProfiles from './components/codingprofiles/CodingProfiles';
 import Research from './components/research/Research';
 import Footer from './components/footer/Footer';
 import Achievements from './components/achievements/Achievements';
+import CommunityEngagement from './components/communityengagement/CommunityEngagement';
 import CoreLoader from './components/loader/CoreLoader';
 import { AnimatePresence } from 'framer-motion';
 
@@ -56,21 +57,21 @@ function App() {
             <div className="app" data-theme={theme} style={{ visibility: isLoading ? 'hidden' : 'visible' }}>
                 <Sidebar theme={theme} switchTheme={switchTheme} />
                 <main className='main'>
-                <Home />
-                <About />
-                <Education />
-                <SkillsAndTechnology />
+                    <Home />
+                    <About />
+                    <Education />
+                    <SkillsAndTechnology />
 
-                <Projects />        
-                <Experience />      
-                <Research />        
-                <Certifications /> 
-                <Achievements />    
-                {/* <CommunityEngagement />   */}
-                <CodingProfiles />  
-                <GitHub />          
-                <Contact theme={theme} />
-                <Footer />
+                    <Projects />
+                    <Experience />
+                    <Research />
+                    <Achievements />
+                    <CommunityEngagement />
+                    <Certifications />
+                    <CodingProfiles />
+                    <GitHub />
+                    <Contact theme={theme} />
+                    <Footer />
 
                 </main>
             </div>
