@@ -1,5 +1,5 @@
 import KLEats from "../../assets/kleats.png";
-import KarmaSync from "../../assets/KarmaSync.png";
+import KarmaSync from "../../assets/karmasync.png";
 import SafeWebVerify from "../../assets/safewebverify.jpg";
 import KLEatsFinance from "../../assets/finance_kleats.png";
 import FaceAttend from "../../assets/FaceAttend.png";
