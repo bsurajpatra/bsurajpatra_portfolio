@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+
 
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 const USERNAME = "bsurajpatra";

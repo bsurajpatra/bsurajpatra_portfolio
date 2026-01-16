@@ -26,7 +26,7 @@ const CoreLoader = ({ onComplete }) => {
             }, 1000);
             return () => clearTimeout(finalTimer);
         }
-    }, [currentLine, onComplete, loadingLines.length]);
+    }, [currentLine, onComplete]);
 
     return (
         <motion.div
