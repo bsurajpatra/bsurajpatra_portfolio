@@ -121,9 +121,11 @@ const Projects = () => {
 										<RiLink /> Live Demo
 									</a>
 								)}
-								<a href={selectedProject.repositoryUrl} target="_blank" rel="noreferrer" className="project-modal__link">
-									<RiGithubLine /> Repository
-								</a>
+								{selectedProject.repositoryUrl && (
+									<a href={selectedProject.repositoryUrl} target="_blank" rel="noreferrer" className="project-modal__link">
+										<RiGithubLine /> Repository
+									</a>
+								)}
 							</div>
 						</motion.div>
 					</motion.div>

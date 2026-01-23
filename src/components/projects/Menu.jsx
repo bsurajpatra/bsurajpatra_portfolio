@@ -1,9 +1,9 @@
 import KLEats from "../../assets/kleats.png";
 import KarmaSync from "../../assets/karmasync.png";
 import SafeWebVerify from "../../assets/safewebverify.jpg";
-import KLEatsFinance from "../../assets/finance_kleats.png";
 import FaceAttend from "../../assets/FaceAttend.png";
 import SwatVsTheUndead from "../../assets/swatvstheundead.png";
+import FruitBlast from "../../assets/FruitBlast.png";
 
 
 const Menu = [
@@ -28,15 +28,6 @@ const Menu = [
 	},
 	{
 		id: 3,
-		image: KLEatsFinance,
-		title: "KL Eats Finance",
-		category: ["React + Vite, Node.js, Express, MySQL"],
-		url: "https://finance.kleats.in/",
-		repositoryUrl: "https://github.com/KLEats/finance_kleats",
-		description: "A finance management system for KL Eats."
-	},
-	{
-		id: 4,
 		image: SafeWebVerify,
 		title: "SafeWebVerify",
 		category: ["React, Node.js, Express, MongoDB, Python, Flask, scikit-learn, JWT"],
@@ -45,7 +36,7 @@ const Menu = [
 		description: "SafeWebVerify is a full-stack phishing detection platform that uses machine learning to analyze URLs and classify them as legitimate or phishing in real time.",
 	},
 	{
-		id: 5,
+		id: 4,
 		image: KarmaSync,
 		title: "KarmaSync",
 		category: ["React, Node.js, Express, MongoDB, JWT, SMTP, EmailJS"],
@@ -54,14 +45,23 @@ const Menu = [
 		description: "Karma Sync is a lightweight Agile project management tool that helps individuals and teams plan, track, and collaborate on projects using Kanban boards, sprints, user stories, and daily to-do tracking — all from a single dashboard."
 	},
 	{
-		id: 6,
+		id: 5,
 		image: SwatVsTheUndead,
 		title: "SWAT vs the Undead",
 		category: ["Unity Engine, C#, Unity Asset Store, Mixamo"],
 		url: "https://bsurajpatra.itch.io/swat-vs-the-undead",
 		repositoryUrl: "https://github.com/bsurajpatra/swat-vs-the-undead",
-		description: "SWAT vs the Undead is a single-player FPS arena survival game where players fight waves of zombies, manage health and ammunition, and survive increasingly difficult encounters."
+		description: "SWAT vs the Undead is a single-player FPS arena survival game where players fight waves of zombies, manage health and ammunition, and survive increasingly difficult encounters. The game is designed to be played on laptops and desktop PCs only."
 	},
+	{
+		id: 6,
+		image: FruitBlast,
+		title: "Fruit Blast",
+		category: ["Unity Engine, C#, Unity Asset Store"],
+		url: "https://bsurajpatra.itch.io/fruit-blast",
+		repositoryUrl: null,
+		description: "Fruit Blast is a fast-paced Unity arcade game where players blast flying fruits, avoid bombs, and hit a target score before time runs out. Playable on both mobile devices and PCs."
+	}
 
 ];
 
