@@ -34,6 +34,15 @@ const Menu = [
         icon: "medal",
         description:
             "Ranked among the Top 15 teams in the online ICPC-style competitive programming round."
+    },
+    {
+        id: 5,
+        title: "Game Verse Hackathon",
+        category: ["Game Development"],
+        badge: "Winner",
+        icon: "trophy",
+        description:
+            "Won the Game Verse Hackathon by developing Swat Vs The Undead, a PC-based action game."
     }
 ];
 
