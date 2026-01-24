@@ -121,7 +121,6 @@
 .skills__icon {
     font-size: 1.25rem;
     display: flex;
-    color: var(--title-color);
 }
 
 .skills__text {

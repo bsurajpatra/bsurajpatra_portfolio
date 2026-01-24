@@ -12,8 +12,8 @@ const WorkExperience = [
         image: { src: KLEats, style: { width: '100px', height: 'auto' } },
         information: [
             "Product of KLGLUG, Unit of Quitech Labs Pvt Ltd.",
-            "Led agile development as Scrum Master, coordinating sprint planning, reviews, and team collaboration.",
-            "Designed and developed features for a food ordering and payment platform using modern web technologies."
+            "Leading agile development as Scrum Master, coordinating sprint planning, reviews, and team collaboration.",
+            "Designing and developing features for a food ordering and payment platform using modern web technologies."
         ],
     },
     {

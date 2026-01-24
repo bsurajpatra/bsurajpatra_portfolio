@@ -14,8 +14,8 @@ const Menu = [
 		category: ["Next.js, Node.js, MySQL, TailwindCSS, Shadcn UI, Cashfree, Redis"],
 		url: "https://kleats.in/",
 		repositoryUrl: "https://github.com/KLEats",
-		description: "KLEats is a campus food pre-ordering platform that helps students order meals in advance and enables canteens to manage orders, payments, and settlements efficiently."
-
+		description: "KLEats is a campus food pre-ordering platform that helps students order meals in advance and enables canteens to manage orders, payments, and settlements efficiently.",
+		type: "Apps"
 	},
 	{
 		id: 2,
@@ -24,7 +24,8 @@ const Menu = [
 		category: ["React Native (Expo), Node.js, Express, MongoDB, Python, Flask, FaceNet, JWT"],
 		url: "https://faceattendai.netlify.app/",
 		repositoryUrl: "https://github.com/bsurajpatra/FaceAttend",
-		description: "FaceAttend is a face recognition–based attendance system for educational institutions that automatically marks attendance in real time, prevents proxy attendance through secure kiosk mode, and provides detailed analytics and reports."
+		description: "FaceAttend is a face recognition–based attendance system for educational institutions that automatically marks attendance in real time, prevents proxy attendance through secure kiosk mode, and provides detailed analytics and reports.",
+		type: "Apps"
 	},
 	{
 		id: 3,
@@ -34,6 +35,7 @@ const Menu = [
 		url: null,
 		repositoryUrl: "https://github.com/bsurajpatra/SafeWebVerify",
 		description: "SafeWebVerify is a full-stack phishing detection platform that uses machine learning to analyze URLs and classify them as legitimate or phishing in real time.",
+		type: "Apps"
 	},
 	{
 		id: 4,
@@ -42,7 +44,8 @@ const Menu = [
 		category: ["React, Node.js, Express, MongoDB, JWT, SMTP, EmailJS"],
 		url: "https://karmasync.vercel.app/",
 		repositoryUrl: "https://github.com/bsurajpatra/KarmaSync_info",
-		description: "Karma Sync is a lightweight Agile project management tool that helps individuals and teams plan, track, and collaborate on projects using Kanban boards, sprints, user stories, and daily to-do tracking — all from a single dashboard."
+		description: "Karma Sync is a lightweight Agile project management tool that helps individuals and teams plan, track, and collaborate on projects using Kanban boards, sprints, user stories, and daily to-do tracking — all from a single dashboard.",
+		type: "Apps"
 	},
 	{
 		id: 5,
@@ -51,7 +54,8 @@ const Menu = [
 		category: ["Unity Engine, C#, Unity Asset Store, Mixamo"],
 		url: "https://bsurajpatra.itch.io/swat-vs-the-undead",
 		repositoryUrl: "https://github.com/bsurajpatra/swat-vs-the-undead",
-		description: "SWAT vs the Undead is a single-player FPS arena survival game where players fight waves of zombies, manage health and ammunition, and survive increasingly difficult encounters. The game is designed to be played on laptops and desktop PCs only."
+		description: "SWAT vs the Undead is a single-player FPS arena survival game where players fight waves of zombies, manage health and ammunition, and survive increasingly difficult encounters. The game is designed to be played on laptops and desktop PCs only.",
+		type: "Games"
 	},
 	{
 		id: 6,
@@ -60,9 +64,9 @@ const Menu = [
 		category: ["Unity Engine, C#, Unity Asset Store"],
 		url: "https://bsurajpatra.itch.io/fruit-blast",
 		repositoryUrl: null,
-		description: "Fruit Blast is a fast-paced Unity arcade game where players blast flying fruits, avoid bombs, and hit a target score before time runs out. Playable on both mobile devices and PCs."
+		description: "Fruit Blast is a fast-paced Unity arcade game where players blast flying fruits, avoid bombs, and hit a target score before time runs out. Playable on both mobile devices and PCs.",
+		type: "Games"
 	}
-
 ];
 
 

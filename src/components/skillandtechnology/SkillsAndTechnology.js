@@ -16,68 +16,68 @@ const skillsData = [
     {
         category: "🖥️ Programming Languages",
         items: [
-            { name: "C", icon: <SiC /> },
-            { name: "Java", icon: <FaJava /> },
-            { name: "JavaScript", icon: <FaJs /> },
+            { name: "C", icon: <SiC color="#A8B9CC" /> },
+            { name: "Java", icon: <FaJava color="#007396" /> },
+            { name: "JavaScript", icon: <FaJs color="#F7DF1E" /> },
         ],
     },
     {
         category: "⚙️ Frameworks & Platforms",
         items: [
-            { name: "MERN Stack Web Development", icon: <FaReact /> },
-            { name: "Spring Boot + React Full Stack Development", icon: <SiSpringboot /> }
+            { name: "MERN Stack Web Development", icon: <FaReact color="#61DAFB" /> },
+            { name: "Spring Boot + React Full Stack Development", icon: <SiSpringboot color="#6DB33F" /> }
         ],
     },
     {
         category: "🗄️ Databases",
         items: [
-            { name: "SQL", icon: <TbSql /> },
-            { name: "MySQL", icon: <SiMysql /> },
-            { name: "PostgreSQL", icon: <SiPostgresql /> },
-            { name: "MongoDB", icon: <SiMongodb /> },
+            { name: "SQL", icon: <TbSql color="#4479A1" /> },
+            { name: "MySQL", icon: <SiMysql color="#4479A1" /> },
+            { name: "PostgreSQL", icon: <SiPostgresql color="#336791" /> },
+            { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
         ],
     },
     {
         category: "📊 Data Structures & Algorithms (DSA)",
         items: [
-            { name: "Proficient DSA", icon: <SiLeetcode /> },
+            { name: "Proficient DSA", icon: <SiLeetcode color="#FFA116" /> },
         ],
     },
     {
         category: "📂 Version Control & DevOps",
         items: [
-            { name: "Git", icon: <FaGitAlt /> },
-            { name: "GitHub", icon: <FaGithub /> },
-            { name: "GitLab", icon: <FaGitlab /> },
-            { name: "Docker", icon: <FaDocker /> },
-            { name: "Jenkins", icon: <SiJenkins /> },
+            { name: "Git", icon: <FaGitAlt color="#F05032" /> },
+            { name: "GitHub", icon: <FaGithub color="#181717" /> },
+            { name: "GitLab", icon: <FaGitlab color="#FC6D26" /> },
+            { name: "Docker", icon: <FaDocker color="#2496ED" /> },
+            { name: "Jenkins", icon: <SiJenkins color="#D24939" /> },
         ],
     },
     {
         category: "⚡ Agile & Project Management",
         items: [
-            { name: "Agile & Scrum", icon: <BsKanban /> },
-            { name: "Team Management", icon: <FaUsers /> },
-            { name: "Design Thinking", icon: <FaLightbulb /> },
-            { name: "Strategic Vision", icon: <FaBullseye /> }
+            { name: "Agile & Scrum", icon: <BsKanban color="#0052CC" /> },
+            { name: "Team Management", icon: <FaUsers color="#6C6CE5" /> },
+            { name: "Design Thinking", icon: <FaLightbulb color="#FFD700" /> },
+            { name: "Strategic Vision", icon: <FaBullseye color="#FF4D4D" /> }
         ],
     },
     {
         category: "🛠️ Developer Tools",
         items: [
-            { name: "VS Code", icon: <TbBrandVscode /> },
-            { name: "Eclipse", icon: <SiEclipseide /> },
-            { name: "MySQL Workbench", icon: <SiMysql /> },
-            { name: "Postman", icon: <SiPostman /> },
+            { name: "VS Code", icon: <TbBrandVscode color="#007ACC" /> },
+            { name: "Eclipse", icon: <SiEclipseide color="#2C2255" /> },
+            { name: "MySQL Workbench", icon: <SiMysql color="#4479A1" /> },
+            { name: "Postman", icon: <SiPostman color="#FF6C37" /> },
         ],
     },
     {
         category: "🎮 Game Development & UX",
         items: [
-            { name: "Unity Engine (2D/3D)", icon: <FaUnity /> },
-            { name: "C# Gameplay Scripting", icon: <TbBrandCSharp /> },
-            { name: "Player-Centered UX Design", icon: <FaUsers /> },
-            { name: "Interaction Design for Games", icon: <FaGamepad /> }
+            { name: "Unity Engine (2D/3D)", icon: <FaUnity color="#222C37" /> },
+            { name: "C# Gameplay Scripting", icon: <TbBrandCSharp color="#239120" /> },
+            { name: "Player-Centered UX Design", icon: <FaUsers color="#6C6CE5" /> },
+            { name: "Interaction Design for Games", icon: <FaGamepad color="#FF4D4D" /> }
         ],
     }
 ];

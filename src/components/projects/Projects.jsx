@@ -8,8 +8,15 @@ import { TbBrandCSharp } from "react-icons/tb";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Projects = () => {
-	const [items] = useState(Menu);
+	const [activeFilter, setActiveFilter] = useState("Apps");
+	const [items, setItems] = useState(Menu.filter((item) => item.type === "Apps"));
 	const [selectedProject, setSelectedProject] = useState(null);
+
+	const filterItems = (category) => {
+		setActiveFilter(category);
+		const newItems = Menu.filter((item) => item.type === category);
+		setItems(newItems);
+	};
 
 	const getTechIcon = (tech) => {
 		const lower = tech.toLowerCase();
@@ -43,38 +50,61 @@ const Projects = () => {
 		<section className="projects container section" id="projects">
 			<h2 className="section__title">Projects</h2>
 
-			<div className="projects__container grid">
-				{items.map((elem, index) => {
-					const { id, image, title } = elem;
+			<motion.div
+				className="projects__filters"
+				initial={{ opacity: 0, y: -20 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.5 }}
+				viewport={{ once: true }}
+			>
+				{["Apps", "Games"].map((category) => (
+					<button
+						key={category}
+						className={`projects__filter-btn ${activeFilter === category ? "active-filter" : ""}`}
+						onClick={() => filterItems(category)}
+					>
+						{category}
+					</button>
+				))}
+			</motion.div>
 
-					return (
-						<motion.div
-							layout
-							initial={{ opacity: 0, y: 30 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							exit={{ opacity: 0, scale: 0.8 }}
-							transition={{ duration: 0.4, delay: index * 0.1 }}
-							viewport={{ once: true }}
-							className="projects__card"
-							key={id}>
-							<div className="projects__thumbnail-simple">
-								<img src={image} alt={title} className="projects__img-simple" />
-							</div>
+			<motion.div
+				layout
+				className="projects__container grid"
+			>
+				<AnimatePresence mode="popLayout">
+					{items.map((elem, index) => {
+						const { id, image, title } = elem;
 
-							<div className="projects__title-row">
-								<h3 className="projects__title-simple">{title}</h3>
-								<button
-									className="projects__detail-btn"
-									onClick={() => setSelectedProject(elem)}
-									title="View Details"
-								>
-									<RiInformationLine />
-								</button>
-							</div>
-						</motion.div>
-					);
-				})}
-			</div>
+						return (
+							<motion.div
+								layout
+								initial={{ opacity: 0, scale: 0.9 }}
+								animate={{ opacity: 1, scale: 1 }}
+								exit={{ opacity: 0, scale: 0.9 }}
+								transition={{ duration: 0.3 }}
+								className="projects__card"
+								key={id}
+							>
+								<div className="projects__thumbnail-simple">
+									<img src={image} alt={title} className="projects__img-simple" />
+								</div>
+
+								<div className="projects__title-row">
+									<h3 className="projects__title-simple">{title}</h3>
+									<button
+										className="projects__detail-btn"
+										onClick={() => setSelectedProject(elem)}
+										title="View Details"
+									>
+										<RiInformationLine />
+									</button>
+								</div>
+							</motion.div>
+						);
+					})}
+				</AnimatePresence>
+			</motion.div>
 
 			<AnimatePresence>
 				{selectedProject && (
