@@ -3,27 +3,37 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './CoreLoader.css';
 
 const loadingLines = [
-    "Initializing core engine...",
-    "Loading system modules...",
-    "Analysing data structures...",
-    "Syncing neural nodes...",
-    "Rendering interface...",
-    "Initializing security protocols..."
+    "Initializing engine...",
+    "Syncing nodes...",
+    "Analyzing data...",
+    "Rendering interface..."
 ];
 
 const CoreLoader = ({ onComplete }) => {
     const [currentLine, setCurrentLine] = useState(0);
 
     useEffect(() => {
+        // Disable scrolling on body
+        document.body.style.overflow = 'hidden';
+        // Scroll to top to ensure user starts at Home page
+        window.scrollTo(0, 0);
+
+        return () => {
+            // Restore scrolling
+            document.body.style.overflow = 'unset';
+        };
+    }, []);
+
+    useEffect(() => {
         if (currentLine < loadingLines.length) {
             const timer = setTimeout(() => {
                 setCurrentLine(prev => prev + 1);
-            }, 800);
+            }, 600); // 4 lines * 600ms = 2400ms
             return () => clearTimeout(timer);
         } else {
             const finalTimer = setTimeout(() => {
                 onComplete();
-            }, 1000);
+            }, 600); // 2400ms + 600ms = 3000ms (3 seconds)
             return () => clearTimeout(finalTimer);
         }
     }, [currentLine, onComplete]);
