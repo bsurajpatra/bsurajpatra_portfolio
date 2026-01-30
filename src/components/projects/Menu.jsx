@@ -21,10 +21,22 @@ const Menu = [
 		id: 2,
 		image: FaceAttend,
 		title: "FaceAttend",
-		category: ["React Native (Expo), Node.js, Express, MongoDB, Python, Flask, FaceNet, JWT"],
+		category: [
+			"React Native (Expo)",
+			"React + Vite (Web ERP)",
+			"Node.js",
+			"Express",
+			"TypeScript",
+			"MongoDB",
+			"Python",
+			"Flask",
+			"FaceNet",
+			"Socket.io",
+			"JWT"
+		],
 		url: "https://faceattendai.netlify.app/",
 		repositoryUrl: "https://github.com/bsurajpatra/FaceAttend",
-		description: "FaceAttend is a face recognition–based attendance system for educational institutions that automatically marks attendance in real time, prevents proxy attendance through secure kiosk mode, and provides detailed analytics and reports.",
+		description: "FaceAttend is a kiosk-grade, face recognition attendance platform for educational institutions featuring a premium Web ERP and a real-time mobile attendance app. It uses FaceNet-based biometric recognition, secure Android kiosk mode, and WebSocket-powered Web–Mobile sync to prevent proxy attendance, enable remote face capture, and provide detailed analytics with professional PDF/CSV reports.",
 		type: "Apps"
 	},
 	{
