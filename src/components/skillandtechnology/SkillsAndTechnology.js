@@ -2,11 +2,12 @@ import React from 'react';
 import './SkillsAndTechnology.css';
 import {
     FaJava, FaJs, FaReact, FaGitAlt, FaGithub, FaGitlab,
-    FaDocker, FaUnity, FaUsers, FaLightbulb, FaBullseye, FaGamepad
+    FaDocker, FaUnity, FaUsers, FaLightbulb, FaBullseye, FaGamepad,
+    FaWindows, FaAndroid, FaMobileAlt, FaPuzzlePiece, FaLayerGroup
 } from 'react-icons/fa';
 import {
     SiC, SiSpringboot, SiMysql, SiPostgresql, SiMongodb, SiJenkins,
-    SiEclipseide, SiPostman, SiLeetcode,
+    SiEclipseide, SiPostman, SiLeetcode, SiItchdotio
 } from 'react-icons/si';
 import { TbSql, TbBrandVscode, TbBrandCSharp } from "react-icons/tb";
 import { BsKanban } from "react-icons/bs";
@@ -72,12 +73,23 @@ const skillsData = [
         ],
     },
     {
-        category: "🎮 Game Development & UX",
+        category: "🎮 Game Development",
         items: [
             { name: "Unity Engine (2D/3D)", icon: <FaUnity color="#222C37" /> },
             { name: "C# Gameplay Scripting", icon: <TbBrandCSharp color="#239120" /> },
+            { name: "Unity Physics / Game Logic", icon: <FaPuzzlePiece color="#FFD700" /> },
+            { name: "Vuforia Engine (AR)", icon: <FaMobileAlt color="#4285F4" /> },
+        ],
+    },
+    {
+        category: "🧠 Game UX & Publishing",
+        items: [
             { name: "Player-Centered UX Design", icon: <FaUsers color="#6C6CE5" /> },
-            { name: "Interaction Design for Games", icon: <FaGamepad color="#FF4D4D" /> }
+            { name: "Interaction Design for Games", icon: <FaGamepad color="#FF4D4D" /> },
+            { name: "Unity UI / Canvas Systems", icon: <FaLayerGroup color="#9B59B6" /> },
+            { name: "itch.io Publishing", icon: <SiItchdotio color="#FA5C5C" /> },
+            { name: "Windows Standalone Build (.exe)", icon: <FaWindows color="#0078D7" /> },
+            { name: "WebGL / Android Builds", icon: <FaAndroid color="#3DDC84" /> },
         ],
     }
 ];
