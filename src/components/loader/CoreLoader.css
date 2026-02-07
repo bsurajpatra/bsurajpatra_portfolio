@@ -241,9 +241,24 @@
 }
 
 @media (max-width: 600px) {
+    .reactor-container {
+        transform: scale(0.85);
+    }
+
     .reactor-core {
         width: 150px;
         height: 150px;
+        margin-bottom: 20px;
+    }
+
+    .energy-lines {
+        width: 180px;
+        height: 180px;
+    }
+
+    .hud-lines {
+        width: 240px;
+        height: 240px;
     }
 
     .loader-text {
