@@ -24,17 +24,6 @@ function App() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // Always show loader on refresh as per user request for longer animation
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-        if (isMobile) {
-            // Small delay for mobile to ensure the initial paint happens before the heavy loader
-            const timer = setTimeout(() => setIsLoading(true), 100);
-            return () => clearTimeout(timer);
-        } else {
-            setIsLoading(true);
-        }
-
         const handleBeforeInstallPrompt = (e) => {
             console.log('👍 ', 'beforeinstallprompt', e);
         };
