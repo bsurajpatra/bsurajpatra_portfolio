@@ -17,6 +17,7 @@ import Footer from './components/footer/Footer';
 import Achievements from './components/achievements/Achievements';
 import CommunityEngagement from './components/communityengagement/CommunityEngagement';
 import CoreLoader from './components/loader/CoreLoader';
+import CustomCursor from './components/cursor/CustomCursor';
 import { AnimatePresence } from 'framer-motion';
 
 function App() {
@@ -48,6 +49,8 @@ function App() {
                     <CoreLoader key="loader" onComplete={handleLoaderComplete} />
                 )}
             </AnimatePresence>
+
+            {!isLoading && <CustomCursor />}
 
             <div className="app" data-theme={theme} style={{ visibility: isLoading ? 'hidden' : 'visible' }}>
                 <Sidebar theme={theme} switchTheme={switchTheme} />
