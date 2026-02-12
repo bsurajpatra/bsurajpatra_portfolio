@@ -19,7 +19,6 @@ const CustomCursor = () => {
 
     useEffect(() => {
         const moveMouse = (e) => {
-            const now = performance.now();
             const dx = e.clientX - velocityRef.current.lastPos.x;
             const dy = e.clientY - velocityRef.current.lastPos.y;
 
