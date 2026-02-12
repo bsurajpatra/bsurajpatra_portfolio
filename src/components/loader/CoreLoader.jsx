@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Scene3DLoader from './Scene3DLoader';
 import './CoreLoader.css';
 
 const loadingLines = [
@@ -45,26 +46,8 @@ const CoreLoader = ({ onComplete }) => {
             exit={{ opacity: 0, transition: { duration: 0.8 } }}
         >
             <div className="reactor-container">
-                {/* Reactor Core Visuals */}
-                <div className="reactor-core">
-                    <div className="ring ring-1"></div>
-                    <div className="ring ring-2"></div>
-                    <div className="ring ring-3"></div>
-                    <div className="core-inner">
-                        <div className="core-glow"></div>
-                    </div>
-                    <div className="energy-lines">
-                        {[...Array(8)].map((_, i) => (
-                            <div key={i} className={`energy-line line-${i}`}></div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* HUD Elements */}
-                <div className="hud-lines">
-                    <div className="hud-arc-top"></div>
-                    <div className="hud-arc-bottom"></div>
-                </div>
+                {/* 3D Reactor Core Visuals */}
+                <Scene3DLoader />
 
                 {/* Text Animation */}
                 <div className="loader-text-container">

@@ -12,6 +12,8 @@ import {
 import { TbSql, TbBrandVscode, TbBrandCSharp } from "react-icons/tb";
 import { BsKanban } from "react-icons/bs";
 import { motion } from 'framer-motion';
+import FloatingSkills from './FloatingSkills';
+import Skill3D from './SkillItem3D';
 
 const skillsData = [
     {
@@ -95,39 +97,73 @@ const skillsData = [
 ];
 
 const SkillsAndTechnology = () => {
+    const [viewMode, setViewMode] = React.useState('classic');
+
+    const toggleView = () => {
+        setViewMode(prev => prev === 'classic' ? 'sphere' : 'classic');
+    };
+
     return (
         <section className="skills container section" id="skills">
             <h2 className="section__title">Skills & Technologies</h2>
 
-            <div className="skills__list-container">
-                {skillsData.map(({ category, items }, index) => (
-                    <motion.div
-                        key={index}
-                        className={`skills__box skills__box-${index % 5}`}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                    >
-                        <h3 className="skills__category-header">{category}</h3>
-                        <div className="skills__items-wrapper">
-                            {items.map((skill, i) => (
-                                <motion.div
-                                    key={i}
-                                    className="skills__pill"
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 0.3, delay: (index * 0.1) + (i * 0.05) }}
-                                    viewport={{ once: true }}
-                                    whileHover={{ y: -2 }}
-                                >
-                                    <span className="skills__icon">{skill.icon}</span>
-                                    <span className="skills__text">{skill.name}</span>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </motion.div>
-                ))}
+            <div className="skills__view-toggle" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+                <button
+                    onClick={toggleView}
+                    className="button button--flex"
+                    style={{
+                        margin: '0 auto',
+                        padding: '0.75rem 2rem',
+                        background: 'var(--title-color)',
+                        color: 'var(--container-color)',
+                        border: 'none',
+                        borderRadius: '1rem',
+                        cursor: 'pointer',
+                        fontWeight: 'bold',
+                        transition: '0.3s',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem'
+                    }}
+                >
+                    {viewMode === 'classic' ? '🔮 Try 3D Sphere' : '📋 Back to List'}
+                </button>
+            </div>
+
+            <div style={{ minHeight: viewMode === 'classic' ? 'auto' : '600px', transition: 'all 0.5s ease' }}>
+                {viewMode === 'classic' && (
+                    <div className="skills__list-container">
+                        {skillsData.map(({ category, items }, index) => (
+                            <motion.div
+                                key={index}
+                                className={`skills__box skills__box-${index % 5}`}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                            >
+                                <h3 className="skills__category-header">{category}</h3>
+                                <div className="skills__items-wrapper">
+                                    {items.map((skill, i) => (
+                                        <div
+                                            key={i}
+                                            className="skill-3d-wrapper"
+                                            style={{ perspective: 1000 }} // Essential for 3D effect
+                                        >
+                                            <Skill3D icon={skill.icon} name={skill.name} />
+                                        </div>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                )}
+
+                {viewMode === 'sphere' && (
+                    <React.Suspense fallback={<div>Loading 3D Sphere...</div>}>
+                        <FloatingSkills skills={skillsData} />
+                    </React.Suspense>
+                )}
             </div>
         </section>
     );
