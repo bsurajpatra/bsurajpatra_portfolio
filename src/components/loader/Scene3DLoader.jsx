@@ -107,7 +107,7 @@ const EnergyParticles = () => {
 
 const Scene3DLoader = () => {
     return (
-        <div style={{ width: '100%', height: '500px', position: 'relative' }}>
+        <div style={{ width: '100%', height: 'min(50vh, 500px)', position: 'relative' }}>
             <Canvas camera={{ position: [0, 0, 6], fov: 50 }}>
                 <ambientLight intensity={0.2} />
                 <pointLight position={[10, 10, 10]} intensity={1} />
