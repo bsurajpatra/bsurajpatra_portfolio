@@ -12,8 +12,8 @@ const CustomCursor = () => {
     const mouseY = useMotionValue(-100);
 
     // Velocity-based stretching
-    const x = useSpring(mouseX, { damping: 20, stiffness: 200 });
-    const y = useSpring(mouseY, { damping: 20, stiffness: 200 });
+    const x = useSpring(mouseX, { damping: 25, stiffness: 500, restDelta: 0.001 });
+    const y = useSpring(mouseY, { damping: 25, stiffness: 500, restDelta: 0.001 });
 
     const velocityRef = useRef({ x: 0, y: 0, lastPos: { x: 0, y: 0 } });
 
@@ -82,14 +82,13 @@ const CustomCursor = () => {
                 animate={{
                     width: isHovered ? 60 : 12,
                     height: isHovered ? 60 : 12,
-                    borderRadius: isHovered ? "20%" : "50%",
-                    backgroundColor: isHovered ? 'var(--title-color)' : 'var(--title-color)',
-                    opacity: isHovered ? 0.2 : 1,
+                    borderRadius: "50%",
+                    backgroundColor: 'var(--title-color)',
+                    opacity: isHovered ? 0.15 : 1,
                 }}
                 transition={{
-                    borderRadius: { duration: 0.3 },
-                    width: { duration: 0.2 },
-                    height: { duration: 0.2 },
+                    width: { duration: 0.15, ease: "easeOut" },
+                    height: { duration: 0.15, ease: "easeOut" },
                 }}
             />
         </div>

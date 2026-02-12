@@ -4,6 +4,7 @@ import SafeWebVerify from "../../assets/safewebverify.jpg";
 import FaceAttend from "../../assets/FaceAttend.png";
 import SwatVsTheUndead from "../../assets/swatvstheundead.png";
 import FruitBlast from "../../assets/FruitBlast.png";
+import DigiChit from "../../assets/digichit.png";
 
 
 const Menu = [
@@ -61,6 +62,16 @@ const Menu = [
 	},
 	{
 		id: 5,
+		image: DigiChit,
+		title: "DigiChit",
+		category: ["React + Vite, Node.js, Express.js, MongoDB, Razorpay"],
+		url: "https://digi-chit.vercel.app/",
+		repositoryUrl: "https://github.com/bsurajpatra/DigiChit",
+		description: "DigiChit is a secure digital chit fund platform that transforms traditional chit systems with transparent transactions, digital ledgers, KYC verification, multilingual notifications, and easy group management.",
+		type: "Apps"
+	},
+	{
+		id: 6,
 		image: SwatVsTheUndead,
 		title: "SWAT vs the Undead",
 		category: ["Unity Engine, C#, Unity Asset Store, Mixamo"],
@@ -70,7 +81,7 @@ const Menu = [
 		type: "Games"
 	},
 	{
-		id: 6,
+		id: 7,
 		image: FruitBlast,
 		title: "Fruit Blast",
 		category: ["Unity Engine, C#, Unity Asset Store"],
