@@ -5,7 +5,9 @@ import Lingua from "../../assets/lingua.jpg";
 import nvidia from "../../assets/nvidiadl.jpg";
 import awscp from "../../assets/awscp.jpg";
 import scrum from "../../assets/scrum.jpg";
-import smartcoder from "../../assets/Smart Coder.png";
+import unity from "../../assets/Unity.jpg";
+
+const imgStyle = { width: "100%", height: "auto" };
 
 const Menu = [
     {
@@ -14,7 +16,7 @@ const Menu = [
         company: "Amazon Web Services",
         certificate: {
             src: awscp,
-            style: { width: '100%', height: 'auto' }
+            style: imgStyle
         }
     },
     {
@@ -23,7 +25,7 @@ const Menu = [
         company: "GitHub",
         certificate: {
             src: GitHub,
-            style: { width: '100%', height: 'auto' }
+            style: imgStyle
         }
     },
     {
@@ -32,18 +34,17 @@ const Menu = [
         company: "MongoDB",
         certificate: {
             src: MongoDB,
-            style: { width: '100%', height: 'auto' }
+            style: imgStyle
         }
     },
     {
-        id:4,
-        title: "Smart Coder (Gold)",
-        company:"Smart Interviews",
-        certificate:{
-            src: smartcoder,
-            style:{ width: '100%', height: 'auto'}
+        id: 4,
+        title: "Unity Certified User Programmer",
+        company: "Unity",
+        certificate: {
+            src: unity,
+            style: imgStyle
         }
-        
     },
     {
         id: 5,
@@ -51,7 +52,7 @@ const Menu = [
         company: "Salesforce",
         certificate: {
             src: Salesforce,
-            style: { width: '100%', height: 'auto' }
+            style: imgStyle
         }
     },
     {
@@ -60,7 +61,7 @@ const Menu = [
         company: "Cambridge University Press and Assessment",
         certificate: {
             src: Lingua,
-            style: { width: '100%', height: 'auto' }
+            style: imgStyle
         }
     },
     {
@@ -69,7 +70,7 @@ const Menu = [
         company: "NVIDIA",
         certificate: {
             src: nvidia,
-            style: { width: '100%', height: 'auto' }
+            style: imgStyle
         }
     },
     {
@@ -78,7 +79,7 @@ const Menu = [
         company: "SCRUMstudy",
         certificate: {
             src: scrum,
-            style: { width: '100%', height: 'auto' }
+            style: imgStyle
         }
     }
 ];
