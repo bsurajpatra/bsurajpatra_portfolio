@@ -96,7 +96,7 @@ const Menu = [
 		image: ChronoLens,
 		title: "ChronoLens",
 		category: ["React, MindAR.js, Three.js, Tailwind CSS, Vite"],
-		url: "https://chronolensvr.netlify.app/",
+		url: "https://chronolensar.netlify.app/",
 		repositoryUrl: "https://github.com/bsurajpatra/ChronoLens",
 		description: "ChronoLens is a production-grade WebAR museum experience that brings historic portraits to life. By scanning physical artwork, users can uncover immersive digital narratives, holographic 3D overlays, and pseudo-spatial audio tours directly through their browser.",
 		type: "Apps"
@@ -105,5 +105,6 @@ const Menu = [
 
 
 export default Menu;
+
 
 
