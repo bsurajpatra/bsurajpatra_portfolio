@@ -5,6 +5,7 @@ import FaceAttend from "../../assets/FaceAttend.png";
 import SwatVsTheUndead from "../../assets/swatvstheundead.png";
 import FruitBlast from "../../assets/FruitBlast.png";
 import DigiChit from "../../assets/digichit.png";
+import ChronoLens from "../../assets/chronolens.png";
 
 
 const Menu = [
@@ -63,10 +64,10 @@ const Menu = [
 	{
 		id: 5,
 		image: DigiChit,
-		title: "DigiChit",
+		title: "DigiChit (Coming Soon)",
 		category: ["React + Vite, Node.js, Express.js, MongoDB, Razorpay"],
-		url: "https://digi-chit.vercel.app/",
-		repositoryUrl: "https://github.com/bsurajpatra/DigiChit",
+		url: null,
+		repositoryUrl: null,
 		description: "DigiChit is a secure digital chit fund platform that transforms traditional chit systems with transparent transactions, digital ledgers, KYC verification, multilingual notifications, and easy group management.",
 		type: "Apps"
 	},
@@ -89,6 +90,16 @@ const Menu = [
 		repositoryUrl: null,
 		description: "Fruit Blast is a fast-paced Unity arcade game where players blast flying fruits, avoid bombs, and hit a target score before time runs out. Playable on both mobile devices and PCs.",
 		type: "Games"
+	},
+	{
+		id: 8,
+		image: ChronoLens,
+		title: "ChronoLens",
+		category: ["React, MindAR.js, Three.js, Tailwind CSS, Vite"],
+		url: "https://chronolensvr.netlify.app/",
+		repositoryUrl: "https://github.com/bsurajpatra/ChronoLens",
+		description: "ChronoLens is a production-grade WebAR museum experience that brings historic portraits to life. By scanning physical artwork, users can uncover immersive digital narratives, holographic 3D overlays, and pseudo-spatial audio tours directly through their browser.",
+		type: "Apps"
 	}
 ];
 
