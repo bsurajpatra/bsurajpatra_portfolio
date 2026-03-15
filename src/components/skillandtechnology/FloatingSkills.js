@@ -7,49 +7,65 @@ const FloatingItem = ({ position, icon, name, color }) => {
     const meshRef = React.useRef();
     const [hovered, setHovered] = React.useState(false);
 
+    // Remove internal rotation to keep items stable
     useFrame((state) => {
-        if (meshRef.current) {
-            // Subtle rotation
-            meshRef.current.rotation.x += 0.002;
-            meshRef.current.rotation.y += 0.002;
+        if (meshRef.current && hovered) {
+            // Optional: small hover animation if desired, but keeping it stable for now
         }
     });
 
     return (
-        <Float speed={2} rotationIntensity={1} floatIntensity={1}>
-            <group position={position}
-                ref={meshRef}
-                onPointerOver={() => setHovered(true)}
-                onPointerOut={() => setHovered(false)}
-                scale={hovered ? 1.2 : 1}
-            >
-                <mesh>
+        <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
+            <group position={position} ref={meshRef} scale={hovered ? 1.1 : 1}>
+                <mesh
+                    onPointerOver={(e) => {
+                        e.stopPropagation();
+                        setHovered(true);
+                    }}
+                    onPointerOut={() => setHovered(false)}
+                >
                     {/* Invisible hit sphere for better raycasting */}
-                    <sphereGeometry args={[0.7, 16, 16]} />
-                    <meshStandardMaterial transparent opacity={0.1} color={color || "white"} wireframe={hovered} />
+                    <sphereGeometry args={[0.8, 16, 16]} />
+                    <meshBasicMaterial transparent opacity={0} />
                 </mesh>
 
-                <Html distanceFactor={6} transform position={[0, 0, 0]} style={{ pointerEvents: 'none' }}>
+                {/* Removed 'transform' to make it always face the camera (billboard effect) */}
+                <Html 
+                    distanceFactor={10} 
+                    position={[0, 0, 0]} 
+                    center
+                    style={{ 
+                        pointerEvents: 'auto', // Allowed events for hover
+                        whiteSpace: 'nowrap'
+                    }}
+                >
                     <div className="floating-skill-item" style={{
                         textAlign: 'center',
                         color: hovered ? '#ff6b6b' : (color || 'white'),
                         transition: 'all 0.3s ease',
-                        transform: hovered ? 'scale(1.2)' : 'scale(1)',
-                        width: '80px',
+                        transform: hovered ? 'scale(1.1)' : 'scale(1)',
+                        width: 'auto',
+                        minWidth: '80px',
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        background: 'rgba(0,0,0,0.6)',
-                        padding: '10px',
-                        borderRadius: '10px',
-                        backdropFilter: 'blur(4px)',
-                        border: hovered ? '1px solid currentColor' : '1px solid transparent'
+                        background: 'rgba(0,0,0,0.7)',
+                        padding: '12px 16px',
+                        borderRadius: '12px',
+                        backdropFilter: 'blur(8px)',
+                        border: hovered ? '2px solid #ff6b6b' : '1px solid rgba(255,255,255,0.1)',
+                        boxShadow: hovered ? '0 0 20px rgba(255,107,107,0.4)' : 'none',
+                        userSelect: 'none'
                     }}>
-                        <div style={{ fontSize: '2rem', marginBottom: '5px' }}>
+                        <div style={{ fontSize: '2.5rem', marginBottom: '8px' }}>
                             {icon}
                         </div>
-                        <span style={{ fontSize: '0.8rem', fontWeight: 'bold' }}>{name}</span>
+                        <span style={{ 
+                            fontSize: '0.9rem', 
+                            fontWeight: '600',
+                            letterSpacing: '0.5px'
+                        }}>{name}</span>
                     </div>
                 </Html>
             </group>
