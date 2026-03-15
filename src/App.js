@@ -21,8 +21,20 @@ import CustomCursor from './components/cursor/CustomCursor';
 import { AnimatePresence } from 'framer-motion';
 
 function App() {
+    // Default to 'light'. If no theme was ever set (localStorage key absent), 'light' is used.
     const [theme, setTheme] = useLocalStorage('theme', 'light');
     const [isLoading, setIsLoading] = useState(true);
+
+    // One-time migration: force reset theme to 'light' for any user
+    // who had 'dark' saved without explicitly choosing it.
+    // The migration flag 'theme-v2' ensures this runs only once per device.
+    useEffect(() => {
+        const migrated = localStorage.getItem('theme-v2');
+        if (!migrated) {
+            setTheme('light');
+            localStorage.setItem('theme-v2', 'done');
+        }
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
         const handleBeforeInstallPrompt = (e) => {
