@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Scene3DLoader from './Scene3DLoader';
+import dynamic from 'next/dynamic';
 import './CoreLoader.css';
+
+const Scene3DLoader = dynamic(() => import('./Scene3DLoader'), { ssr: false });
 
 const loadingLines = [
     "Initializing engine...",

@@ -3,7 +3,9 @@ import './Home.css';
 import Me from '../../assets/Profession.webp';
 import Image from 'next/image';
 import ScrollDown from './ScrollDown';
-import Shapes from './Shapes';
+import dynamic from 'next/dynamic';
+
+const Shapes = dynamic(() => import('./Shapes'), { ssr: false });
 import { motion } from 'framer-motion';
 import { RiCodeSLine, RiGamepadLine, RiOpenSourceFill } from 'react-icons/ri';
 
