@@ -1,0 +1,53 @@
+.cursor-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99999;
+}
+
+.cursor-liquid {
+    position: fixed;
+    background-color: var(--title-color);
+    top: 0;
+    left: 0;
+    transform-origin: center;
+    pointer-events: none;
+    z-index: 99999;
+    /* We don't use translate(-50%, -50%) here because Framer Motion handles 'x' and 'y' center-aligned by default or via style */
+    margin-left: -6px;
+    /* Offset half of the base width */
+    margin-top: -6px;
+    /* Offset half of the base height */
+}
+
+/* On hover, we'll override the offset if the size changes, but Framer Motion handles the animate block better */
+
+/* Hide default cursor only if on desktop */
+@media (pointer: fine) {
+    body {
+        cursor: none !important;
+    }
+
+    a,
+    button,
+    [role="button"],
+    .interactive,
+    .skills__pill,
+    .floating-skill-item {
+        cursor: none !important;
+    }
+}
+
+/* Handle mobile - show default cursor and hide custom one */
+@media (pointer: coarse) {
+    .cursor-container {
+        display: none;
+    }
+
+    body {
+        cursor: auto !important;
+    }
+}

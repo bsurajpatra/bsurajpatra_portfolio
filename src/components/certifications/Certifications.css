@@ -1,0 +1,317 @@
+.certifications {
+    padding: 6rem 0 2rem;
+    background: transparent;
+}
+
+.certifications__container {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.certifications__column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.certifications__item {
+    display: flex;
+    flex-direction: column;
+    background: var(--container-color);
+    border-left: 3px solid var(--first-color);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    min-height: 220px;
+}
+
+.certifications__item:hover {
+    background: var(--body-color);
+    border-left-color: var(--first-color);
+}
+
+.certifications__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.certifications__title {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-bold);
+    color: var(--title-color);
+    margin: 0;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 3rem;
+}
+
+.certifications__title::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--first-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--first-color);
+    flex-shrink: 0;
+}
+
+.certifications__company {
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+    padding-left: 1.5rem;
+    position: relative;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.certifications__company::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 12px;
+    height: 1px;
+    background: var(--first-color);
+    transform: translateY(-50%);
+}
+
+.certifications__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.certifications__view-button {
+    background: transparent;
+    color: var(--first-color);
+    border: 1px solid var(--first-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.certifications__view-button:hover {
+    background: var(--first-color);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--first-color);
+}
+
+/* MODAL STYLES */
+.certificate-modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    backdrop-filter: blur(5px);
+}
+
+.certificate-modal__content {
+    background-color: var(--container-color);
+    width: 100%;
+    max-width: 800px;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.certificate-modal__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--title-color);
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certificate-modal__close:hover {
+    color: var(--first-color);
+    transform: rotate(90deg);
+}
+
+.certificate-modal__title {
+    font-size: var(--h2-font-size);
+    color: var(--title-color);
+    margin-bottom: 0.5rem;
+    padding-right: 2rem;
+    font-weight: var(--font-bold);
+}
+
+.certificate-modal__company {
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.certificate-modal__img-wrapper {
+    width: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.certificate-modal__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+[data-theme="dark"] .certifications__item {
+    background: linear-gradient(145deg, rgba(40, 40, 40, 0.9), rgba(30, 30, 30, 0.9));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .certifications__item:hover {
+    background: linear-gradient(145deg, rgba(45, 45, 45, 0.95), rgba(35, 35, 35, 0.95));
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .certifications__title {
+    color: #fff;
+}
+
+[data-theme="dark"] .certifications__company {
+    color: #a7aeb9;
+}
+
+[data-theme="dark"] .certificate-modal__content {
+    background: hsl(0, 0%, 15%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .certificate-modal__title {
+    color: #fff;
+}
+
+[data-theme="dark"] .certificate-modal__company {
+    color: #a7aeb9;
+}
+
+/* Custom Scrollbar for Modal Content */
+.certificate-modal__content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.certificate-modal__content::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: 1rem;
+}
+
+.certificate-modal__content::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+[data-theme="dark"] .certificate-modal__content::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media screen and (max-width: 992px) {
+    .certifications__container {
+        flex-direction: column;
+        max-width: 600px;
+    }
+
+    .certifications__column {
+        gap: 1.5rem;
+    }
+
+    .certifications__item {
+        min-height: 200px;
+    }
+
+    .certificate-modal__content {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .certifications__container {
+        flex-direction: column;
+        max-width: 400px;
+        padding: 0 1rem;
+    }
+
+    .certifications__column {
+        gap: 1.5rem;
+    }
+
+    .certifications__item {
+        min-height: 180px;
+        padding: 1.5rem;
+    }
+
+    .certifications__title {
+        font-size: var(--h3-font-size);
+        height: 2.5rem;
+    }
+
+    .certifications__company {
+        font-size: var(--small-font-size);
+        height: 1.8rem;
+    }
+
+    .certificate-modal__content {
+        padding: 1.5rem;
+    }
+
+    .certificate-modal__title {
+        font-size: var(--h3-font-size);
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .certifications__container {
+        max-width: 300px;
+        padding: 0 0.5rem;
+    }
+
+    .certifications__item {
+        min-height: 160px;
+        padding: 1rem;
+    }
+
+    .certificate-modal__content {
+        padding: 1rem;
+    }
+}
