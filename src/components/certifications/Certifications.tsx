@@ -82,7 +82,7 @@ const Certifications = () => {
 
 							<div className="certificate-modal__img-wrapper">
 								<img
-									src={selectedCertificate.certificate.src?.src || selectedCertificate.certificate.src}
+									src={(selectedCertificate.certificate.src?.src || selectedCertificate.certificate.src) as any}
 									alt={`${selectedCertificate.title} Certificate`}
 									className="certificate-modal__img"
 									loading="lazy"

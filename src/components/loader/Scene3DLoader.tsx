@@ -4,7 +4,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Sphere, MeshDistortMaterial } from '@react-three/drei';
 
 const PulsingCore = () => {
-    const coreRef = useRef();
+    const coreRef = useRef<any>(null);
 
     useFrame((state) => {
         const time = state.clock.getElapsedTime();
@@ -42,8 +42,8 @@ const PulsingCore = () => {
     );
 };
 
-const Ring = ({ radius, speed, color, dash }) => {
-    const ringRef = useRef();
+const Ring = ({ radius, speed, color, dash }: any) => {
+    const ringRef = useRef<any>(null);
 
     useFrame((state) => {
         const time = state.clock.getElapsedTime();
@@ -68,7 +68,7 @@ const Ring = ({ radius, speed, color, dash }) => {
 };
 
 const EnergyParticles = () => {
-    const pointsRef = useRef();
+    const pointsRef = useRef<any>(null);
     const count = 50;
 
     const positions = React.useMemo(() => {

@@ -3,8 +3,8 @@ import React, { useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Float, Html, PerspectiveCamera } from '@react-three/drei';
 
-const FloatingItem = ({ position, icon, name, color }) => {
-    const meshRef = React.useRef();
+const FloatingItem = ({ position, icon, name, color }: any) => {
+    const meshRef = React.useRef<any>(null);
     const [hovered, setHovered] = React.useState(false);
 
     // Remove internal rotation to keep items stable
@@ -73,7 +73,7 @@ const FloatingItem = ({ position, icon, name, color }) => {
     );
 };
 
-const FloatingSkills = ({ skills }) => {
+const FloatingSkills = ({ skills }: any) => {
     // Flatten skills and categorize by category color if possible, or just flatten.
     const allSkills = useMemo(() => {
         return skills.flatMap(category =>

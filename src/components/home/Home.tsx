@@ -35,7 +35,7 @@ const Home = () => {
                     transition={{ duration: 0.5 }}
                 >
                     <div className="home__img-border">
-                        <img src={typeof Me === 'object' ? Me.src : Me} alt="B Suraj Patra" className='home__img' loading="lazy" />
+                        <img src={(Me as any)?.src || Me} alt="B Suraj Patra" className='home__img' loading="lazy" />
                     </div>
                 </motion.div>
 

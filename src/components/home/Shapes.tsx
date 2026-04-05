@@ -5,9 +5,11 @@ const Shapes = () => {
     const canvasRef = useRef(null);
 
     useEffect(() => {
-        const canvas = canvasRef.current;
+        const canvas = canvasRef.current as HTMLCanvasElement;
+        if (!canvas) return;
         const ctx = canvas.getContext('2d');
-        let animationFrameId;
+        if (!ctx) return;
+        let animationFrameId: number;
 
         const handleResize = () => {
             canvas.width = window.innerWidth;
@@ -18,12 +20,19 @@ const Shapes = () => {
         handleResize();
 
         const gridSpacing = 60; // Increased spacing for a 'wider' feel
-        const binaries = [];
+        const binaries: BinaryStream[] = [];
         const binaryCount = 35; // Slightly fewer but larger
-        const circuits = [];
+        const circuits: CircuitLine[] = [];
         const circuitCount = 12;
 
         class BinaryStream {
+            x: number = 0;
+            y: number = 0;
+            speed: number = 0;
+            chars: string[] = [];
+            opacity: number = 0;
+            fontSize: number = 0;
+
             constructor() {
                 this.reset();
             }
@@ -46,15 +55,23 @@ const Shapes = () => {
             }
 
             draw() {
-                ctx.font = `bold ${this.fontSize}px 'Courier New'`; // Added bold
-                ctx.fillStyle = `rgba(108, 108, 229, ${this.opacity})`;
+                ctx!.font = `bold ${this.fontSize}px 'Courier New'`; // Added bold
+                ctx!.fillStyle = `rgba(108, 108, 229, ${this.opacity})`;
                 this.chars.forEach((char, i) => {
-                    ctx.fillText(char, this.x, this.y - (i * 22));
+                    ctx!.fillText(char, this.x, this.y - (i * 22));
                 });
             }
         }
 
         class CircuitLine {
+            x: number = 0;
+            y: number = 0;
+            length: number = 0;
+            speed: number = 0;
+            direction: string = '';
+            progress: number = 0;
+            opacity: number = 0;
+
             constructor() {
                 this.reset();
             }
@@ -77,21 +94,21 @@ const Shapes = () => {
             }
 
             draw() {
-                ctx.beginPath();
-                ctx.shadowBlur = 15; // Increased glow
-                ctx.shadowColor = 'rgba(108, 108, 229, 0.9)';
-                ctx.strokeStyle = `rgba(108, 108, 229, ${this.opacity})`;
-                ctx.lineWidth = 4; // Increased line width
+                ctx!.beginPath();
+                ctx!.shadowBlur = 15; // Increased glow
+                ctx!.shadowColor = 'rgba(108, 108, 229, 0.9)';
+                ctx!.strokeStyle = `rgba(108, 108, 229, ${this.opacity})`;
+                ctx!.lineWidth = 4; // Increased line width
 
                 if (this.direction === 'h') {
-                    ctx.moveTo(this.x + this.progress - 70, this.y);
-                    ctx.lineTo(this.x + this.progress, this.y);
+                    ctx!.moveTo(this.x + this.progress - 70, this.y);
+                    ctx!.lineTo(this.x + this.progress, this.y);
                 } else {
-                    ctx.moveTo(this.x, this.y + this.progress - 70);
-                    ctx.lineTo(this.x, this.y + this.progress);
+                    ctx!.moveTo(this.x, this.y + this.progress - 70);
+                    ctx!.lineTo(this.x, this.y + this.progress);
                 }
-                ctx.stroke();
-                ctx.shadowBlur = 0;
+                ctx!.stroke();
+                ctx!.shadowBlur = 0;
             }
         }
 

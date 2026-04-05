@@ -131,7 +131,7 @@ const Contact = (props) => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="contact__link"
-                                    style={{ '--link-color': link.color }}
+                                    style={{ '--link-color': link.color } as any}
                                     title={`${link.name}: ${link.value}`}
                                     initial={{ opacity: 0, y: 10 }}
                                     whileInView={{ opacity: 1, y: 0 }}
@@ -181,8 +181,8 @@ const Contact = (props) => {
                         <textarea
                             name=""
                             id=""
-                            cols="30"
-                            rows="10"
+                            cols={30}
+                            rows={10}
                             className="contact__form-input"
                             placeholder="Write your message"
                             onChange={(e) => setMessage(e.target.value)}

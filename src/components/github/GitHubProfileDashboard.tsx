@@ -165,7 +165,7 @@ export default function GitHubProfileDashboard() {
           });
 
           const popularLanguages = Object.entries(languageMap)
-            .map(([name, data]) => ({ name, ...data }))
+            .map(([name, data]) => ({ name, ...(data as any) }))
             .sort((a, b) => b.size - a.size)
             .slice(0, 5);
 
@@ -259,7 +259,7 @@ export default function GitHubProfileDashboard() {
 
         <div className="github-stats-grid-v2">
           {stats.map((stat, index) => (
-            <div key={index} className="github-stat-card-v2" style={{ '--stat-color': stat.color }}>
+            <div key={index} className="github-stat-card-v2" style={{ '--stat-color': stat.color } as any}>
               <span className="github-stat-icon">{stat.icon}</span>
               <div className="github-stat-details">
                 <span className="github-stat-value">{stat.value}</span>
@@ -295,7 +295,7 @@ export default function GitHubProfileDashboard() {
           </h4>
           <div className="github-stats-grid-v2">
             {userData.popularLanguages.map((lang, index) => (
-              <div key={index} className="github-stat-card-v2" style={{ '--stat-color': lang.color || 'var(--first-color)' }}>
+              <div key={index} className="github-stat-card-v2" style={{ '--stat-color': lang.color || 'var(--first-color)' } as any}>
                 <span className="github-stat-icon">
                   {LANGUAGE_ICONS[lang.name] || <RiCodeSSlashLine />}
                 </span>

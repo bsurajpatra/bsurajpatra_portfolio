@@ -71,7 +71,7 @@ const Experience = () => {
                                 {WorkExperience[activeTab].image && (
                                     <div className="experience__logo-box">
                                         <img
-                                            src={WorkExperience[activeTab].image.src?.src || WorkExperience[activeTab].image.src}
+                                            src={(WorkExperience[activeTab].image.src?.src || WorkExperience[activeTab].image.src) as any}
                                             alt={WorkExperience[activeTab].company}
                                             className="experience__logo"
                                             loading="lazy"
@@ -129,7 +129,7 @@ const Experience = () => {
                             >
                                 <RiCloseLine />
                             </button>
-                            <img src={selectedCertificate?.src || selectedCertificate} alt="Experience Certificate" loading="lazy" />
+                            <img src={(selectedCertificate?.src || selectedCertificate) as any} alt="Experience Certificate" loading="lazy" />
                         </motion.div>
                     </motion.div>
                 )}

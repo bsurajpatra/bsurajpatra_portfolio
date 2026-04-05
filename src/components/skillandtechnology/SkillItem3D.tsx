@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
-const Skill3D = ({ icon, name }) => {
+const Skill3D = ({ icon, name }: any) => {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
 
@@ -12,8 +12,8 @@ const Skill3D = ({ icon, name }) => {
     const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
     const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
 
-    const handleMouseMove = (e) => {
-        const rect = e.target.getBoundingClientRect();
+    const handleMouseMove = (e: React.MouseEvent) => {
+        const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
 
         const width = rect.width;
         const height = rect.height;

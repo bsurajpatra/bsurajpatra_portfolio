@@ -45,7 +45,7 @@ const Education = () => {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
                         >
-                            <img src={image?.src || image} alt='' className='education__img' loading="lazy" />
+                            <img src={(image?.src || image) as any} alt='' className='education__img' loading="lazy" />
 
                             <div className="education__content">
                                 <h3 className="education__title">{title}</h3>

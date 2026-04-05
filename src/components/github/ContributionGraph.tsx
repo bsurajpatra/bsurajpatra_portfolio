@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 
-const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
+const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 const USERNAME = "bsurajpatra";
 
 const query = `

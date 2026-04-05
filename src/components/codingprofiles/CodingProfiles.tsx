@@ -56,10 +56,10 @@ const CodingProfiles = () => {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         viewport={{ once: true }}
                     >
-                        <div className="profile__card-header" style={{ '--accent-color': profile.color }}>
+                        <div className="profile__card-header" style={{ '--accent-color': profile.color } as any}>
                             <div className="profile__logo-wrapper">
                                 <img
-                                    src={profile.logo}
+                                    src={(profile.logo as any)?.src || profile.logo}
                                     alt={profile.platform}
                                     className="profile__logo"
                                     loading="lazy"

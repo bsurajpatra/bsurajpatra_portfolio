@@ -45,7 +45,7 @@ const About = () => {
                     viewport={{ once: true }}
                 >
                     <div className="about__img-wrapper">
-                        <img src={Image?.src || Image} alt="Suraj" className='about__img' loading="lazy" />
+                        <img src={(Image?.src || Image) as any} alt="Suraj" className='about__img' loading="lazy" />
                         <div className="about__img-accents">
                             <span></span>
                             <span></span>

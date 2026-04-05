@@ -87,7 +87,7 @@ const Projects = () => {
 								key={id}
 							>
 								<div className="projects__thumbnail-simple">
-									<img src={image?.src || image} alt={title} className="projects__img-simple" loading="lazy" />
+									<img src={(image as any)?.src || image} alt={title} className="projects__img-simple" loading="lazy" />
 								</div>
 
 								<div className="projects__title-row">
@@ -129,7 +129,7 @@ const Projects = () => {
 							<h3 className="project-modal__title">{selectedProject.title}</h3>
 
 							<div className="project-modal__img-wrapper">
-								<img src={selectedProject.image?.src || selectedProject.image} alt={selectedProject.title} loading="lazy" />
+								<img src={(selectedProject.image as any)?.src || selectedProject.image} alt={selectedProject.title} loading="lazy" />
 							</div>
 
 							<p className="project-modal__description">{selectedProject.description}</p>

@@ -74,7 +74,7 @@ const CommunityEngagement = () => {
                     {engagementData.map((event) => (
                         <SwiperSlide key={event.id}>
                             <div className="engagement__card" onClick={() => openModal(event)}>
-                                <img src={event.cover?.src || event.cover} alt={event.title} className="engagement__img" loading="lazy" />
+                                <img src={(event.cover?.src || event.cover) as any} alt={event.title} className="engagement__img" loading="lazy" />
                                 <div className="engagement__overlay">
                                     <h3 className="engagement__title">{event.title}</h3>
                                     <button className="view-more__btn">View More</button>
@@ -94,7 +94,7 @@ const CommunityEngagement = () => {
 
                         <div className="modal__gallery">
                             <img
-                                src={modalData.images[currentImageIndex]?.src || modalData.images[currentImageIndex]}
+                                src={(modalData.images[currentImageIndex]?.src || modalData.images[currentImageIndex]) as any}
                                 alt={modalData.title}
                                 className="modal__img"
                                 loading="lazy"
