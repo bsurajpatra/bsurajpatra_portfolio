@@ -5,22 +5,24 @@ import '../src/App.css';
 import Sidebar from '@/src/components/sidebar/Sidebar';
 import Home from '@/src/components/home/Home';
 import About from '@/src/components/about/About';
-import Education from '@/src/components/education/Education';
-import Experience from '@/src/components/experience/Experience';
-import GitHub from '@/src/components/github/GitHub';
-import Projects from '@/src/components/projects/Projects';
-import Contact from '@/src/components/contact/Contact';
 import useLocalStorage from 'use-local-storage';
-import SkillsAndTechnology from '@/src/components/skillandtechnology/SkillsAndTechnology';
-import Certifications from '@/src/components/certifications/Certifications';
-import CodingProfiles from '@/src/components/codingprofiles/CodingProfiles';
-import Research from '@/src/components/research/Research';
-import Footer from '@/src/components/footer/Footer';
-import Achievements from '@/src/components/achievements/Achievements';
-import CommunityEngagement from '@/src/components/communityengagement/CommunityEngagement';
 import CoreLoader from '@/src/components/loader/CoreLoader';
 import CustomCursor from '@/src/components/cursor/CustomCursor';
 import { AnimatePresence } from 'framer-motion';
+import dynamic from 'next/dynamic';
+
+const Education = dynamic(() => import('@/src/components/education/Education'));
+const Experience = dynamic(() => import('@/src/components/experience/Experience'));
+const GitHub = dynamic(() => import('@/src/components/github/GitHub'));
+const Projects = dynamic(() => import('@/src/components/projects/Projects'));
+const Contact = dynamic(() => import('@/src/components/contact/Contact'));
+const SkillsAndTechnology = dynamic(() => import('@/src/components/skillandtechnology/SkillsAndTechnology'));
+const Certifications = dynamic(() => import('@/src/components/certifications/Certifications'));
+const CodingProfiles = dynamic(() => import('@/src/components/codingprofiles/CodingProfiles'));
+const Research = dynamic(() => import('@/src/components/research/Research'));
+const Footer = dynamic(() => import('@/src/components/footer/Footer'));
+const Achievements = dynamic(() => import('@/src/components/achievements/Achievements'));
+const CommunityEngagement = dynamic(() => import('@/src/components/communityengagement/CommunityEngagement'));
 
 export default function Page() {
     const [isMounted, setIsMounted] = useState(false);
