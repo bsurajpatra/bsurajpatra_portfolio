@@ -5,6 +5,7 @@ import leetcodeLogo from '../../assets/leetcode.webp';
 import codeforcesLogo from '../../assets/codeforces.webp';
 import { motion } from "framer-motion";
 import { RiExternalLinkLine, RiStarFill, RiMedalLine, RiAwardLine } from 'react-icons/ri';
+import Image from 'next/image';
 
 const CodingProfiles = () => {
     const profiles = [
@@ -58,11 +59,10 @@ const CodingProfiles = () => {
                     >
                         <div className="profile__card-header" style={{ '--accent-color': profile.color } as any}>
                             <div className="profile__logo-wrapper">
-                                <img
-                                    src={(profile.logo as any)?.src || profile.logo}
+                                <Image
+                                    src={profile.logo}
                                     alt={profile.platform}
                                     className="profile__logo"
-                                    loading="lazy"
                                 />
                             </div>
                             <div className="profile__header-info">

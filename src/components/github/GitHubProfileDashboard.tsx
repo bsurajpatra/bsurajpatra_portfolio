@@ -17,6 +17,7 @@ import {
   SiCss,
   SiTypescript
 } from "react-icons/si";
+import Image from 'next/image';
 
 const LANGUAGE_ICONS = {
   JavaScript: <SiJavascript />,
@@ -232,7 +233,7 @@ export default function GitHubProfileDashboard() {
     <div className="github-dashboard">
       <div className="github-profile-card">
         <div className="github-profile-header">
-          <img src={userData.avatarUrl} alt={userData.name} className="github-avatar" loading="lazy" />
+          <Image src={userData.avatarUrl} alt={userData.name} width={120} height={120} className="github-avatar" />
           <div className="github-profile-info">
             <h3 className="github-name">
               {userData.name}
@@ -277,7 +278,7 @@ export default function GitHubProfileDashboard() {
             {ACHIEVEMENTS.map((achievement, index) => (
               <div key={index} className="github-achievement-card">
                 <div className="achievement-badge-wrapper">
-                  <img src={achievement.icon} alt={achievement.name} className="github-achievement-badge" loading="lazy" />
+                  <Image src={achievement.icon} alt={achievement.name} width={64} height={64} className="github-achievement-badge" />
                   {achievement.count > 1 && <span className="achievement-count">x{achievement.count}</span>}
                 </div>
                 <div className="github-stat-details">

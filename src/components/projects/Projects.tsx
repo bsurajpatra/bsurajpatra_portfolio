@@ -5,6 +5,7 @@ import { RiGithubLine, RiLink, RiInformationLine, RiCloseLine } from "react-icon
 import { FaReact, FaNodeJs, FaUnity, FaRobot, FaCode, FaGamepad, FaCreditCard, FaEnvelope, FaStore, FaRunning } from "react-icons/fa";
 import { SiNextdotjs, SiMongodb, SiMysql, SiVite, SiTailwindcss, SiRedis, SiShadcnui, SiPython, SiFlask, SiScikitlearn, SiJsonwebtokens, SiExpress, SiExpo } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Projects = () => {
@@ -87,7 +88,7 @@ const Projects = () => {
 								key={id}
 							>
 								<div className="projects__thumbnail-simple">
-									<img src={(image as any)?.src || image} alt={title} className="projects__img-simple" loading="lazy" />
+									<Image src={image} alt={title} className="projects__img-simple" />
 								</div>
 
 								<div className="projects__title-row">
@@ -129,7 +130,7 @@ const Projects = () => {
 							<h3 className="project-modal__title">{selectedProject.title}</h3>
 
 							<div className="project-modal__img-wrapper">
-								<img src={(selectedProject.image as any)?.src || selectedProject.image} alt={selectedProject.title} loading="lazy" />
+								<Image src={selectedProject.image} alt={selectedProject.title} />
 							</div>
 
 							<p className="project-modal__description">{selectedProject.description}</p>

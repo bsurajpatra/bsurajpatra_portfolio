@@ -3,6 +3,7 @@ import "./Certifications.css";
 import Menu from "./CertificationsMenu";
 import { motion, AnimatePresence } from "framer-motion";
 import { RiEyeLine, RiCloseLine } from "react-icons/ri";
+import Image from "next/image";
 
 const Certifications = () => {
 	const items = Menu;
@@ -81,11 +82,10 @@ const Certifications = () => {
 							<p className="certificate-modal__company">{selectedCertificate.company}</p>
 
 							<div className="certificate-modal__img-wrapper">
-								<img
-									src={(selectedCertificate.certificate.src?.src || selectedCertificate.certificate.src) as any}
+								<Image
+									src={selectedCertificate.certificate.src}
 									alt={`${selectedCertificate.title} Certificate`}
 									className="certificate-modal__img"
-									loading="lazy"
 								/>
 							</div>
 						</motion.div>

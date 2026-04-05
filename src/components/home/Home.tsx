@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css';
 import Me from '../../assets/Profession.webp';
+import Image from 'next/image';
 import ScrollDown from './ScrollDown';
 import Shapes from './Shapes';
 import { motion } from 'framer-motion';
@@ -35,7 +36,12 @@ const Home = () => {
                     transition={{ duration: 0.5 }}
                 >
                     <div className="home__img-border">
-                        <img src={(Me as any)?.src || Me} alt="B Suraj Patra" className='home__img' loading="lazy" />
+                        <Image 
+                            src={Me} 
+                            alt="B Suraj Patra" 
+                            className='home__img' 
+                            priority 
+                        />
                     </div>
                 </motion.div>
 

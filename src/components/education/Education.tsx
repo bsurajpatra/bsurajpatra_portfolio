@@ -3,6 +3,7 @@ import './Education.css';
 import KLU from '../../assets/klulogo.webp'
 import SPS from '../../assets/spslogo.webp'
 
+import NextImage from 'next/image';
 import { motion } from 'framer-motion';
 
 const data = [
@@ -45,7 +46,7 @@ const Education = () => {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
                         >
-                            <img src={(image?.src || image) as any} alt='' className='education__img' loading="lazy" />
+                            <NextImage src={image} alt={title} className='education__img' />
 
                             <div className="education__content">
                                 <h3 className="education__title">{title}</h3>

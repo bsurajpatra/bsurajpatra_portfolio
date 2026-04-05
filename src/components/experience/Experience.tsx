@@ -3,6 +3,7 @@ import "./Experience.css";
 import WorkExperience from "./WorkExperience";
 import { motion, AnimatePresence } from "framer-motion";
 import { RiCalendarLine, RiMapPin2Line, RiAwardLine, RiCloseLine } from "react-icons/ri";
+import Image from "next/image";
 
 const Experience = () => {
     const [activeTab, setActiveTab] = useState(0);
@@ -70,11 +71,10 @@ const Experience = () => {
 
                                 {WorkExperience[activeTab].image && (
                                     <div className="experience__logo-box">
-                                        <img
-                                            src={(WorkExperience[activeTab].image.src?.src || WorkExperience[activeTab].image.src) as any}
+                                        <Image
+                                            src={WorkExperience[activeTab].image.src}
                                             alt={WorkExperience[activeTab].company}
                                             className="experience__logo"
-                                            loading="lazy"
                                         />
                                     </div>
                                 )}
@@ -129,7 +129,7 @@ const Experience = () => {
                             >
                                 <RiCloseLine />
                             </button>
-                            <img src={(selectedCertificate?.src || selectedCertificate) as any} alt="Experience Certificate" loading="lazy" />
+                            <Image src={selectedCertificate} alt="Experience Certificate" />
                         </motion.div>
                     </motion.div>
                 )}

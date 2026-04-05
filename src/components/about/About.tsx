@@ -1,6 +1,7 @@
 import React from 'react';
 import './About.css';
 import Image from '../../assets/about-profile.webp';
+import NextImage from 'next/image';
 import { motion } from 'framer-motion';
 import { RiUser3Line, RiMapPinUserLine, RiHeartsLine, RiTerminalBoxLine } from 'react-icons/ri';
 
@@ -45,7 +46,7 @@ const About = () => {
                     viewport={{ once: true }}
                 >
                     <div className="about__img-wrapper">
-                        <img src={(Image?.src || Image) as any} alt="Suraj" className='about__img' loading="lazy" />
+                        <NextImage src={Image} alt="Suraj" className='about__img' />
                         <div className="about__img-accents">
                             <span></span>
                             <span></span>
