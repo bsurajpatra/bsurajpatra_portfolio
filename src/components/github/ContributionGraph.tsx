@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-
-
-const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 const USERNAME = "bsurajpatra";
+
 
 const query = `
 query($userName: String!) {
@@ -46,11 +44,10 @@ export default function ContributionGraph() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("https://api.github.com/graphql", {
+        const res = await fetch("/api/github", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${GITHUB_TOKEN}`,
           },
           body: JSON.stringify({
             query,

@@ -51,7 +51,6 @@ const ACHIEVEMENTS = [
   }
 ];
 
-const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 const USERNAME = "bsurajpatra";
 
 const GITHUB_QUERY = `
@@ -109,11 +108,10 @@ export default function GitHubProfileDashboard() {
   useEffect(() => {
     const fetchGitHubData = async () => {
       try {
-        const response = await fetch("https://api.github.com/graphql", {
+        const response = await fetch("/api/github", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${GITHUB_TOKEN}`,
           },
           body: JSON.stringify({
             query: GITHUB_QUERY,
