@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;500;600;700;800;900&display=swap");
+/* Removed Noto Sans import to use Next.js Fonts */
 
 :root {
   --first-color: hsl(353, 100%, 65%);
@@ -8,7 +8,8 @@
   --container-color: #fff;
   --border-color: rgba(0, 0, 0, 0.05);
 
-  --body-font: "Noto Sans", san-serif;
+  --body-font: var(--font-inter), sans-serif;
+  --title-font: var(--font-outfit), sans-serif;
   --h1-font-size: 2.25rem;
   --h2-font-size: 1.5rem;
   --h3-font-size: 1.25rem;
@@ -68,6 +69,7 @@ body {
   overflow-y: auto;
   min-height: 100%;
   scroll-behavior: smooth;
+  font-family: var(--body-font);
 }
 button,
 input,
@@ -89,6 +91,7 @@ h1,
 h2,
 h3 {
   color: var(--title-color);
+  font-family: var(--title-font);
   font-weight: var(--font-semibold);
   line-height: 1.2;
 }
