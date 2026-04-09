@@ -67,6 +67,7 @@ html {
 body {
   overflow-y: auto;
   min-height: 100%;
+  scroll-behavior: smooth;
 }
 button,
 input,

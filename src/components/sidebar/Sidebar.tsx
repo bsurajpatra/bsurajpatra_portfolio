@@ -27,6 +27,22 @@ const Sidebar = (props) => {
         showMenu(!toggle);
     };
 
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        const targetId = e.currentTarget.getAttribute('href');
+        if (targetId?.startsWith('#')) {
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                // Close mobile menu if open
+                if (toggle) showMenu(false);
+            }
+        }
+    };
+
     return (
         <>
             <aside className={toggle ? "aside show-menu" : "aside"}>
@@ -35,79 +51,79 @@ const Sidebar = (props) => {
                         <ul className="nav__list">
 
                             <li className="nav__item">
-                                <a href="#home" className="nav__link" data-tooltip="Home">
+                                <a href="#home" className="nav__link" data-tooltip="Home" onClick={handleLinkClick}>
                                     <RiHome2Line />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#about" className="nav__link" data-tooltip="About">
+                                <a href="#about" className="nav__link" data-tooltip="About" onClick={handleLinkClick}>
                                     <RiUser3Line />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#education" className="nav__link" data-tooltip="Education">
+                                <a href="#education" className="nav__link" data-tooltip="Education" onClick={handleLinkClick}>
                                     <RiGraduationCapLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#skills" className="nav__link" data-tooltip="Skills">
+                                <a href="#skills" className="nav__link" data-tooltip="Skills" onClick={handleLinkClick}>
                                     <RiToolsLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#projects" className="nav__link" data-tooltip="Projects">
+                                <a href="#projects" className="nav__link" data-tooltip="Projects" onClick={handleLinkClick}>
                                     <RiStackLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#experience" className="nav__link" data-tooltip="Experience">
+                                <a href="#experience" className="nav__link" data-tooltip="Experience" onClick={handleLinkClick}>
                                     <RiBriefcase2Line />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#research" className="nav__link" data-tooltip="Patents">
+                                <a href="#research" className="nav__link" data-tooltip="Patents" onClick={handleLinkClick}>
                                     <RiBookOpenLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#achievements" className="nav__link" data-tooltip="Achievements">
+                                <a href="#achievements" className="nav__link" data-tooltip="Achievements" onClick={handleLinkClick}>
                                     <RiTrophyLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#engagements" className="nav__link" data-tooltip="Community Engagement">
+                                <a href="#engagements" className="nav__link" data-tooltip="Community Engagement" onClick={handleLinkClick}>
                                     <RiGroupLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#certifications" className="nav__link" data-tooltip="Certifications">
+                                <a href="#certifications" className="nav__link" data-tooltip="Certifications" onClick={handleLinkClick}>
                                     <RiAwardLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#coding-profiles" className="nav__link" data-tooltip="Coding Profiles">
+                                <a href="#coding-profiles" className="nav__link" data-tooltip="Coding Profiles" onClick={handleLinkClick}>
                                     <RiCodeLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#github" className="nav__link" data-tooltip="Developer Insights">
+                                <a href="#github" className="nav__link" data-tooltip="Developer Insights" onClick={handleLinkClick}>
                                     <RiBarChartLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#contact" className="nav__link" data-tooltip="Contact">
+                                <a href="#contact" className="nav__link" data-tooltip="Contact" onClick={handleLinkClick}>
                                     <RiChat3Line />
                                 </a>
                             </li>
