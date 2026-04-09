@@ -46,7 +46,7 @@ const Menu = [
 		image: SafeWebVerify,
 		title: "SafeWebVerify",
 		category: ["React, Node.js, Express, MongoDB, Python, Flask, scikit-learn, JWT"],
-		url: null,
+		url: "https://safewebverify.netlify.app/",
 		repositoryUrl: "https://github.com/bsurajpatra/SafeWebVerify",
 		description: "SafeWebVerify is a full-stack phishing detection platform that uses machine learning to analyze URLs and classify them as legitimate or phishing in real time.",
 		type: "Apps"
