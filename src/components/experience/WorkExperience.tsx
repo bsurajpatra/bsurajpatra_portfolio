@@ -24,6 +24,7 @@ const WorkExperience = [
         location: "Remote",
         image: { src: Swecha, style: { width: '100px', height: 'auto' } },
         certificate: { src: SwechaCertificate, style: { width: '100%', height: 'auto' } },
+        blogLink: "https://www.swechaap.org/blog/social-internship/",
         information: [
             "Worked with a non-profit organization that promotes Free and Open-Source Software (FOSS).",
             "Contributed to open-source data analytics & visualization projects.",

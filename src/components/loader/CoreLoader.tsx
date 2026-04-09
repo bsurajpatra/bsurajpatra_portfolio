@@ -23,7 +23,7 @@ const CoreLoader = ({ onComplete }) => {
 
         return () => {
             // Restore scrolling
-            document.body.style.overflow = 'unset';
+            document.body.style.overflow = '';
         };
     }, []);
 

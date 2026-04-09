@@ -159,8 +159,14 @@
   line-height: 1;
 }
 
-.experience__certificate-btn {
+.experience__actions {
+  display: flex;
+  gap: 1.25rem;
   margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.experience__certificate-btn {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -172,13 +178,32 @@
   font-weight: var(--font-bold);
   cursor: pointer;
   transition: all 0.3s ease;
-  align-self: flex-start;
 }
 
 .experience__certificate-btn:hover {
   background: var(--first-color);
   color: #fff;
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 76, 96, 0.2);
+}
+
+.experience__blog-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: var(--first-color);
+  color: #fff;
+  border-radius: 1rem;
+  font-weight: var(--font-bold);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 76, 96, 0.2);
+}
+
+.experience__blog-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 76, 96, 0.4);
+  filter: brightness(1.1);
 }
 
 /* Modal Styling */

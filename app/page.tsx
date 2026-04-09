@@ -71,7 +71,7 @@ export default function Page() {
 
             {!isLoading && <CustomCursor />}
 
-            <div className="app" data-theme={theme} style={{ visibility: isLoading ? 'hidden' : 'visible' }}>
+            <div className="app" data-theme={theme} style={{ display: isLoading ? 'none' : 'block' }}>
                 <Sidebar theme={theme} switchTheme={switchTheme} />
                 <main className='main'>
                     <Home />

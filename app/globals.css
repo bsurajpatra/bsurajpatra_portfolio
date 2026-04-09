@@ -53,11 +53,21 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  overflow-x: hidden;
+  height: 100%;
 }
 
-body,
+html {
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+body {
+  overflow-y: auto;
+  min-height: 100%;
+}
 button,
 input,
 textarea {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Experience.css";
 import WorkExperience from "./WorkExperience";
 import { motion, AnimatePresence } from "framer-motion";
-import { RiCalendarLine, RiMapPin2Line, RiAwardLine, RiCloseLine } from "react-icons/ri";
+import { RiCalendarLine, RiMapPin2Line, RiAwardLine, RiCloseLine, RiExternalLinkLine } from "react-icons/ri";
 import Image from "next/image";
 
 const Experience = () => {
@@ -93,14 +93,27 @@ const Experience = () => {
                                 ))}
                             </ul>
 
-                            {WorkExperience[activeTab].certificate && (
-                                <button
-                                    className="experience__certificate-btn"
-                                    onClick={() => setSelectedCertificate(WorkExperience[activeTab].certificate.src)}
-                                >
-                                    <RiAwardLine /> View Experience Certificate
-                                </button>
-                            )}
+                            <div className="experience__actions">
+                                {WorkExperience[activeTab].certificate && (
+                                    <button
+                                        className="experience__certificate-btn"
+                                        onClick={() => setSelectedCertificate(WorkExperience[activeTab].certificate.src)}
+                                    >
+                                        <RiAwardLine /> View Experience Certificate
+                                    </button>
+                                )}
+
+                                {WorkExperience[activeTab].blogLink && (
+                                    <a
+                                        href={WorkExperience[activeTab].blogLink}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="experience__blog-btn"
+                                    >
+                                        <RiExternalLinkLine /> Read Internship Blog
+                                    </a>
+                                )}
+                            </div>
                         </motion.div>
                     </AnimatePresence>
                 </div>
