@@ -1,7 +1,8 @@
-
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Sphere, MeshDistortMaterial } from '@react-three/drei';
+import { Float, Sphere, MeshDistortMaterial, Sparkles } from '@react-three/drei';
+import { EffectComposer, Bloom, ChromaticAberration, Noise, Scanline } from '@react-three/postprocessing';
+import { Vector2 } from 'three';
 
 const PulsingCore = () => {
     const coreRef = useRef<any>(null);
@@ -9,119 +10,132 @@ const PulsingCore = () => {
     useFrame((state) => {
         const time = state.clock.getElapsedTime();
         if (coreRef.current) {
-            coreRef.current.scale.setScalar(1 + Math.sin(time * 2) * 0.1);
+            coreRef.current.scale.setScalar(1 + Math.sin(time * 4) * 0.05);
+            coreRef.current.rotation.y = time * 0.5;
         }
     });
 
     return (
         <group>
-            {/* Main Glowing Core */}
+            {/* Main Glowing Core - Reactor style */}
             <Sphere args={[1, 64, 64]} ref={coreRef}>
                 <MeshDistortMaterial
                     color="#00f3ff"
                     emissive="#00f3ff"
-                    emissiveIntensity={2}
-                    speed={2}
-                    distort={0.4}
+                    emissiveIntensity={10}
+                    speed={5}
+                    distort={0.3}
                     radius={1}
                 />
             </Sphere>
 
-            {/* Inner Glow Sphere */}
-            <Sphere args={[0.8, 32, 32]}>
+            {/* Inner Power Source */}
+            <Sphere args={[0.6, 32, 32]}>
                 <meshStandardMaterial
-                    color="#ffffff"
-                    emissive="#ffffff"
-                    emissiveIntensity={5}
+                    color="#fff"
+                    emissive="#fff"
+                    emissiveIntensity={20}
                 />
             </Sphere>
 
-            {/* Point light inside the core */}
-            <pointLight intensity={2} color="#00f3ff" />
+            <pointLight intensity={10} color="#00f3ff" distance={10} />
         </group>
     );
 };
 
-const Ring = ({ radius, speed, color, dash }: any) => {
+const EnergyRing = ({ radius, speed, color, rotationOffset = [0, 0, 0] }: any) => {
     const ringRef = useRef<any>(null);
 
     useFrame((state) => {
         const time = state.clock.getElapsedTime();
         if (ringRef.current) {
             ringRef.current.rotation.z = time * speed;
-            ringRef.current.rotation.x = time * (speed * 0.5);
+            ringRef.current.rotation.x += 0.01;
         }
     });
 
     return (
-        <mesh ref={ringRef}>
-            <torusGeometry args={[radius, 0.02, 16, 100]} />
+        <mesh ref={ringRef} rotation={rotationOffset}>
+            <torusGeometry args={[radius, 0.015, 16, 100]} />
             <meshStandardMaterial
                 color={color}
                 emissive={color}
-                emissiveIntensity={1}
+                emissiveIntensity={5}
                 transparent
-                opacity={0.6}
+                opacity={0.8}
             />
         </mesh>
     );
 };
 
-const EnergyParticles = () => {
-    const pointsRef = useRef<any>(null);
-    const count = 50;
-
-    const positions = React.useMemo(() => {
-        const pos = new Float32Array(count * 3);
-        for (let i = 0; i < count; i++) {
-            const theta = Math.random() * Math.PI * 2;
-            const phi = Math.acos(Math.random() * 2 - 1);
-            const r = 1.5 + Math.random() * 0.5;
-            pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-            pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-            pos[i * 3 + 2] = r * Math.cos(phi);
-        }
-        return pos;
-    }, []);
-
-    useFrame((state) => {
-        if (pointsRef.current) {
-            pointsRef.current.rotation.y += 0.01;
-        }
-    });
-
+const DataLines = () => {
     return (
-        <points ref={pointsRef}>
-            <bufferGeometry>
-                <bufferAttribute
-                    attach="attributes-position"
-                    count={count}
-                    array={positions}
-                    itemSize={3}
-                />
-            </bufferGeometry>
-            <pointsMaterial size={0.05} color="#00f3ff" transparent opacity={0.8} />
-        </points>
+        <Sparkles 
+            count={100} 
+            scale={4} 
+            size={2} 
+            speed={0.5} 
+            color="#00f3ff" 
+            opacity={0.5}
+        />
     );
 };
 
 const Scene3DLoader = () => {
     return (
-        <div style={{ width: '100%', height: 'min(50vh, 500px)', position: 'relative' }}>
-            <Canvas camera={{ position: [0, 0, 6], fov: 50 }}>
-                <ambientLight intensity={0.2} />
-                <pointLight position={[10, 10, 10]} intensity={1} />
+        <div style={{ 
+            width: '100vw', 
+            height: '100vh', 
+            position: 'absolute', 
+            top: 0, 
+            left: 0,
+            zIndex: 1
+        }}>
+            <Canvas 
+                camera={{ position: [0, 0, 8], fov: 45 }} 
+                gl={{ alpha: true, antialias: false }} // Scale performance for mobile
+                dpr={[1, 2]} // Limit pixel ratio for performance
+            >
+                <ambientLight intensity={0.1} />
+                <pointLight position={[5, 5, 5]} intensity={2} color="#00f3ff" />
 
-                <Float speed={3} rotationIntensity={1} floatIntensity={1}>
+                <ResponsiveCamera />
+
+                <Float speed={4} rotationIntensity={0.5} floatIntensity={0.5}>
                     <PulsingCore />
-                    <Ring radius={1.5} speed={0.5} color="#ff0080" />
-                    <Ring radius={1.8} speed={-0.3} color="#00f3ff" />
-                    <Ring radius={2.1} speed={0.8} color="#ffffff" />
-                    <EnergyParticles />
+                    <EnergyRing radius={1.4} speed={1.2} color="#00f3ff" />
+                    <EnergyRing radius={1.6} speed={-0.8} color="#ff0080" rotationOffset={[Math.PI / 4, 0, 0]} />
+                    <EnergyRing radius={1.8} speed={1.5} color="#00f3ff" rotationOffset={[-Math.PI / 4, 0, 0]} />
+                    <DataLines />
                 </Float>
+
+                <EffectComposer enableNormalPass={false}>
+                    <Bloom 
+                        intensity={1.2} 
+                        luminanceThreshold={0.2} 
+                        luminanceSmoothing={0.5} 
+                    />
+                    <ChromaticAberration offset={new Vector2(0.001, 0.001)} />
+                    <Noise opacity={0.04} />
+                    <Scanline opacity={0.1} />
+                </EffectComposer>
             </Canvas>
         </div>
     );
+};
+
+// Component to handle responsive camera positioning
+const ResponsiveCamera = () => {
+    useFrame((state) => {
+        const aspect = state.viewport.aspect;
+        // Adjust camera Z based on aspect ratio (portrait vs landscape)
+        const targetZ = aspect < 1 ? 10 : 8;
+        
+        // Smoothly interpolate for a premium feel
+        state.camera.position.z += (targetZ - state.camera.position.z) * 0.1;
+        state.camera.updateProjectionMatrix();
+    });
+    return null;
 };
 
 export default Scene3DLoader;

@@ -58,7 +58,7 @@ export default function Page() {
     }
 
     if (!isMounted) {
-        return null; // Or a simple skeleton/background
+        return <div style={{ backgroundColor: '#000', width: '100vw', height: '100vh' }} />;
     }
 
     return (

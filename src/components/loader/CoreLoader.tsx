@@ -6,10 +6,12 @@ import './CoreLoader.css';
 const Scene3DLoader = dynamic(() => import('./Scene3DLoader'), { ssr: false });
 
 const loadingLines = [
-    "Initializing engine...",
-    "Syncing nodes...",
-    "Analyzing data...",
-    "Rendering interface..."
+    "Synthesizing Neural Interface...",
+    "Bypassing Security Firewalls...",
+    "Querying Decentralized Nodes...",
+    "Mapping Cognitive Core...",
+    "Establishing Secure Protocol...",
+    "System Ready. Access Granted."
 ];
 
 const CoreLoader = ({ onComplete }) => {
@@ -31,12 +33,12 @@ const CoreLoader = ({ onComplete }) => {
         if (currentLine < loadingLines.length) {
             const timer = setTimeout(() => {
                 setCurrentLine(prev => prev + 1);
-            }, 600); // 4 lines * 600ms = 2400ms
+            }, 400); 
             return () => clearTimeout(timer);
         } else {
             const finalTimer = setTimeout(() => {
                 onComplete();
-            }, 600); // 2400ms + 600ms = 3000ms (3 seconds)
+            }, 800); 
             return () => clearTimeout(finalTimer);
         }
     }, [currentLine, onComplete]);
@@ -48,8 +50,10 @@ const CoreLoader = ({ onComplete }) => {
             exit={{ opacity: 0, transition: { duration: 0.8 } }}
         >
             <div className="reactor-container">
-                {/* 3D Reactor Core Visuals */}
-                <Scene3DLoader />
+                {/* 3D Reactor Core Visuals - Wrapped in Suspense for speed */}
+                <React.Suspense fallback={<div style={{ height: '300px' }} />}>
+                    <Scene3DLoader />
+                </React.Suspense>
 
                 {/* Text Animation */}
                 <div className="loader-text-container">
