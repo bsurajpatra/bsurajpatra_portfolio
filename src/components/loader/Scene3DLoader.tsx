@@ -20,8 +20,8 @@ const PulsingCore = () => {
             {/* Main Glowing Core - Reactor style */}
             <Sphere args={[1, 64, 64]} ref={coreRef}>
                 <MeshDistortMaterial
-                    color="#00f3ff"
-                    emissive="#00f3ff"
+                    color="hsl(353, 100%, 65%)"
+                    emissive="hsl(353, 100%, 65%)"
                     emissiveIntensity={10}
                     speed={5}
                     distort={0.3}
@@ -38,7 +38,7 @@ const PulsingCore = () => {
                 />
             </Sphere>
 
-            <pointLight intensity={10} color="#00f3ff" distance={10} />
+            <pointLight intensity={10} color="hsl(353, 100%, 65%)" distance={10} />
         </group>
     );
 };
@@ -75,7 +75,7 @@ const DataLines = () => {
             scale={4} 
             size={2} 
             speed={0.5} 
-            color="#00f3ff" 
+            color="hsl(353, 100%, 65%)" 
             opacity={0.5}
         />
     );
@@ -97,15 +97,15 @@ const Scene3DLoader = () => {
                 dpr={[1, 2]} // Limit pixel ratio for performance
             >
                 <ambientLight intensity={0.1} />
-                <pointLight position={[5, 5, 5]} intensity={2} color="#00f3ff" />
+                <pointLight position={[5, 5, 5]} intensity={2} color="hsl(353, 100%, 65%)" />
 
                 <ResponsiveCamera />
 
                 <Float speed={4} rotationIntensity={0.5} floatIntensity={0.5}>
                     <PulsingCore />
-                    <EnergyRing radius={1.4} speed={1.2} color="#00f3ff" />
-                    <EnergyRing radius={1.6} speed={-0.8} color="#ff0080" rotationOffset={[Math.PI / 4, 0, 0]} />
-                    <EnergyRing radius={1.8} speed={1.5} color="#00f3ff" rotationOffset={[-Math.PI / 4, 0, 0]} />
+                    <EnergyRing radius={1.4} speed={1.2} color="hsl(353, 100%, 65%)" />
+                    <EnergyRing radius={1.6} speed={-0.8} color="hsl(353, 100%, 45%)" rotationOffset={[Math.PI / 4, 0, 0]} />
+                    <EnergyRing radius={1.8} speed={1.5} color="hsl(353, 100%, 65%)" rotationOffset={[-Math.PI / 4, 0, 0]} />
                     <DataLines />
                 </Float>
 
