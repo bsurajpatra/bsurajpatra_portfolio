@@ -163,6 +163,7 @@ const Contact = (props) => {
                                 type="text"
                                 className="contact__form-input"
                                 placeholder="Insert your name"
+                                aria-label="Your Name"
                                 onChange={(e) => setName(e.target.value)}
                             />
                         </div>
@@ -172,6 +173,7 @@ const Contact = (props) => {
                                 type="email"
                                 className="contact__form-input"
                                 placeholder="Insert your email"
+                                aria-label="Your Email"
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
@@ -185,6 +187,7 @@ const Contact = (props) => {
                             rows={10}
                             className="contact__form-input"
                             placeholder="Write your message"
+                            aria-label="Your Message"
                             onChange={(e) => setMessage(e.target.value)}
                         ></textarea>
                     </div>

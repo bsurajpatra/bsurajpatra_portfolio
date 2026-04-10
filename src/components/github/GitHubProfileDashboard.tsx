@@ -235,7 +235,7 @@ export default function GitHubProfileDashboard() {
           <div className="github-profile-info">
             <h3 className="github-name">
               {userData.name}
-              <a href={`https://github.com/${USERNAME}`} target="_blank" rel="noreferrer">
+              <a href={`https://github.com/${USERNAME}`} target="_blank" rel="noreferrer" aria-label="GitHub Profile">
                 <RiGithubFill />
               </a>
             </h3>

@@ -51,79 +51,79 @@ const Sidebar = (props) => {
                         <ul className="nav__list">
 
                             <li className="nav__item">
-                                <a href="#home" className="nav__link" data-tooltip="Home" onClick={handleLinkClick}>
+                                <a href="#home" className="nav__link" data-tooltip="Home" onClick={handleLinkClick} aria-label="Home">
                                     <RiHome2Line />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#about" className="nav__link" data-tooltip="About" onClick={handleLinkClick}>
+                                <a href="#about" className="nav__link" data-tooltip="About" onClick={handleLinkClick} aria-label="About">
                                     <RiUser3Line />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#education" className="nav__link" data-tooltip="Education" onClick={handleLinkClick}>
+                                <a href="#education" className="nav__link" data-tooltip="Education" onClick={handleLinkClick} aria-label="Education">
                                     <RiGraduationCapLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#skills" className="nav__link" data-tooltip="Skills" onClick={handleLinkClick}>
+                                <a href="#skills" className="nav__link" data-tooltip="Skills" onClick={handleLinkClick} aria-label="Skills">
                                     <RiToolsLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#projects" className="nav__link" data-tooltip="Projects" onClick={handleLinkClick}>
+                                <a href="#projects" className="nav__link" data-tooltip="Projects" onClick={handleLinkClick} aria-label="Projects">
                                     <RiStackLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#experience" className="nav__link" data-tooltip="Experience" onClick={handleLinkClick}>
+                                <a href="#experience" className="nav__link" data-tooltip="Experience" onClick={handleLinkClick} aria-label="Experience">
                                     <RiBriefcase2Line />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#research" className="nav__link" data-tooltip="Patents" onClick={handleLinkClick}>
+                                <a href="#research" className="nav__link" data-tooltip="Patents" onClick={handleLinkClick} aria-label="Patents">
                                     <RiBookOpenLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#achievements" className="nav__link" data-tooltip="Achievements" onClick={handleLinkClick}>
+                                <a href="#achievements" className="nav__link" data-tooltip="Achievements" onClick={handleLinkClick} aria-label="Achievements">
                                     <RiTrophyLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#engagements" className="nav__link" data-tooltip="Community Engagement" onClick={handleLinkClick}>
+                                <a href="#engagements" className="nav__link" data-tooltip="Community Engagement" onClick={handleLinkClick} aria-label="Community Engagement">
                                     <RiGroupLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#certifications" className="nav__link" data-tooltip="Certifications" onClick={handleLinkClick}>
+                                <a href="#certifications" className="nav__link" data-tooltip="Certifications" onClick={handleLinkClick} aria-label="Certifications">
                                     <RiAwardLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#coding-profiles" className="nav__link" data-tooltip="Coding Profiles" onClick={handleLinkClick}>
+                                <a href="#coding-profiles" className="nav__link" data-tooltip="Coding Profiles" onClick={handleLinkClick} aria-label="Coding Profiles">
                                     <RiCodeLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#github" className="nav__link" data-tooltip="Developer Insights" onClick={handleLinkClick}>
+                                <a href="#github" className="nav__link" data-tooltip="Developer Insights" onClick={handleLinkClick} aria-label="Developer Insights">
                                     <RiBarChartLine />
                                 </a>
                             </li>
 
                             <li className="nav__item">
-                                <a href="#contact" className="nav__link" data-tooltip="Contact" onClick={handleLinkClick}>
+                                <a href="#contact" className="nav__link" data-tooltip="Contact" onClick={handleLinkClick} aria-label="Contact">
                                     <RiChat3Line />
                                 </a>
                             </li>
@@ -137,6 +137,7 @@ const Sidebar = (props) => {
                         onClick={() => { props.switchTheme(); showMenu(!toggle); }}
                         className="nav__link footer__button"
                         data-tooltip={props.theme === "light" ? "Dark Mode" : "Light Mode"}
+                        aria-label={props.theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
                     >
                         {props.theme === "light" ? <RiMoonLine /> : <RiSunLine />}
                     </button>
@@ -146,6 +147,10 @@ const Sidebar = (props) => {
             <div
                 className={toggle ? "nav__toggle nav__toggle-open" : "nav__toggle"}
                 onClick={toggleSidebar}
+                role="button"
+                aria-label="Toggle Navigation Menu"
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleSidebar(); }}
             >
                 <RiMenu2Line />
             </div>

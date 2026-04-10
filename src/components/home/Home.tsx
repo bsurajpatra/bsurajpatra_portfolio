@@ -31,21 +31,17 @@ const Home = () => {
     return (
         <section className="home container" id='home'>
             <div className="home__content">
-                <motion.div
-                    className="home__img-wrapper"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}
-                >
+                <div className="home__img-wrapper">
                     <div className="home__img-border">
                         <Image 
                             src={Me} 
                             alt="B Suraj Patra" 
                             className='home__img' 
                             priority 
+                            sizes="(max-width: 768px) 250px, (max-width: 1200px) 400px, 500px"
                         />
                     </div>
-                </motion.div>
+                </div>
 
                 <motion.div
                     className="home__data"
@@ -74,7 +70,7 @@ const Home = () => {
                             >
                                 <div className="home__highlight-icon">{item.icon}</div>
                                 <div className="home__highlight-info">
-                                    <h3 className="home__highlight-title">{item.title}</h3>
+                                    <h2 className="home__highlight-title">{item.title}</h2>
                                     <p className="home__highlight-desc">{item.description}</p>
                                 </div>
                             </motion.div>

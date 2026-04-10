@@ -46,7 +46,12 @@ const Education = () => {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
                         >
-                            <NextImage src={image} alt={title} className='education__img' />
+                            <NextImage 
+                                src={image} 
+                                alt={title} 
+                                className='education__img' 
+                                sizes="110px"
+                            />
 
                             <div className="education__content">
                                 <h3 className="education__title">{title}</h3>
