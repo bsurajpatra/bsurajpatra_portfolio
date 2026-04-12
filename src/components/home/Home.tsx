@@ -33,11 +33,11 @@ const Home = () => {
             <div className="home__content">
                 <div className="home__img-wrapper">
                     <div className="home__img-border">
-                        <Image 
-                            src={Me} 
-                            alt="B Suraj Patra" 
-                            className='home__img' 
-                            priority 
+                        <Image
+                            src={Me}
+                            alt="B Suraj Patra"
+                            className='home__img'
+                            priority
                             sizes="(max-width: 768px) 250px, (max-width: 1200px) 400px, 500px"
                         />
                     </div>

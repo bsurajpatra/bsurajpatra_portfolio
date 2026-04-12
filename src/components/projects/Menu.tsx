@@ -30,6 +30,8 @@ const Menu = [
 			"Express",
 			"TypeScript",
 			"MongoDB",
+			"Redis",
+			"BullMQ",
 			"Python",
 			"Flask",
 			"FaceNet",
