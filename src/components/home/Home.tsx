@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import Me from '../../assets/Profession.webp';
+import Me from '../../assets/hero.webp';
 import Image from 'next/image';
 import ScrollDown from './ScrollDown';
 import dynamic from 'next/dynamic';
@@ -17,11 +17,6 @@ const Home = () => {
             description: "Building scalable web applications"
         },
         {
-            icon: <RiGamepadLine />,
-            title: "Game Developer",
-            description: "Creating immersive experiences"
-        },
-        {
             icon: <RiOpenSourceFill />,
             title: "FOSS Advocate",
             description: "Contributing to open source innovation"
@@ -31,22 +26,10 @@ const Home = () => {
     return (
         <section className="home container" id='home'>
             <div className="home__content">
-                <div className="home__img-wrapper">
-                    <div className="home__img-border">
-                        <Image
-                            src={Me}
-                            alt="B Suraj Patra"
-                            className='home__img'
-                            priority
-                            sizes="(max-width: 768px) 250px, (max-width: 1200px) 400px, 500px"
-                        />
-                    </div>
-                </div>
-
                 <motion.div
                     className="home__data"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
                     <h1 className="home__name">
@@ -87,6 +70,18 @@ const Home = () => {
                         <a href="#projects" className="btn btn-secondary">View Projects</a>
                     </motion.div>
                 </motion.div>
+
+                <div className="home__img-wrapper">
+                    <div className="home__img-border">
+                        <Image
+                            src={Me}
+                            alt="B Suraj Patra"
+                            className='home__img'
+                            priority
+                            sizes="(max-width: 768px) 250px, (max-width: 1200px) 400px, 500px"
+                        />
+                    </div>
+                </div>
             </div>
 
             <ScrollDown />

@@ -87,7 +87,6 @@ const skillsData = [
         category: "🧠 Game UX & Publishing",
         items: [
             { name: "Player-Centered UX Design", icon: <FaUsers color="#6C6CE5" /> },
-            { name: "Interaction Design for Games", icon: <FaGamepad color="#FF4D4D" /> },
             { name: "Unity UI / Canvas Systems", icon: <FaLayerGroup color="#9B59B6" /> },
             { name: "itch.io Publishing", icon: <SiItchdotio color="#FA5C5C" /> },
             { name: "Windows Standalone Build (.exe)", icon: <FaWindows color="#0078D7" /> },

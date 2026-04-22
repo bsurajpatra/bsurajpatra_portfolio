@@ -24,7 +24,7 @@ const About = () => {
         {
             icon: <RiTerminalBoxLine />,
             title: "What I Do",
-            text: "Full Stack & Games"
+            text: "Full Stack and Softwares"
         },
         {
             icon: <RiHeartsLine />,
@@ -46,10 +46,10 @@ const About = () => {
                     viewport={{ once: true }}
                 >
                     <div className="about__img-wrapper">
-                        <NextImage 
-                            src={Image} 
-                            alt="Suraj" 
-                            className='about__img' 
+                        <NextImage
+                            src={Image}
+                            alt="Suraj"
+                            className='about__img'
                             sizes="(max-width: 768px) 100vw, 50vw"
                         />
                         <div className="about__img-accents">

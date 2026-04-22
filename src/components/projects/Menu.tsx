@@ -63,16 +63,7 @@ const Menu = [
 		description: "Karma Sync is a lightweight Agile project management tool that helps individuals and teams plan, track, and collaborate on projects using Kanban boards, sprints, user stories, and daily to-do tracking — all from a single dashboard.",
 		type: "Apps"
 	},
-	{
-		id: 5,
-		image: DigiChit,
-		title: "DigiChit (Coming Soon)",
-		category: ["React + Vite, Node.js, Express.js, MongoDB, Razorpay"],
-		url: null,
-		repositoryUrl: "https://github.com/bsurajpatra/DigiChit---Secure-Chit-Fund-Management-System",
-		description: "DigiChit is a secure digital chit fund platform that transforms traditional chit systems with transparent transactions, digital ledgers, KYC verification, multilingual notifications, and easy group management.",
-		type: "Apps"
-	},
+	
 	{
 		id: 6,
 		image: SwatVsTheUndead,
