@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import Me from '../../assets/hero.webp';
+import Me from '../../assets/hero.png';
 import Image from 'next/image';
 import ScrollDown from './ScrollDown';
 import dynamic from 'next/dynamic';
