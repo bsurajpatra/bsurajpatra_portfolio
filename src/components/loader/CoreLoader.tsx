@@ -3,15 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import './CoreLoader.css';
 
-const DNALoader = dynamic(() => import('./DNALoader'), { ssr: false });
+const NetworkLoader = dynamic(() => import('./NetworkLoader'), { ssr: false });
 
 const loadingLines = [
-    "Sequencing Genetic Blueprint...",
-    "Calibrating Neural Pathways...",
-    "Synthesizing Synaptic Bridges...",
-    "Optimizing Cognitive Architecture...",
-    "Activating Bio-Digital Interface...",
-    "Synthesis Complete. Welcome."
+    "Establishing Neural Uplink...",
+    "Synchronizing Data Nodes...",
+    "Optimizing Network Mesh...",
+    "System Ready."
 ];
 
 const CoreLoader = ({ onComplete }) => {
@@ -33,12 +31,12 @@ const CoreLoader = ({ onComplete }) => {
         if (currentLine < loadingLines.length) {
             const timer = setTimeout(() => {
                 setCurrentLine(prev => prev + 1);
-            }, 600); 
+            }, 500); 
             return () => clearTimeout(timer);
         } else {
             const finalTimer = setTimeout(() => {
                 onComplete();
-            }, 1000); 
+            }, 500); 
             return () => clearTimeout(finalTimer);
         }
     }, [currentLine, onComplete]);
@@ -50,13 +48,13 @@ const CoreLoader = ({ onComplete }) => {
             exit={{ opacity: 0, transition: { duration: 0.8 } }}
         >
             <div className="reactor-container">
-                {/* DNA Strand Animation */}
+                {/* Network Mesh Animation */}
                 <React.Suspense fallback={
                     <div className="loader-placeholder">
                         <div className="pulse-ring"></div>
                     </div>
                 }>
-                    <DNALoader />
+                    <NetworkLoader />
                 </React.Suspense>
 
                 {/* Text Animation */}
