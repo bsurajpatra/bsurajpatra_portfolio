@@ -105,26 +105,42 @@ aside {
 .nav__toggle {
   position: fixed;
   top: 1.25rem;
-  left: 1.875rem;
+  left: 1.5rem;
   cursor: pointer;
-  height: 40px;
-  width: 40px;
+  height: 45px;
+  width: 45px;
   background-color: var(--body-color);
-  border: 2px solid var(--border-color);
-  display: flex;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  display: none; /* Hidden on desktop */
   justify-content: center;
   align-items: center;
-  z-index: 1;
-  transition: 0.3s;
-  font-size: 1rem;
+  z-index: 100;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: var(--title-color);
+}
+
+.nav__toggle svg {
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+}
+
+.nav__toggle:hover {
+  background-color: var(--first-color);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.nav__toggle:hover svg {
+  transform: scale(1.1);
 }
 
 [data-theme="dark"] .nav__toggle {
-  border: 1px solid var(--title-color);
-}
-
-[data-theme="dark"] .nav__toggle>svg {
-  color: var(--title-color);
+  background-color: var(--container-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 @media screen and (max-width: 1024px) {
@@ -133,11 +149,13 @@ aside {
   }
 
   .nav__toggle {
-    display: flex;
+    display: flex; /* Shown on mobile */
   }
 
   .nav__toggle-open {
-    left: 140px;
+    left: 125px; /* Positioned just outside the sidebar (110px) + some margin */
+    background-color: var(--first-color);
+    color: #fff;
   }
 
   .show-menu {

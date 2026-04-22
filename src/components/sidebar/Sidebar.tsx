@@ -17,7 +17,8 @@ import {
     RiBookOpenLine,
     RiBarChartLine,
     RiTrophyLine,
-    RiGroupLine
+    RiGroupLine,
+    RiCloseLine
 } from "react-icons/ri";
 
 const Sidebar = (props) => {
@@ -144,16 +145,14 @@ const Sidebar = (props) => {
                 </div>
             </aside>
 
-            <div
+            <button
                 className={toggle ? "nav__toggle nav__toggle-open" : "nav__toggle"}
                 onClick={toggleSidebar}
-                role="button"
-                aria-label="Toggle Navigation Menu"
-                tabIndex={0}
-                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleSidebar(); }}
+                aria-label={toggle ? "Close Navigation Menu" : "Open Navigation Menu"}
+                type="button"
             >
-                <RiMenu2Line />
-            </div>
+                {toggle ? <RiCloseLine /> : <RiMenu2Line />}
+            </button>
         </>
     );
 };

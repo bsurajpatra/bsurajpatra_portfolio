@@ -53,9 +53,9 @@ const DNAStrand = () => {
                     <Sphere args={[isMobile ? 0.08 : 0.1, 8, 8]} position={pair.pos2 as any}>
                         <meshStandardMaterial color={pair.color} emissive={pair.color} emissiveIntensity={6} />
                     </Sphere>
-                    <mesh position={[pair.pos1[0], 0, 0] as any} rotation={[-( (i / count) * twist ), 0, 0] as any}>
-                        <boxGeometry args={[0.02, radius * 2, 0.02]} />
-                        <meshStandardMaterial color={pair.color} transparent opacity={0.3} emissive={pair.color} emissiveIntensity={3}/>
+                    <mesh position={[pair.pos1[0], 0, 0] as any} rotation={[(i / count) * twist, 0, 0] as any}>
+                        <cylinderGeometry args={[0.015, 0.015, radius * 2, 8]} />
+                        <meshStandardMaterial color={pair.color} transparent opacity={0.4} emissive={pair.color} emissiveIntensity={4}/>
                     </mesh>
                 </group>
             ))}
