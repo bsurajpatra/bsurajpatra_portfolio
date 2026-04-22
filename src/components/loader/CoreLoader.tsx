@@ -3,15 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import './CoreLoader.css';
 
-const Scene3DLoader = dynamic(() => import('./Scene3DLoader'), { ssr: false });
+const DNALoader = dynamic(() => import('./DNALoader'), { ssr: false });
 
 const loadingLines = [
-    "Synthesizing Neural Interface...",
-    "Bypassing Security Firewalls...",
-    "Querying Decentralized Nodes...",
-    "Mapping Cognitive Core...",
-    "Establishing Secure Protocol...",
-    "System Ready. Access Granted."
+    "Sequencing Genetic Blueprint...",
+    "Calibrating Neural Pathways...",
+    "Synthesizing Synaptic Bridges...",
+    "Optimizing Cognitive Architecture...",
+    "Activating Bio-Digital Interface...",
+    "Synthesis Complete. Welcome."
 ];
 
 const CoreLoader = ({ onComplete }) => {
@@ -33,12 +33,12 @@ const CoreLoader = ({ onComplete }) => {
         if (currentLine < loadingLines.length) {
             const timer = setTimeout(() => {
                 setCurrentLine(prev => prev + 1);
-            }, 400); 
+            }, 600); 
             return () => clearTimeout(timer);
         } else {
             const finalTimer = setTimeout(() => {
                 onComplete();
-            }, 800); 
+            }, 1000); 
             return () => clearTimeout(finalTimer);
         }
     }, [currentLine, onComplete]);
@@ -50,9 +50,13 @@ const CoreLoader = ({ onComplete }) => {
             exit={{ opacity: 0, transition: { duration: 0.8 } }}
         >
             <div className="reactor-container">
-                {/* 3D Reactor Core Visuals - Wrapped in Suspense for speed */}
-                <React.Suspense fallback={<div style={{ height: '300px' }} />}>
-                    <Scene3DLoader />
+                {/* DNA Strand Animation */}
+                <React.Suspense fallback={
+                    <div className="loader-placeholder">
+                        <div className="pulse-ring"></div>
+                    </div>
+                }>
+                    <DNALoader />
                 </React.Suspense>
 
                 {/* Text Animation */}
