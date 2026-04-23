@@ -24,7 +24,7 @@ const About = () => {
         {
             icon: <RiTerminalBoxLine />,
             title: "What I Do",
-            text: "Full Stack and Softwares"
+            text: "Full Stack & Software Dev"
         },
         {
             icon: <RiHeartsLine />,
