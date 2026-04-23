@@ -35,6 +35,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: transparent;
 }
 
 .home__img {
@@ -315,7 +316,7 @@
 
 /* Dark Mode */
 [data-theme="dark"] .home__img-border {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  box-shadow: none;
 }
 
 [data-theme="dark"] .home__highlight-card:hover {

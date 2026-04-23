@@ -7,13 +7,13 @@ import dynamic from 'next/dynamic';
 
 const Shapes = dynamic(() => import('./Shapes'), { ssr: false });
 import { motion } from 'framer-motion';
-import { RiCodeSLine, RiGamepadLine, RiOpenSourceFill } from 'react-icons/ri';
+import { RiCodeSLine, RiOpenSourceFill } from 'react-icons/ri';
 
 const Home = () => {
     const highlights = [
         {
             icon: <RiCodeSLine />,
-            title: "Full Stack Developer",
+            title: "Full Stack Developer    ",
             description: "Building scalable web applications"
         },
         {
