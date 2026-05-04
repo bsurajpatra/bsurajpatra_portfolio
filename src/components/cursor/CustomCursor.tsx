@@ -1,7 +1,5 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import './CustomCursor.css';
 
 const CustomCursor = () => {
     const [isHovered, setIsHovered] = useState(false);
@@ -18,7 +16,7 @@ const CustomCursor = () => {
     const velocityRef = useRef({ x: 0, y: 0, lastPos: { x: 0, y: 0 } });
 
     useEffect(() => {
-        const moveMouse = (e) => {
+        const moveMouse = (e: MouseEvent) => {
             const dx = e.clientX - velocityRef.current.lastPos.x;
             const dy = e.clientY - velocityRef.current.lastPos.y;
 
@@ -31,8 +29,9 @@ const CustomCursor = () => {
             if (!isVisible) setIsVisible(true);
         };
 
-        const handleMouseOver = (e) => {
-            if (e.target.closest('a, button, .interactive, .skills__pill, [role="button"], .floating-skill-item')) {
+        const handleMouseOver = (e: MouseEvent) => {
+            const target = e.target as HTMLElement;
+            if (target.closest('a, button, .interactive, .skills__pill, [role="button"], .floating-skill-item')) {
                 setIsHovered(true);
             } else {
                 setIsHovered(false);
@@ -67,9 +66,9 @@ const CustomCursor = () => {
     if (!isVisible) return null;
 
     return (
-        <div className="cursor-container">
+        <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-[99999] hidden [@media(pointer:fine)]:block">
             <motion.div
-                className="cursor-liquid"
+                className="fixed bg-[var(--title-color)] top-0 left-0 origin-center pointer-events-none z-[99999]"
                 style={{
                     x,
                     y,

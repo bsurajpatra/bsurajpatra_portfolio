@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import "./Sidebar.css";
-
 import {
     RiHome2Line,
     RiUser3Line,
@@ -21,7 +19,23 @@ import {
     RiCloseLine
 } from "react-icons/ri";
 
-const Sidebar = (props) => {
+const navItems = [
+    { href: "#home", icon: RiHome2Line, tooltip: "Home" },
+    { href: "#about", icon: RiUser3Line, tooltip: "About" },
+    { href: "#education", icon: RiGraduationCapLine, tooltip: "Education" },
+    { href: "#skills", icon: RiToolsLine, tooltip: "Skills" },
+    { href: "#projects", icon: RiStackLine, tooltip: "Projects" },
+    { href: "#experience", icon: RiBriefcase2Line, tooltip: "Experience" },
+    { href: "#research", icon: RiBookOpenLine, tooltip: "Patents" },
+    { href: "#achievements", icon: RiTrophyLine, tooltip: "Achievements" },
+    { href: "#engagements", icon: RiGroupLine, tooltip: "Community Engagement" },
+    { href: "#certifications", icon: RiAwardLine, tooltip: "Certifications" },
+    { href: "#coding-profiles", icon: RiCodeLine, tooltip: "Coding Profiles" },
+    { href: "#github", icon: RiBarChartLine, tooltip: "Developer Insights" },
+    { href: "#contact", icon: RiChat3Line, tooltip: "Contact" }
+];
+
+const Sidebar = (props: any) => {
     const [toggle, showMenu] = useState(false);
 
     const toggleSidebar = () => {
@@ -38,7 +52,6 @@ const Sidebar = (props) => {
                     behavior: 'smooth',
                     block: 'start'
                 });
-                // Close mobile menu if open
                 if (toggle) showMenu(false);
             }
         }
@@ -46,112 +59,64 @@ const Sidebar = (props) => {
 
     return (
         <>
-            <aside className={toggle ? "aside show-menu" : "aside"}>
-                <nav className="nav">
-                    <div className="nav__menu">
-                        <ul className="nav__list">
-
-                            <li className="nav__item">
-                                <a href="#home" className="nav__link" data-tooltip="Home" onClick={handleLinkClick} aria-label="Home">
-                                    <RiHome2Line />
-                                </a>
+            <aside className={`fixed top-0 bg-[var(--body-color)] border-r border-[var(--border-color)] py-10 w-[110px] min-h-screen flex flex-col justify-center z-[11] transition-all duration-300 max-lg:-left-[110px] ${toggle ? "max-lg:left-0" : "left-0"}`}>
+                <nav className="flex flex-col items-center w-full">
+                    <div className="flex flex-col items-center w-full">
+                        <ul className="flex flex-col gap-y-5 items-center w-full">
+                            {navItems.map((item, index) => (
+                                <li key={index} className="w-full flex justify-center">
+                                    <a href={item.href} className="relative text-[1.5rem] font-bold text-[var(--title-color)] transition-colors duration-300 hover:text-[var(--first-color)] group flex items-center justify-center w-full" onClick={handleLinkClick} aria-label={item.tooltip}>
+                                        <item.icon />
+                                        <span 
+                                            className="absolute left-[calc(100%+15px)] top-1/2 -translate-y-1/2 -translate-x-2 rounded-md font-medium whitespace-nowrap opacity-0 invisible transition-all duration-300 shadow-[0_4px_12px_rgba(0,0,0,0.1)] group-hover:opacity-100 group-hover:visible group-hover:translate-x-0 max-lg:hidden z-[100] pointer-events-none"
+                                            style={{ backgroundColor: 'var(--title-color)', color: 'var(--body-color)', padding: '10px 24px', fontSize: '14px' }}
+                                        >
+                                            {item.tooltip}
+                                            <span 
+                                                className="absolute right-full top-1/2 -translate-y-1/2 border-[5px] border-transparent"
+                                                style={{ borderRightColor: 'var(--title-color)' }}
+                                            ></span>
+                                        </span>
+                                    </a>
+                                </li>
+                            ))}
+                            
+                            {/* Theme Toggle Button */}
+                            <li className="w-full flex justify-center">
+                                <button
+                                    onClick={() => { props.switchTheme(); showMenu(!toggle); }}
+                                    className="bg-transparent font-bold text-[var(--title-color)] transition-colors duration-300 hover:text-[var(--first-color)] relative group flex items-center justify-center w-full"
+                                    aria-label={props.theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
+                                >
+                                    {props.theme === "light" ? <RiMoonLine size={28} /> : <RiSunLine size={28} />}
+                                    <span 
+                                        className="absolute left-[calc(100%+15px)] top-1/2 -translate-y-1/2 -translate-x-2 rounded-md font-medium whitespace-nowrap opacity-0 invisible transition-all duration-300 shadow-[0_4px_12px_rgba(0,0,0,0.1)] group-hover:opacity-100 group-hover:visible group-hover:translate-x-0 max-lg:hidden z-[100] pointer-events-none"
+                                        style={{ backgroundColor: 'var(--title-color)', color: 'var(--body-color)', padding: '10px 24px', fontSize: '14px' }}
+                                    >
+                                        {props.theme === "light" ? "Dark Mode" : "Light Mode"}
+                                        <span 
+                                            className="absolute right-full top-1/2 -translate-y-1/2 border-[5px] border-transparent"
+                                            style={{ borderRightColor: 'var(--title-color)' }}
+                                        ></span>
+                                    </span>
+                                </button>
                             </li>
-
-                            <li className="nav__item">
-                                <a href="#about" className="nav__link" data-tooltip="About" onClick={handleLinkClick} aria-label="About">
-                                    <RiUser3Line />
-                                </a>
-                            </li>
-
-                            <li className="nav__item">
-                                <a href="#education" className="nav__link" data-tooltip="Education" onClick={handleLinkClick} aria-label="Education">
-                                    <RiGraduationCapLine />
-                                </a>
-                            </li>
-
-                            <li className="nav__item">
-                                <a href="#skills" className="nav__link" data-tooltip="Skills" onClick={handleLinkClick} aria-label="Skills">
-                                    <RiToolsLine />
-                                </a>
-                            </li>
-
-                            <li className="nav__item">
-                                <a href="#projects" className="nav__link" data-tooltip="Projects" onClick={handleLinkClick} aria-label="Projects">
-                                    <RiStackLine />
-                                </a>
-                            </li>
-
-                            <li className="nav__item">
-                                <a href="#experience" className="nav__link" data-tooltip="Experience" onClick={handleLinkClick} aria-label="Experience">
-                                    <RiBriefcase2Line />
-                                </a>
-                            </li>
-
-                            <li className="nav__item">
-                                <a href="#research" className="nav__link" data-tooltip="Patents" onClick={handleLinkClick} aria-label="Patents">
-                                    <RiBookOpenLine />
-                                </a>
-                            </li>
-
-                            <li className="nav__item">
-                                <a href="#achievements" className="nav__link" data-tooltip="Achievements" onClick={handleLinkClick} aria-label="Achievements">
-                                    <RiTrophyLine />
-                                </a>
-                            </li>
-
-                            <li className="nav__item">
-                                <a href="#engagements" className="nav__link" data-tooltip="Community Engagement" onClick={handleLinkClick} aria-label="Community Engagement">
-                                    <RiGroupLine />
-                                </a>
-                            </li>
-
-                            <li className="nav__item">
-                                <a href="#certifications" className="nav__link" data-tooltip="Certifications" onClick={handleLinkClick} aria-label="Certifications">
-                                    <RiAwardLine />
-                                </a>
-                            </li>
-
-                            <li className="nav__item">
-                                <a href="#coding-profiles" className="nav__link" data-tooltip="Coding Profiles" onClick={handleLinkClick} aria-label="Coding Profiles">
-                                    <RiCodeLine />
-                                </a>
-                            </li>
-
-                            <li className="nav__item">
-                                <a href="#github" className="nav__link" data-tooltip="Developer Insights" onClick={handleLinkClick} aria-label="Developer Insights">
-                                    <RiBarChartLine />
-                                </a>
-                            </li>
-
-                            <li className="nav__item">
-                                <a href="#contact" className="nav__link" data-tooltip="Contact" onClick={handleLinkClick} aria-label="Contact">
-                                    <RiChat3Line />
-                                </a>
-                            </li>
-
                         </ul>
                     </div>
                 </nav>
-
-                <div className="nav__controls">
-                    <button
-                        onClick={() => { props.switchTheme(); showMenu(!toggle); }}
-                        className="nav__link footer__button"
-                        data-tooltip={props.theme === "light" ? "Dark Mode" : "Light Mode"}
-                        aria-label={props.theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
-                    >
-                        {props.theme === "light" ? <RiMoonLine /> : <RiSunLine />}
-                    </button>
-                </div>
             </aside>
 
             <button
-                className={toggle ? "nav__toggle nav__toggle-open" : "nav__toggle"}
+                className={`fixed top-5 cursor-pointer h-[45px] w-[45px] rounded-full hidden justify-center items-center z-[100] transition-all duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] max-lg:flex hover:bg-[var(--first-color)] hover:text-white hover:-translate-y-[2px] hover:shadow-[0_6px_16px_rgba(0,0,0,0.15)] group ${
+                    toggle 
+                        ? 'left-[125px] bg-[var(--first-color)] text-white' 
+                        : 'left-6 text-[var(--title-color)] ' + (props.theme === 'dark' ? 'bg-[var(--container-color)] border border-[var(--border-color)] shadow-[0_4px_20px_rgba(0,0,0,0.3)]' : 'bg-[var(--body-color)] border border-[var(--border-color)] shadow-[0_4px_12px_rgba(0,0,0,0.1)]')
+                }`}
                 onClick={toggleSidebar}
                 aria-label={toggle ? "Close Navigation Menu" : "Open Navigation Menu"}
                 type="button"
             >
-                {toggle ? <RiCloseLine /> : <RiMenu2Line />}
+                {toggle ? <RiCloseLine className="text-[1.4rem] transition-transform duration-300 group-hover:scale-110" /> : <RiMenu2Line className="text-[1.4rem] transition-transform duration-300 group-hover:scale-110" />}
             </button>
         </>
     );
