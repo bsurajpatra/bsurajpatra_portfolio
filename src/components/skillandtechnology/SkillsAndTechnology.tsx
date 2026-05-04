@@ -1,5 +1,4 @@
 import React from 'react';
-import './SkillsAndTechnology.css';
 import {
     FaJava, FaJs, FaReact, FaGitAlt, FaGithub, FaGitlab,
     FaDocker, FaUnity, FaUsers, FaLightbulb, FaBullseye, FaGamepad,
@@ -14,6 +13,91 @@ import { BsKanban } from "react-icons/bs";
 import { motion } from 'framer-motion';
 import FloatingSkills from './FloatingSkills';
 import Skill3D from './SkillItem3D';
+
+const exactStyles = `
+.skills__list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+.skills__box {
+    padding: 2rem;
+    border-radius: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.skills__box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.skills__box-0 { background-color: #ffe8ee; border-left: 5px solid #ff4d79; }
+.skills__box-1 { background-color: #e6f0ff; border-left: 5px solid #3399ff; }
+.skills__box-2 { background-color: #e6fffa; border-left: 5px solid #00cc99; }
+.skills__box-3 { background-color: #fff8e6; border-left: 5px solid #ffcc00; }
+.skills__box-4 { background-color: #f3e6ff; border-left: 5px solid #9933ff; }
+
+[data-theme="dark"] .skills__box-0 { background-color: rgba(255, 77, 121, 0.25); border-color: rgba(255, 77, 121, 0.8); border-left-width: 5px; }
+[data-theme="dark"] .skills__box-1 { background-color: rgba(51, 153, 255, 0.25); border-color: rgba(51, 153, 255, 0.8); border-left-width: 5px; }
+[data-theme="dark"] .skills__box-2 { background-color: rgba(0, 204, 153, 0.25); border-color: rgba(0, 204, 153, 0.8); border-left-width: 5px; }
+[data-theme="dark"] .skills__box-3 { background-color: rgba(255, 204, 0, 0.25); border-color: rgba(255, 204, 0, 0.8); border-left-width: 5px; }
+[data-theme="dark"] .skills__box-4 { background-color: rgba(153, 51, 255, 0.25); border-color: rgba(153, 51, 255, 0.8); border-left-width: 5px; }
+
+.skills__category-header {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--title-color);
+    font-weight: var(--font-bold);
+}
+.skills__items-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+}
+.skills__pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    transition: 0.3s;
+}
+[data-theme="dark"] .skills__pill {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--title-color);
+}
+.skills__pill:hover {
+    transform: translateY(-2px);
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+[data-theme="dark"] .skills__pill:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+.skills__icon {
+    font-size: 1.25rem;
+    display: flex;
+}
+.skills__text {
+    font-size: 0.938rem;
+    color: var(--text-color);
+    font-weight: var(--font-medium);
+}
+@media screen and (max-width: 576px) {
+    .skills__list-container { grid-template-columns: 1fr; }
+    .skills__box { padding: 1.5rem; }
+    .skills__category-header { font-size: 1.15rem; margin-bottom: 1.25rem; }
+    .skills__pill { padding: 0.4rem 0.75rem; }
+    .skills__text { font-size: 0.875rem; }
+}
+@media screen and (max-width: 350px) {
+    .skills__box { padding: 1.25rem; }
+    .skills__items-wrapper { gap: 0.6rem; }
+}
+`;
 
 const skillsData = [
     {
@@ -104,6 +188,8 @@ const SkillsAndTechnology = () => {
 
     return (
         <section className="skills container section" id="skills">
+            <style dangerouslySetInnerHTML={{ __html: exactStyles }} />
+            
             <h2 className="section__title">Skills & Technologies</h2>
 
             <div className="skills__view-toggle" style={{ textAlign: 'center', marginBottom: '2rem' }}>

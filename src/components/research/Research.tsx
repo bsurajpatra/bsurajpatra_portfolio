@@ -1,12 +1,186 @@
 import React, { useState } from "react";
-import "./Research.css";
 import { motion } from "framer-motion";
 import { RiFileTextLine, RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 
-const Research = () => {
-    const [expandedItems, setExpandedItems] = useState({});
+const exactStyles = `
+.research {
+    padding: 6rem 0 2rem;
+}
+.research__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.research__card {
+    background: var(--container-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--first-color);
+    transition: all 0.3s ease;
+}
+.research__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+.research__card-header {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.research__icon-wrapper {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--first-color), var(--title-color));
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.research__icon {
+    font-size: 1.75rem;
+    color: #fff;
+}
+.research__header-content {
+    flex: 1;
+    min-width: 0;
+}
+.research__badges {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+}
+.research__badge {
+    font-size: 0.75rem;
+    font-weight: var(--font-semibold);
+    color: #fff;
+    background: var(--first-color);
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.research__status {
+    font-size: 0.75rem;
+    font-weight: var(--font-semibold);
+    color: #fff;
+    background: linear-gradient(135deg, #10b981, #059669);
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.research__title {
+    color: var(--title-color);
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-bold);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+.research__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+.research__meta-item {
+    color: var(--text-color);
+    font-size: var(--small-font-size);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.research__meta-item strong {
+    color: var(--title-color);
+    font-weight: var(--font-semibold);
+}
+.research__meta-ipr {
+    color: var(--first-color);
+    font-weight: var(--font-medium);
+    font-style: italic;
+}
+.research__summary-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+.research__summary {
+    color: var(--text-color);
+    line-height: 1.7;
+    font-size: var(--normal-font-size);
+    margin-bottom: 1rem;
+}
+.research__summary--collapsed {
+    text-align: left;
+}
+.research__summary--expanded {
+    text-align: justify;
+}
+.research__toggle-btn {
+    background: transparent;
+    color: var(--first-color);
+    border: 1px solid var(--first-color);
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    font-weight: var(--font-medium);
+    font-size: var(--small-font-size);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.research__toggle-btn:hover {
+    background: var(--first-color);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.research__toggle-btn svg {
+    font-size: 1.2rem;
+}
+/* Dark Mode Adjustments */
+[data-theme="dark"] .research__card {
+    border-left-color: var(--first-color);
+}
+[data-theme="dark"] .research__card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .research { padding: 4rem 0 1.5rem; }
+    .research__container { gap: 1.5rem; padding: 0 1rem; }
+    .research__card { padding: 1.5rem; }
+    .research__card-header { flex-direction: column; gap: 1rem; }
+    .research__icon-wrapper { width: 50px; height: 50px; }
+    .research__icon { font-size: 1.5rem; }
+    .research__title { font-size: calc(var(--h3-font-size) - 0.1rem); }
+    .research__meta { gap: 0.3rem; }
+    .research__meta-item { font-size: calc(var(--small-font-size) - 0.05rem); }
+    .research__summary { font-size: var(--small-font-size); }
+}
+@media screen and (max-width: 480px) {
+    .research__container { padding: 0 0.5rem; }
+    .research__card { padding: 1.25rem; }
+    .research__card-header { gap: 0.75rem; }
+    .research__icon-wrapper { width: 45px; height: 45px; }
+    .research__icon { font-size: 1.25rem; }
+    .research__badge, .research__status { font-size: 0.7rem; padding: 0.3rem 0.6rem; }
+    .research__title { font-size: calc(var(--h3-font-size) - 0.2rem); line-height: 1.3; }
+    .research__meta-item { font-size: calc(var(--small-font-size) - 0.1rem); }
+    .research__toggle-btn { padding: 0.45rem 1rem; font-size: calc(var(--small-font-size) - 0.05rem); }
+}
+`;
 
-    const toggleExpand = (id) => {
+const Research = () => {
+    const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>({});
+
+    const toggleExpand = (id: number) => {
         setExpandedItems(prev => ({
             ...prev,
             [id]: !prev[id]
@@ -40,6 +214,7 @@ const Research = () => {
 
     return (
         <section className="research container section" id="research">
+            <style dangerouslySetInnerHTML={{ __html: exactStyles }} />
             <h2 className="section__title">Patents & Publications</h2>
 
             <div className="research__container">
