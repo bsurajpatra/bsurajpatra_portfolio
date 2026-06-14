@@ -6,6 +6,7 @@ import SwatVsTheUndead from "../../assets/swatvstheundead.webp";
 import FruitBlast from "../../assets/FruitBlast.webp";
 import DigiChit from "../../assets/digichit.webp";
 import ChronoLens from "../../assets/chronolens.webp";
+import GitMatch from "../../assets/GitMatch.webp";
 
 
 const Menu = [
@@ -61,6 +62,16 @@ const Menu = [
 		url: "https://karmasync.vercel.app/",
 		repositoryUrl: "https://github.com/bsurajpatra/KarmaSync_info",
 		description: "Karma Sync is a lightweight Agile project management tool that helps individuals and teams plan, track, and collaborate on projects using Kanban boards, sprints, user stories, and daily to-do tracking — all from a single dashboard.",
+		type: "Apps"
+	},
+	{
+		id: 5,
+		image: GitMatch,
+		title: "GitMatch",
+		category: ["Electron, React, Vite, Node.js, Express, Worker Threads"],
+		url: "https://gitmatchx.netlify.app/",
+		repositoryUrl: "https://github.com/bsurajpatra/GitMatch",
+		description: "GitMatch is a production-ready Electron desktop application that analyzes a candidate's GitHub profile against a job description, calculating a real-time Job Fit Score powered by deep dependency scanning and a background worker thread matching pipeline.",
 		type: "Apps"
 	},
 	

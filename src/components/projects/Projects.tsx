@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Menu from "./Menu";
 import { RiGithubLine, RiLink, RiInformationLine, RiCloseLine } from "react-icons/ri";
 import { FaReact, FaNodeJs, FaUnity, FaRobot, FaCode, FaGamepad, FaCreditCard, FaEnvelope, FaStore, FaRunning } from "react-icons/fa";
-import { SiNextdotjs, SiMongodb, SiMysql, SiVite, SiTailwindcss, SiRedis, SiShadcnui, SiPython, SiFlask, SiScikitlearn, SiJsonwebtokens, SiExpress, SiExpo } from "react-icons/si";
+import { SiNextdotjs, SiMongodb, SiMysql, SiVite, SiTailwindcss, SiRedis, SiShadcnui, SiPython, SiFlask, SiScikitlearn, SiJsonwebtokens, SiExpress, SiExpo, SiElectron, SiGithub } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -333,6 +333,8 @@ const Projects = () => {
 
 	const getTechIcon = (tech: string) => {
 		const lower = tech.toLowerCase();
+		if (lower.includes('electron')) return <SiElectron />;
+		if (lower.includes('github')) return <SiGithub />;
 		if (lower.includes('expo')) return <SiExpo />;
 		if (lower.includes('react')) return <FaReact />;
 		if (lower.includes('node')) return <FaNodeJs />;
