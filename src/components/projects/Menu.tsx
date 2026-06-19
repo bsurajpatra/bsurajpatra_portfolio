@@ -41,7 +41,7 @@ const Menu = [
 		],
 		url: "https://faceattendai.netlify.app/",
 		repositoryUrl: "https://github.com/bsurajpatra/FaceAttend",
-		description: "FaceAttend is a kiosk-grade, face recognition attendance platform for educational institutions featuring a premium Web ERP and a real-time mobile attendance app. It uses FaceNet-based biometric recognition, secure Android kiosk mode, and WebSocket-powered Web–Mobile sync to prevent proxy attendance, enable remote face capture, and provide detailed analytics with professional PDF/CSV reports.",
+		description: "FaceAttend is a kiosk-grade, face recognition attendance platform for educational institutions featuring a premium Web ERP and a real-time mobile attendance app. It uses FaceNet-based [...]
 		type: "Apps"
 	},
 	{
@@ -61,17 +61,17 @@ const Menu = [
 		category: ["React, Node.js, Express, MongoDB, JWT, SMTP, EmailJS"],
 		url: "https://karmasync.vercel.app/",
 		repositoryUrl: "https://github.com/bsurajpatra/KarmaSync_info",
-		description: "Karma Sync is a lightweight Agile project management tool that helps individuals and teams plan, track, and collaborate on projects using Kanban boards, sprints, user stories, and daily to-do tracking — all from a single dashboard.",
+		description: "Karma Sync is a lightweight Agile project management tool that helps individuals and teams plan, track, and collaborate on projects using Kanban boards, sprints, user stories, and dail[...]
 		type: "Apps"
 	},
 	{
 		id: 5,
 		image: GitMatch,
 		title: "GitMatch",
-		category: ["Electron, React, Vite, Node.js, Express, Worker Threads"],
+		category: ["Electron", "React", "Vite", "Node.js", "Express", "PDFKit", "Worker Threads"],
 		url: "https://gitmatchx.netlify.app/",
 		repositoryUrl: "https://github.com/bsurajpatra/GitMatch",
-		description: "GitMatch is a production-ready Electron desktop application that analyzes a candidate's GitHub profile against a job description, calculating a real-time Job Fit Score powered by deep dependency scanning and a background worker thread matching pipeline.",
+		description: "GitMatch is a production-ready Electron desktop application that assesses candidate capability by combining a Weighted Job Fit Engine (70%) and an Engineering Quality Engine (30%) evaluating code hygiene. It supports monorepo subdirectory scanning, concurrent bulk screening, side-by-side comparison matrices, and offline PDF report exports.",
 		type: "Apps"
 	},
 	
@@ -82,7 +82,7 @@ const Menu = [
 		category: ["Unity Engine, C#, Unity Asset Store, Mixamo"],
 		url: "https://bsurajpatra.itch.io/swat-vs-the-undead",
 		repositoryUrl: "https://github.com/bsurajpatra/swat-vs-the-undead",
-		description: "SWAT vs the Undead is a single-player FPS arena survival game where players fight waves of zombies, manage health and ammunition, and survive increasingly difficult encounters. The game is designed to be played on laptops and desktop PCs only.",
+		description: "SWAT vs the Undead is a single-player FPS arena survival game where players fight waves of zombies, manage health and ammunition, and survive increasingly difficult encounters. The gam[...]
 		type: "Games"
 	},
 	{
@@ -102,13 +102,10 @@ const Menu = [
 		category: ["React, MindAR.js, Three.js, Tailwind CSS, Vite"],
 		url: "https://chronolensar.netlify.app/",
 		repositoryUrl: "https://github.com/bsurajpatra/ChronoLens",
-		description: "ChronoLens is a production-grade WebAR museum experience that brings historic portraits to life. By scanning physical artwork, users can uncover immersive digital narratives, holographic 3D overlays, and pseudo-spatial audio tours directly through their browser.",
+		description: "ChronoLens is a production-grade WebAR museum experience that brings historic portraits to life. By scanning physical artwork, users can uncover immersive digital narratives, holograph[...]
 		type: "Apps"
 	}
 ];
 
 
 export default Menu;
-
-
-
