@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Menu from "./Menu";
 import { RiGithubLine, RiLink, RiInformationLine, RiCloseLine } from "react-icons/ri";
-import { FaReact, FaNodeJs, FaUnity, FaRobot, FaCode, FaGamepad, FaCreditCard, FaEnvelope, FaStore, FaRunning } from "react-icons/fa";
-import { SiNextdotjs, SiMongodb, SiMysql, SiVite, SiTailwindcss, SiRedis, SiShadcnui, SiPython, SiFlask, SiScikitlearn, SiJsonwebtokens, SiExpress, SiExpo, SiElectron, SiGithub } from "react-icons/si";
-import { TbBrandCSharp } from "react-icons/tb";
+import { FaReact, FaNodeJs, FaUnity, FaRobot, FaCode, FaGamepad, FaCreditCard, FaEnvelope, FaStore, FaRunning, FaFilePdf, FaTasks } from "react-icons/fa";
+import { SiNextdotjs, SiMongodb, SiMysql, SiVite, SiTailwindcss, SiRedis, SiShadcnui, SiPython, SiFlask, SiScikitlearn, SiJsonwebtokens, SiExpress, SiExpo, SiElectron, SiGithub, SiTypescript, SiSocketdotio, SiThreedotjs } from "react-icons/si";
+import { TbBrandCSharp, TbAugmentedReality } from "react-icons/tb";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -336,6 +336,7 @@ const Projects = () => {
 		if (lower.includes('electron')) return <SiElectron />;
 		if (lower.includes('github')) return <SiGithub />;
 		if (lower.includes('expo')) return <SiExpo />;
+		if (lower.includes('typescript')) return <SiTypescript />;
 		if (lower.includes('react')) return <FaReact />;
 		if (lower.includes('node')) return <FaNodeJs />;
 		if (lower.includes('express')) return <SiExpress />;
@@ -352,6 +353,11 @@ const Projects = () => {
 		if (lower.includes('flask')) return <SiFlask />;
 		if (lower.includes('scikit')) return <SiScikitlearn />;
 		if (lower.includes('jwt')) return <SiJsonwebtokens />;
+		if (lower.includes('socket.io')) return <SiSocketdotio />;
+		if (lower.includes('three')) return <SiThreedotjs />;
+		if (lower.includes('mindar')) return <TbAugmentedReality />;
+		if (lower.includes('pdf')) return <FaFilePdf />;
+		if (lower.includes('worker') || lower.includes('thread') || lower.includes('bullmq')) return <FaTasks />;
 		if (lower.includes('ai') || lower.includes('ml') || lower.includes('face')) return <FaRobot />;
 		if (lower.includes('game')) return <FaGamepad />;
 		if (lower.includes('cash') || lower.includes('payment')) return <FaCreditCard />;
@@ -453,7 +459,7 @@ const Projects = () => {
 							<div className="project-modal__info">
 								<h4 className="project-modal__subtitle">Tech Stack:</h4>
 								<div className="project-modal__tags">
-									{selectedProject.category.join(',').split(',').map((cat: string, i: number) => (
+									{selectedProject.tech_stack.map((cat: string, i: number) => (
 										<span key={i} className="project-modal__tag">
 											{getTechIcon(cat)} {cat.trim()}
 										</span>
