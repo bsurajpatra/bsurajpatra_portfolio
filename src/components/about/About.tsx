@@ -7,7 +7,7 @@ import { RiUser3Line, RiMapPinUserLine, RiHeartsLine, RiTerminalBoxLine } from '
 
 const About = () => {
     const downloadResume = () => {
-        window.open('https://resume.bsurajpatra.me', '_blank');
+        window.open('https://resume-bsurajpatra.vercel.app', '_blank');
     }
 
     const traits = [
