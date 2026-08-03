@@ -54,8 +54,8 @@ const exactStyles = `
   padding-top: 65%;
   border-radius: 1rem;
   overflow: hidden;
-  background-color: #f8f9fa;
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.02);
+  background-color: transparent;
+  box-shadow: none;
 }
 .projects__img-simple {
   position: absolute;
@@ -64,13 +64,13 @@ const exactStyles = `
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 1.5rem;
+  padding: 0.4rem;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+  filter: none;
 }
 .projects__card:hover .projects__img-simple {
-  transform: scale(1.1) rotate(2deg);
-  filter: drop-shadow(0 15px 25px rgba(108, 108, 229, 0.2));
+  transform: scale(1.08) rotate(2deg);
+  filter: none;
 }
 .projects__title-row {
   display: flex;
@@ -121,29 +121,29 @@ const exactStyles = `
   border-radius: 0.75rem;
   transition: 0.3s;
   background-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: none;
 }
 .projects__filter-btn:hover {
   background-color: var(--first-color);
   color: #fff;
-  border-color: var(--first-color);
+  border: none;
 }
 .active-filter {
   background-color: var(--first-color);
   color: #fff;
-  border-color: var(--first-color);
+  border: none;
   box-shadow: 0 4px 12px rgba(108, 108, 229, 0.3);
 }
 [data-theme="dark"] .projects__filter-btn {
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.1);
+  border: none;
   background-color: rgba(255, 255, 255, 0.05);
 }
 [data-theme="dark"] .projects__filter-btn:hover,
 [data-theme="dark"] .active-filter {
   background-color: var(--first-color);
   color: #fff;
-  border-color: var(--first-color);
+  border: none;
   box-shadow: 0 0 15px var(--first-color);
 }
 
@@ -283,8 +283,8 @@ const exactStyles = `
   border-color: rgba(255, 255, 255, 0.15);
 }
 [data-theme="dark"] .projects__thumbnail-simple {
-  background-color: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.1);
+  background-color: transparent;
+  border-color: transparent;
 }
 [data-theme="dark"] .projects__title-simple { color: #fff; }
 [data-theme="dark"] .projects__detail-btn {

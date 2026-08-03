@@ -1,21 +1,21 @@
 const Menu = [
     {
         id: 1,
-        title: "Code for Bharat – Season 2",
-        category: ["Hackathon"],
-        badge: "Semi-Finalist",
+        title: "TCS Prime System Engineer Offer Recipient",
+        category: ["Career", "Offer"],
+        badge: "TCS Prime Offer",
         icon: "trophy",
         description:
-            "Semi-finalist in a national-level hackathon focused on real-world problem solving."
+            "Issued by Tata Consultancy Services (TCS) · Jun 2026. Received an offer for the TCS Prime System Engineer role through campus recruitment."
     },
     {
         id: 2,
-        title: "Build for Bharat",
-        category: ["Innovation Challenge"],
-        badge: "Finalist",
-        icon: "medal",
+        title: "Game Verse Hackathon",
+        category: ["Game Development"],
+        badge: "Winner",
+        icon: "trophy",
         description:
-            "Finalist in a student innovation challenge for building impactful technical solutions."
+            "Won the Game Verse Hackathon by developing Swat Vs The Undead, a PC-based action game."
     },
     {
         id: 3,
@@ -28,21 +28,30 @@ const Menu = [
     },
     {
         id: 4,
+        title: "Code for Bharat – Season 2",
+        category: ["Hackathon"],
+        badge: "Semi-Finalist",
+        icon: "medal",
+        description:
+            "Semi-finalist in a national-level hackathon focused on real-world problem solving."
+    },
+    {
+        id: 5,
+        title: "Build for Bharat",
+        category: ["Innovation Challenge"],
+        badge: "Finalist",
+        icon: "medal",
+        description:
+            "Finalist in a student innovation challenge for building impactful technical solutions."
+    },
+    {
+        id: 6,
         title: "CodeRush Coding Hackathon",
         category: ["Competitive Programming"],
         badge: "Top 15 (Online Round)",
         icon: "medal",
         description:
             "Ranked among the Top 15 teams in the online ICPC-style competitive programming round."
-    },
-    {
-        id: 5,
-        title: "Game Verse Hackathon",
-        category: ["Game Development"],
-        badge: "Winner",
-        icon: "trophy",
-        description:
-            "Won the Game Verse Hackathon by developing Swat Vs The Undead, a PC-based action game."
     }
 ];
 

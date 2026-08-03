@@ -31,7 +31,7 @@ const FloatingItem = ({ position, icon, name, color }: any) => {
 
                 {/* Removed 'transform' to make it always face the camera (billboard effect) */}
                 <Html 
-                    distanceFactor={10} 
+                    distanceFactor={13.33} 
                     position={[0, 0, 0]} 
                     center
                     style={{ 
@@ -107,9 +107,9 @@ const FloatingSkills = ({ skills }: any) => {
     }, [allSkills]);
 
     return (
-        <div style={{ height: '600px', width: '100%', position: 'relative' }}>
+        <div style={{ height: '800px', width: '100%', position: 'relative' }}>
             <Canvas dpr={[1, 2]}>
-                <PerspectiveCamera makeDefault position={[0, 0, 14]} fov={50} />
+                <PerspectiveCamera makeDefault position={[0, 0, 18.67]} fov={50} />
                 <ambientLight intensity={0.5} />
                 <pointLight position={[10, 10, 10]} intensity={1} />
                 <group rotation={[0, 0, 0]}>

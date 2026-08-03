@@ -57,34 +57,40 @@ const exactStyles = `
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: transparent;
     padding: 0.5rem 1rem;
     border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    border: none;
+    box-shadow: none;
     transition: 0.3s;
 }
 [data-theme="dark"] .skills__pill {
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    color: var(--title-color);
+    background-color: transparent;
+    border: none;
 }
 .skills__pill:hover {
     transform: translateY(-2px);
-    background-color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
 }
 [data-theme="dark"] .skills__pill:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.2);
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
 }
 .skills__icon {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     display: flex;
 }
 .skills__text {
-    font-size: 0.938rem;
-    color: var(--text-color);
-    font-weight: var(--font-medium);
+    font-size: 0.95rem;
+    color: var(--title-color);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+[data-theme="dark"] .skills__text {
+    color: #ffffff;
 }
 @media screen and (max-width: 576px) {
     .skills__list-container { grid-template-columns: 1fr; }
@@ -215,7 +221,7 @@ const SkillsAndTechnology = () => {
                 </button>
             </div>
 
-            <div style={{ minHeight: viewMode === 'classic' ? 'auto' : '600px', transition: 'all 0.5s ease' }}>
+            <div style={{ minHeight: viewMode === 'classic' ? 'auto' : '800px', transition: 'all 0.5s ease' }}>
                 {viewMode === 'classic' && (
                     <div className="skills__list-container">
                         {skillsData.map(({ category, items }, index) => (
